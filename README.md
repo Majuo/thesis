@@ -1,2 +1,2 @@
 # thesis
-Desktop app for watching twitch streams
+App for learning Sudoku techniques.

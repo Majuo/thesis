@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:SudokuApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SudokuApp.Views.MainView"
+             Foreground="Black"
+             Background="White">
+  <Design.DataContext>
+    <viewModels:MainViewModel />
+  </Design.DataContext>
+
+    <ItemsControl Items="{Binding Sudoku.Cells}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Columns="9" Rows="9" Height="360" Width="360" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="Black" BorderThickness="1" Padding="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ItemsControl Grid.Row="0" Items="{Binding PencilMarks}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="9" Rows="1" IsVisible="{Binding !SolutionEntered}"></UniformGrid>
+                                </ItemsPanelTemplate>            
+                            </ItemsControl.ItemsPanel>
+                            <!-- <ItemsControl.ItemTemplate> -->
+                            <!--     <DataTemplate> -->
+                            <!--         <ToggleButton Content="{Binding Text}" IsChecked="{Binding IsChecked}" Height="22"></ToggleButton> -->
+                            <!--     </DataTemplate> -->
+                            <!-- </ItemsControl.ItemTemplate> -->
+                        </ItemsControl>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="1" Width="40" MaxWidth="40" Text="{Binding Solution}" IsVisible="{Binding SolutionEntered}"></TextBlock>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>
