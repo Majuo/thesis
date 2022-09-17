@@ -12,7 +12,6 @@ namespace SudokuApp.Android
         {
             var a = base.CustomizeAppBuilder(builder);
             AppBuilder.Configure<App>().UseAvaloniaModules();
-            //a.UseAvaloniaModules();
             return a;
         }
     }
