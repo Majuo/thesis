@@ -12,5 +12,10 @@
 	<Design.DataContext>
 		<viewModels:MainViewModel />
 	</Design.DataContext>
-	<views:SudokuView />
+	<StackPanel>
+		<Button Command="{Binding SwitchThemeCommand}">
+			Switch theme
+		</Button>
+		<views:SudokuView />
+	</StackPanel>
 </UserControl>

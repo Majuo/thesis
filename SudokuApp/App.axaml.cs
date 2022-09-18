@@ -1,6 +1,8 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Themes.Fluent;
+using SudokuApp.Styles.Themes;
 using SudokuApp.ViewModels;
 using SudokuApp.Views;
 
@@ -11,6 +13,7 @@ namespace SudokuApp
 		public override void Initialize()
 		{
 			AvaloniaXamlLoader.Load(this);
+			LoadTheme();
 		}
 
 		public override void OnFrameworkInitializationCompleted()
@@ -31,6 +34,11 @@ namespace SudokuApp
 			}
 
 			base.OnFrameworkInitializationCompleted();
+		}
+
+		private void LoadTheme()
+		{
+			Current!.Resources.MergedDictionaries.Add(new DarkResources());
 		}
 	}
 }

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary
+	x:Class="SudokuApp.Styles.Themes.DarkResources"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Color x:Key="PrimaryColor">#FF00FF</Color>
+	<Color x:Key="SecondaryColor">#FF0000</Color>
+</ResourceDictionary>
