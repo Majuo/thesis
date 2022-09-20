@@ -38,7 +38,8 @@ namespace SudokuApp
 
 		private void LoadTheme()
 		{
-			Current!.Resources.MergedDictionaries.Add(new DarkResources());
+			Current?.Resources.MergedDictionaries.Add(new SharedResources());
+			Current?.Resources.MergedDictionaries.Add(new DarkResources());
 		}
 	}
 }

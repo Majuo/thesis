@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+	x:Class="SudokuApp.Styles.Themes.SharedResources"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Color x:Key="ButtonForegroundColor">#FFFFFF</Color>
+	<Color x:Key="ButtonBackgroundColor">#0982e6</Color>
+	<Color x:Key="ButtonPressedBackgroundColor">#006ABA</Color>
+	<Color x:Key="ButtonPointerOverBackgroundColor">#0982e6</Color>
+</ResourceDictionary>

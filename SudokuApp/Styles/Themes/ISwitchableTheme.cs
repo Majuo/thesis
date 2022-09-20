@@ -3,6 +3,6 @@ using Avalonia.Styling;
 
 namespace SudokuApp.Styles.Themes;
 
-public interface ICustomTheme
+public interface ISwitchableTheme
 {
 }

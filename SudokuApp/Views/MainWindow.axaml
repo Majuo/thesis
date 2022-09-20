@@ -8,6 +8,7 @@
 	Title="SudokuApp"
 	d:DesignHeight="450"
 	d:DesignWidth="800"
+	Background="{DynamicResource BackgroundColor}"
 	Icon="/Assets/avalonia-logo.ico"
 	mc:Ignorable="d">
 	<views:MainView />
