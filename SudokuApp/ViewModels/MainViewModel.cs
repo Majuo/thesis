@@ -6,6 +6,11 @@ namespace SudokuApp.ViewModels
 {
 	public class MainViewModel : ViewModelBase
 	{
+		public SudokuViewModel SudokuViewModel { get; set; }
+		public MainViewModel()
+		{
+			SudokuViewModel = new SudokuViewModel();
+		}
 		public void SwitchThemeCommand()
 		{
 			if (Application.Current== null)

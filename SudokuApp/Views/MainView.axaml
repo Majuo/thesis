@@ -16,6 +16,6 @@
 		<Button Command="{Binding SwitchThemeCommand}">
 			Switch theme
 		</Button>
-		<views:SudokuView />
+		<views:SudokuView DataContext="{Binding SudokuViewModel}" />
 	</StackPanel>
 </UserControl>

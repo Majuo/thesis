@@ -20,7 +20,13 @@ namespace SudokuApp.Model
 
 			for (int n = 0; n < 81; n++)
 			{
-				Cells.Add(new SudokuCell() { Solution = (random.Next(9) + 1) });
+				int[] marks;
+
+				Cells.Add(new SudokuCell()
+				{
+					Solution = (random.Next(9) + 1),
+					PencilMarks = new List<int> { random.Next(), random.Next(), random.Next() }
+				});
 			}
 		}
 	}
