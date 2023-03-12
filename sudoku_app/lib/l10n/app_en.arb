@@ -2,5 +2,10 @@
   "helloWorld": "Hello World!",
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
-  }
+  },
+  "colorScheme" : "Color scheme",
+  "darkTheme" : "Dark",
+  "lightTheme" : "Light",
+  "highContrastTheme" : "High contrast",
+  "language" : "Language"
 }

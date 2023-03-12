@@ -1,6 +1,8 @@
 {
   "helloWorld": "Здравствуй мир!!",
-  "@helloWorld": {
-    "description": "ААААААААААААААААА"
-  }
+  "colorScheme" : "Цветовая схема",
+  "darkTheme" : "Тёмная",
+  "lightTheme" : "Светлая",
+  "highContrastTheme" : "Высококонтрастная",
+  "language" : "Язык"
 }

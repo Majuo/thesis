@@ -2,5 +2,10 @@
   "helloWorld": "Tere maailm!",
   "@helloWorld": {
     "description": "Arendajate tervitus"
-  }
+  },
+  "colorScheme" : "Värviskeem",
+  "darkTheme" : "Tume",
+  "lightTheme" : "Hele",
+  "highContrastTheme" : "Kõrge kontrastsusega",
+  "language" : "Keel"
 }
