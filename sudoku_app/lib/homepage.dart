@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/settings/settings_page.dart';
+import 'package:sudoku_app/locale/current_locale.dart';
+import 'package:sudoku_app/locale/locale_language_name.dart';
 import 'package:sudoku_app/theme/app_theme.dart';
 import 'package:sudoku_app/theme/current_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'config.dart';
 
@@ -71,6 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
 		  // horizontal).
 		  mainAxisAlignment: MainAxisAlignment.center,
 		  children: <Widget>[
+			Text(
+			  AppLocalizations.of(context).helloWorld
+			),
 			const Text(
 			  'You have pushed the button this many times:',
 			),
@@ -87,6 +92,18 @@ class _MyHomePageState extends State<MyHomePage> {
 								return DropdownMenuItem<AppTheme>(
 									value: value,
 									child: Text(value.name)
+								);
+							}).toList()
+						),
+      DropdownButton<Locale>(
+							value: CurrentLocale.currentLocale,
+							onChanged: (Locale? value) {
+								currentLocale.changeCurrentLocale(value ?? AppLocalizations.supportedLocales.first);
+							},
+							items: AppLocalizations.supportedLocales.map<DropdownMenuItem<Locale>>((Locale value) {
+								return DropdownMenuItem<Locale>(
+									value: value,
+									child: Text(LocaleLanguageName.langNames[value.languageCode] ?? "Unknown locale")
 								);
 							}).toList()
 						),

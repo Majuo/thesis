@@ -1,0 +1,6 @@
+{
+  "helloWorld": "Tere maailm!",
+  "@helloWorld": {
+    "description": "Arendajate tervitus"
+  }
+}
