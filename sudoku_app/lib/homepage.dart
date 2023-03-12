@@ -7,25 +7,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'config.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -48,11 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
 	// fast, so that you can just rebuild anything that needs updating rather
 	// than having to individually change instances of widgets.
 	return Scaffold(
-	  appBar: AppBar(
-		// Here we take the value from the MyHomePage object that was created by
-		// the App.build method, and use it to set our appbar title.
-		title: Text(widget.title),
-	  ),
 	  body: Center(
 		// Center is a layout widget. It takes a single child and positions it
 		// in the middle of the parent.
@@ -83,31 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
 			  '$_counter',
 			  style: Theme.of(context).textTheme.headlineMedium,
 			),
-      DropdownButton<AppTheme>(
-							value: CurrentTheme.currentTheme,
-							onChanged: (AppTheme? value) {
-								currentTheme.changeCurrentTheme(value ?? AppTheme.light);
-							},
-							items: AppTheme.values.map<DropdownMenuItem<AppTheme>>((AppTheme value) {
-								return DropdownMenuItem<AppTheme>(
-									value: value,
-									child: Text(value.name)
-								);
-							}).toList()
-						),
-      DropdownButton<Locale>(
-							value: CurrentLocale.currentLocale,
-							onChanged: (Locale? value) {
-								currentLocale.changeCurrentLocale(value ?? AppLocalizations.supportedLocales.first);
-							},
-							items: AppLocalizations.supportedLocales.map<DropdownMenuItem<Locale>>((Locale value) {
-								return DropdownMenuItem<Locale>(
-									value: value,
-									child: Text(LocaleLanguageName.langNames[value.languageCode] ?? "Unknown locale")
-								);
-							}).toList()
-						),
-      //const SettingsPage(),
 		  ],
 		),
 	  ),
@@ -115,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 		onPressed: _incrementCounter,
 		tooltip: 'Increment',
 		child: const Icon(Icons.add),
-	  ), // This trailing comma makes auto-formatting nicer for build methods.
+	  ),
 	);
   }
 }
