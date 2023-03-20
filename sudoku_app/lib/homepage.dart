@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sudoku_app/widgets/sudoku_grid.dart';
 
 class HomePage extends StatefulWidget {
 	const HomePage({super.key});
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 	int _counter = 0;
+  SudokuGrid grid = SudokuGrid();
 
 	void _incrementCounter() {
 		setState(() {
@@ -34,6 +36,7 @@ class _HomePageState extends State<HomePage> {
 							'$_counter',
 							style: Theme.of(context).textTheme.headlineMedium,
 						),
+						grid,
 					],
 				),
 			),
