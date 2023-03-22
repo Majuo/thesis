@@ -13,14 +13,14 @@ class SudokuCellWidget extends StatelessWidget {
 	double sideSize = 40;
 	bool isCurrentCell = false;
 
-	Function handleOnTap;
+	VoidCallback handleOnTap;
 
 	Function getCellContent;
 
 	@override
 	Widget build(BuildContext context) {
 		return GestureDetector(
-			onTap: handleOnTap(),
+			onTap: handleOnTap,
 			child: ColoredBox(
 				color: isCurrentCell ? Colors.yellow : Colors.white,
 				child: SizedBox(

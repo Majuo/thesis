@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 	int _counter = 0;
-  SudokuGrid grid = SudokuGrid();
+  SudokuGrid grid = const SudokuGrid();
 
 	void _incrementCounter() {
 		setState(() {
