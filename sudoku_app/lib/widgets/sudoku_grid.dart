@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/game_internals/sudoku.dart';
 import 'dart:math' as math;
+
+import 'package:sudoku_app/widgets/sudoku_cell.dart';
 
 class SudokuGrid extends StatefulWidget {
 	const SudokuGrid({super.key});
@@ -9,19 +12,9 @@ class SudokuGrid extends StatefulWidget {
 }
 
 class _SudokuGridState extends State<SudokuGrid> {
-  Color cellColor = Colors.green;
-	List<Widget> cells = List.empty();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  void changeCellColor() {
-    setState(() {
-      cellColor = Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
-    });
-  }
+	Sudoku game = Sudoku.getSampleSudoku(); 
+  List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
+  SudokuCellWidget? currentCell;
 
   @override
 	Widget build(BuildContext context) {
@@ -29,22 +22,35 @@ class _SudokuGridState extends State<SudokuGrid> {
       width: 360,
       height: 360,
       child: Center(
-        child: Wrap(
-          children: List.filled(
-            81,
-            GestureDetector(
-              onTap: () {
-                changeCellColor();
-              },
-              child: SizedBox(
-                width: 40,
-                height: 40,
-                child: ColoredBox(
-                  color: cellColor,
-                ),
-              )
-            )
-          ),
+        child: Column(
+          children: (() {
+            List<Row> widgets = List.empty(growable: true);
+            for (var row in game.board) {
+              var rowWidget = Row(children: List.empty(growable: true),);
+              cellWidgets.add(List.empty(growable: true));
+              for (var cell in row) {
+                var cellWidget = SudokuCellWidget(getCellContent: () {
+                      if (cell.value > 0) {
+                        return Text(cell.value.toString(), style: TextStyle(fontWeight: cell.editable ? FontWeight.normal : FontWeight.bold),);
+                      }
+                      else {
+                        // replace later
+                        return Text(cell.candidates.join(","));
+                      }
+                    },
+                    handleOnTap: () {
+                      currentCell?.isCurrentCell = false;
+                      currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
+                      currentCell?.isCurrentCell = true;
+                    }
+                  );
+                  cellWidgets.elementAt(cell.row).add(cellWidget);
+                  rowWidget.children.add(cellWidget);
+              }
+              widgets.add(rowWidget);
+            }
+            return widgets;
+          })()
         ),
       ),
     );
