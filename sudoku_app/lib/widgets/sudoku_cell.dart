@@ -1,33 +1,49 @@
 import 'package:flutter/material.dart';
 
-class SudokuCellWidget extends StatelessWidget {
+class SudokuCellWidget extends StatefulWidget {
 	SudokuCellWidget({
 			super.key,
 			required this.getCellContent,
 			required this.handleOnTap,
 		});
-	void switchCurrentCell()
-	{
-		isCurrentCell = !isCurrentCell;
-	}
-	double sideSize = 40;
+	final VoidCallback handleOnTap;
 	bool isCurrentCell = false;
 
-	VoidCallback handleOnTap;
+	final Function getCellContent;
+  SudokuCellWidgetState? currentState;
 
-	Function getCellContent;
+  @override
+  State<SudokuCellWidget> createState() {
+    currentState = SudokuCellWidgetState(handleOnTap: handleOnTap);
+    return currentState as SudokuCellWidgetState;
+  }
+}
+
+class SudokuCellWidgetState extends State<SudokuCellWidget> {
+
+	final VoidCallback handleOnTap;
+	SudokuCellWidgetState({required this.handleOnTap});
+	bool isCurrentCell = false;
+
+  void switchSelection() {
+    setState(() {
+      isCurrentCell = !isCurrentCell;
+    });
+  }
+
+	double sideSize = 40;
 
 	@override
 	Widget build(BuildContext context) {
 		return GestureDetector(
-			onTap: handleOnTap,
+			onTap: widget.handleOnTap,
 			child: ColoredBox(
 				color: isCurrentCell ? Colors.yellow : Colors.white,
 				child: SizedBox(
 					width: sideSize,
 					height: sideSize,
 					child: Center(
-						child: getCellContent()
+						child: widget.getCellContent()
 					),
 				),
 			),

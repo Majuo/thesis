@@ -39,9 +39,16 @@ class _SudokuGridState extends State<SudokuGrid> {
                       }
                     },
                     handleOnTap: () {
-                      currentCell?.isCurrentCell = false;
-                      currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-                      currentCell?.isCurrentCell = true;
+                      var newCurrentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
+                      if (currentCell == newCurrentCell) {
+                        currentCell?.currentState?.switchSelection();
+                        currentCell = null;
+                      }
+                      else {
+                        currentCell?.currentState?.switchSelection();
+                        currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
+                        currentCell?.currentState?.switchSelection();
+                      }
                     }
                   );
                   cellWidgets.elementAt(cell.row).add(cellWidget);
