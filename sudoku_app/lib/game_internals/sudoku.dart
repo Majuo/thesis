@@ -25,7 +25,18 @@ class Sudoku {
         }
 				solutionRow.add(cellValue);
 				initStateRow.add(editable ? 0 : cellValue);
-				boardRow.add(SudokuCell(i, j, editable, editable ? 0 : cellValue));
+        var sudokuCell = SudokuCell(i, j, editable, editable ? 0 : cellValue);
+        if (editable && math.Random().nextBool())
+        {
+          for (var i = 0; i < 5; i++) {
+            var candidate = math.Random().nextInt(9) + 1;
+            if (!sudokuCell.candidates.contains(candidate))
+            {
+              sudokuCell.candidates.add(candidate);
+            }
+          }
+        }
+				boardRow.add(sudokuCell);
 			}
 			result.solution.add(solutionRow);
 			result.initState.add(initStateRow);
