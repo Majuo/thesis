@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
+import 'package:sudoku_app/widgets/cell_candidates.dart';
 
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 import 'package:sudoku_app/widgets/sudoku_buttons_panel.dart';
@@ -38,8 +39,7 @@ class _SudokuGridState extends State<SudokuGrid> {
                             return Text(cell.value.toString(), style: TextStyle(fontWeight: cell.editable ? FontWeight.normal : FontWeight.bold),);
                           }
                           else {
-                            // replace later
-                            return Text(cell.candidates.join(","));
+                            return CellCandidates(candidates: cell.candidates);
                           }
                         },
                         handleOnTap: () {
@@ -80,7 +80,10 @@ class _SudokuGridState extends State<SudokuGrid> {
                   boardCell.candidates.remove(val);
                 } else {
                   boardCell.candidates.add(val);
+                  boardCell.candidates.sort();
                 }
+              } else if (val == 0) {
+                boardCell.candidates.clear();
               }
               currentCell!.currentState?.triggerRedraw();
             }
