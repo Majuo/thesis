@@ -78,6 +78,10 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 	SudokuCellWidgetState({required this.handleOnTap});
 	bool isCurrentCell = false;
 
+  void triggerRedraw() {
+    setState(() { });
+  }  
+
   void switchSelection() {
     setState(() {
       isCurrentCell = !isCurrentCell;
