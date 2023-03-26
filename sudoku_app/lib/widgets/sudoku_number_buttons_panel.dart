@@ -5,10 +5,6 @@ import 'package:sudoku_app/widgets/sudoku_grid.dart';
 class SudokuNumberButtonsPanel extends StatelessWidget {
   SudokuNumberButtonsPanel({super.key, required this.onClick});
 
-  void invokeOnClick(int val) {
-    onClick(val);
-  }
-
   Function(int) onClick;
   @override
   Widget build(BuildContext context) {
