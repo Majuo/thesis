@@ -18,6 +18,7 @@ class _SudokuGridState extends State<SudokuGrid> {
   List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
   SudokuCellWidget? currentCell;
   bool isInNotesMode = false;
+  bool isGameOver = false;
 
   @override
 	Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class _SudokuGridState extends State<SudokuGrid> {
                   for (var cell in row) {
                     var cellWidget = SudokuCellWidget(getCellContent: () {
                           if (cell.value > 0) {
-                            return Text(cell.value.toString(), style: TextStyle(fontWeight: cell.editable ? FontWeight.normal : FontWeight.bold),);
+                            return Text(cell.value.toString(), style: TextStyle(fontWeight: cell.editable ? FontWeight.normal : FontWeight.bold, fontSize: SudokuCellWidget.cellSize * 0.7),);
                           }
                           else {
                             return CellCandidates(candidates: cell.candidates);
@@ -70,7 +71,7 @@ class _SudokuGridState extends State<SudokuGrid> {
         Padding(
           padding: const EdgeInsets.all(10),
           child: SudokuButtonsPanel(numOnClick: (int val) {
-            if (currentCell == null) return;
+            if (currentCell == null || isGameOver) return;
             var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
             if (boardCell.editable) {
               if (!isInNotesMode) {
@@ -86,6 +87,12 @@ class _SudokuGridState extends State<SudokuGrid> {
                 boardCell.candidates.clear();
               }
               currentCell!.currentState?.triggerRedraw();
+              if (game.checkWin()) {
+                setState(() {
+                  isGameOver = true;
+                });
+                showWinAlert();
+              }
             }
           },
           notesOnClick: () {
@@ -95,4 +102,25 @@ class _SudokuGridState extends State<SudokuGrid> {
       ]
     );
 	}
+
+  Future<void> showWinAlert() async {
+    return showDialog<void>(
+    context: context,
+    barrierDismissible: true,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Congratulations'),
+        content: const Text('You won!'),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+  }
 }
