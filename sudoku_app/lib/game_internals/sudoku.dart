@@ -16,8 +16,14 @@ class Sudoku {
 			var boardRow = List<SudokuCell>.empty(growable: true);
 			for (var j = 0; j < 9; j++) {
 				var cellValue = math.Random().nextInt(10);
-				solutionRow.add(cellValue);
 				var editable = math.Random().nextBool();
+        if (cellValue == 0 && !editable)
+        {
+          do {
+            cellValue = math.Random().nextInt(10);
+          } while (cellValue == 0);
+        }
+				solutionRow.add(cellValue);
 				initStateRow.add(editable ? 0 : cellValue);
 				boardRow.add(SudokuCell(i, j, editable, editable ? 0 : cellValue));
 			}
