@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
 
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
-import 'package:sudoku_app/widgets/sudoku_number_buttons_panel.dart';
+import 'package:sudoku_app/widgets/sudoku_buttons_panel.dart';
 
 class SudokuGrid extends StatefulWidget {
   static double gridSize = SudokuCellWidget.cellSize * 9 + SudokuCellWidget.outerBorderWidth * 2 + SudokuCellWidget.innerThickBorderWidth * 4 + SudokuCellWidget.defaultBorderWidth * 12;
@@ -16,6 +16,7 @@ class _SudokuGridState extends State<SudokuGrid> {
 	Sudoku game = Sudoku.getSampleSudoku(); 
   List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
   SudokuCellWidget? currentCell;
+  bool isInNotesMode = false;
 
   @override
 	Widget build(BuildContext context) {
@@ -66,15 +67,27 @@ class _SudokuGridState extends State<SudokuGrid> {
             ),
           ),
         ),
-        Padding(padding: const EdgeInsets.all(10), child: 
-          SudokuNumberButtonsPanel(onClick: (int val) {
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: SudokuButtonsPanel(numOnClick: (int val) {
             if (currentCell == null) return;
             var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
             if (boardCell.editable) {
-              boardCell.value = val;
+              if (!isInNotesMode) {
+                boardCell.value = val;
+              } else if (val != 0) {
+                if (boardCell.candidates.contains(val)) {
+                  boardCell.candidates.remove(val);
+                } else {
+                  boardCell.candidates.add(val);
+                }
+              }
               currentCell!.currentState?.triggerRedraw();
             }
-          }),
+          },
+          notesOnClick: () {
+            isInNotesMode = !isInNotesMode;
+          },),
         )
       ]
     );
