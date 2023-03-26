@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
-import 'dart:math' as math;
 
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 
 class SudokuGrid extends StatefulWidget {
+  static double gridSize = SudokuCellWidget.cellSize * 9 + SudokuCellWidget.outerBorderWidth * 2 + SudokuCellWidget.innerThickBorderWidth * 4 + SudokuCellWidget.defaultBorderWidth * 12;
 	const SudokuGrid({super.key});
 
 	@override
@@ -19,8 +19,8 @@ class _SudokuGridState extends State<SudokuGrid> {
   @override
 	Widget build(BuildContext context) {
 		return SizedBox(
-      width: 360,
-      height: 360,
+      width: SudokuGrid.gridSize,
+      height: SudokuGrid.gridSize,
       child: Center(
         child: Column(
           children: (() {
@@ -49,7 +49,9 @@ class _SudokuGridState extends State<SudokuGrid> {
                         currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
                         currentCell?.currentState?.switchSelection();
                       }
-                    }
+                    },
+                    rowNo: cell.row,
+                    cellNo: cell.col
                   );
                   cellWidgets.elementAt(cell.row).add(cellWidget);
                   rowWidget.children.add(cellWidget);
