@@ -6,5 +6,7 @@
   "language" : "Keel",
   "sudokuRules" : "Sudoku reeglid",
   "lastRemainingCell" : "Ainus võimalik ruut",
-  "lastPossibleNumber" : "Ainus võimalik number"
+  "lastPossibleNumber" : "Ainus võimalik number",
+  "hintCanNotBeSolved" : "Valitud ruutu ei ole hetkel võimalik lahendada tehnikate abil",
+  "hintCanBeSolvedUsing" : "Valitud ruudul saab rakendada tehnikat: "
 }

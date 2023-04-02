@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
+import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
+import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/widgets/cell_candidates.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 import 'package:sudoku_app/widgets/sudoku_buttons_panel.dart';
@@ -19,6 +23,7 @@ class _SudokuGridState extends State<SudokuGrid> {
   SudokuCellWidget? currentCell;
   bool isInNotesMode = false;
   bool isGameOver = false;
+  String? hintText;
 
   @override
 	Widget build(BuildContext context) {
@@ -44,6 +49,9 @@ class _SudokuGridState extends State<SudokuGrid> {
                           }
                         },
                         handleOnTap: () {
+                          setState(() {
+                            hintText = null;
+                          });
                           var newCurrentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
                           if (currentCell == newCurrentCell) {
                             currentCell?.currentState?.switchSelection();
@@ -69,36 +77,56 @@ class _SudokuGridState extends State<SudokuGrid> {
           ),
         ),
         Padding(
+          padding: const EdgeInsets.all(5),
+          child: Text(hintText ?? ""),
+        ),
+        Padding(
           padding: const EdgeInsets.all(10),
-          child: SudokuButtonsPanel(numOnClick: (int val) {
-            if (currentCell == null || isGameOver) return;
-            var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
-            if (boardCell.editable) {
-              if (!isInNotesMode) {
-                boardCell.value = val;
-              } else if (val != 0) {
-                if (boardCell.candidates.contains(val)) {
-                  boardCell.candidates.remove(val);
-                } else {
-                  boardCell.candidates.add(val);
-                  boardCell.candidates.sort();
+          child: 
+            SudokuButtonsPanel(numOnClick: (int val) {
+              if (currentCell == null || isGameOver) return;
+              var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
+              if (boardCell.editable) {
+                if (!isInNotesMode) {
+                  boardCell.value = val;
+                } else if (val != 0) {
+                  if (boardCell.candidates.contains(val)) {
+                    boardCell.candidates.remove(val);
+                  } else {
+                    boardCell.candidates.add(val);
+                    boardCell.candidates.sort();
+                  }
+                } else if (val == 0) {
+                  boardCell.candidates.clear();
                 }
-              } else if (val == 0) {
-                boardCell.candidates.clear();
+                currentCell!.currentState?.triggerRedraw();
+                if (game.checkWin()) {
+                  setState(() {
+                    isGameOver = true;
+                  });
+                  showWinAlert();
+                }
               }
-              currentCell!.currentState?.triggerRedraw();
-              if (game.checkWin()) {
-                setState(() {
-                  isGameOver = true;
-                });
-                showWinAlert();
-              }
+            },
+            notesOnClick: () {
+              isInNotesMode = !isInNotesMode;
+            },),
+        ),
+        IconButton(
+          onPressed: () {
+            if (currentCell == null) return;
+            var t = SudokuSolver.solveCellWithTechniques(game, currentCell!.rowNo, currentCell!.cellNo, SudokuTechniquesEnum.values);
+            if (t == null) {
+              setState(() {
+                hintText = AppLocalizations.of(context).hintCanNotBeSolved;
+              });
+            } else {
+              setState(() {
+                hintText = AppLocalizations.of(context).hintCanBeSolvedUsing + SudokuTechniqueNamePicker.getTechniqueName(context, t);
+              });
             }
           },
-          notesOnClick: () {
-            isInNotesMode = !isInNotesMode;
-          },),
-        )
+          icon: const Icon(Icons.lightbulb)),
       ]
     );
 	}

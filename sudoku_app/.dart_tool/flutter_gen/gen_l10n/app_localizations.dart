@@ -142,6 +142,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last possible number'**
   String get lastPossibleNumber;
+
+  /// No description provided for @hintCanNotBeSolved.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected cell can not be currently solved with any techniques'**
+  String get hintCanNotBeSolved;
+
+  /// No description provided for @hintCanBeSolvedUsing.
+  ///
+  /// In en, this message translates to:
+  /// **'Technique can be applied to the selected cell: '**
+  String get hintCanBeSolvedUsing;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

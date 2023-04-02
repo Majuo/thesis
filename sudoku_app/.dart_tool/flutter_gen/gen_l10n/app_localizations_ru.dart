@@ -27,4 +27,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get lastPossibleNumber => 'Единственное возможное число';
+
+  @override
+  String get hintCanNotBeSolved => 'Для выбранной клетки сейчас невозможно найти решение с помощью техник решения';
+
+  @override
+  String get hintCanBeSolvedUsing => 'Для выбранной клетки может быть применена техника: ';
 }

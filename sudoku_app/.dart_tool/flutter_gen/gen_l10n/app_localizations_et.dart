@@ -27,4 +27,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get lastPossibleNumber => 'Ainus võimalik number';
+
+  @override
+  String get hintCanNotBeSolved => 'Valitud ruutu ei ole hetkel võimalik lahendada tehnikate abil';
+
+  @override
+  String get hintCanBeSolvedUsing => 'Valitud ruudul saab rakendada tehnikat: ';
 }

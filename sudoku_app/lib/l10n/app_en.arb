@@ -6,5 +6,7 @@
   "language" : "Language",
   "sudokuRules" : "Sudoku rules",
   "lastRemainingCell" : "Last remaining cell",
-  "lastPossibleNumber" : "Last possible number"
+  "lastPossibleNumber" : "Last possible number",
+  "hintCanNotBeSolved" : "Selected cell can not be currently solved with any techniques",
+  "hintCanBeSolvedUsing" : "Technique can be applied to the selected cell: "
 }
