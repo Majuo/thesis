@@ -11,6 +11,6 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 
 	@override
 	String name() {
-		return "Last remaining cell";
+		return "lastRemainingCell";
 	}
 }

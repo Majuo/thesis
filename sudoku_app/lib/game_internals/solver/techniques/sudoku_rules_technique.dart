@@ -48,6 +48,6 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 
 	@override
 	String name() {
-		return "Sudoku rules";
+		return "sudokuRules";
 	}
 }

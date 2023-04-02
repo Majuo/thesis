@@ -1,11 +1,10 @@
 {
-  "helloWorld": "Tere maailm!",
-  "@helloWorld": {
-    "description": "Arendajate tervitus"
-  },
   "colorScheme" : "Värviskeem",
   "darkTheme" : "Tume",
   "lightTheme" : "Hele",
   "highContrastTheme" : "Kõrge kontrastsusega",
-  "language" : "Keel"
+  "language" : "Keel",
+  "sudokuRules" : "Sudoku reeglid",
+  "lastRemainingCell" : "Ainus võimalik ruut",
+  "lastPossibleNumber" : "Ainus võimalik number"
 }

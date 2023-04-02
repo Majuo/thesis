@@ -11,6 +11,6 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
 
 	@override
 	String name() {
-		return "Last possible number";
+		return "lastPossibleNumber";
 	}
 }

@@ -1,8 +1,10 @@
 {
-  "helloWorld": "Здравствуй мир!!",
   "colorScheme" : "Цветовая схема",
   "darkTheme" : "Тёмная",
   "lightTheme" : "Светлая",
   "highContrastTheme" : "Высококонтрастная",
-  "language" : "Язык"
+  "language" : "Язык",
+  "sudokuRules" : "Правила Судоку",
+  "lastRemainingCell" : "Единственная возможная клетка",
+  "lastPossibleNumber" : "Единственное возможное число"
 }
