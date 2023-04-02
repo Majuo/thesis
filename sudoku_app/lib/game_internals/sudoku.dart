@@ -141,4 +141,21 @@ class Sudoku {
 		}
 		return result;
 	}
+
+  @override String toString() {
+    var result = "";
+    for (var row in board) {
+      result += "\n";
+      for (var cell in row) {
+        if (cell.col == 0 && (cell.row == 3 || cell.row == 6)) {
+          result += "---------------\n";
+        }
+        if ({3, 6}.contains(cell.col)) {
+          result += " | ";
+        }
+        result += cell.value.toString();
+      }
+    }
+    return result;
+  }
 }
