@@ -114,15 +114,26 @@ class _SudokuGridState extends State<SudokuGrid> {
         ),
         IconButton(
           onPressed: () {
-            var t = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
-            if (t == null) {
+            var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
+            if (result == null) {
               setState(() {
                 hintText = AppLocalizations.of(context).hintCanNotBeSolved;
               });
             } else {
               setState(() {
-                hintText = AppLocalizations.of(context).hintCanBeSolvedUsing + SudokuTechniqueNamePicker.getTechniqueName(context, t);
+                hintText = AppLocalizations.of(context).hintCanBeSolvedUsing + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
               });
+              if (result.solvedCell == null) return;
+              var newCurrentCell = cellWidgets.elementAt(result.solvedCell!.row).elementAt(result.solvedCell!.col);
+              if (currentCell == newCurrentCell) {
+                currentCell?.currentState?.switchSelection();
+                currentCell = null;
+              }
+              else {
+                currentCell?.currentState?.switchSelection();
+                currentCell = cellWidgets.elementAt(result.solvedCell!.row).elementAt(result.solvedCell!.col);
+                currentCell?.currentState?.switchSelection();
+              }
             }
           },
           icon: const Icon(Icons.lightbulb)),
