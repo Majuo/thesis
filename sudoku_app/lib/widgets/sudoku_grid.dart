@@ -114,8 +114,7 @@ class _SudokuGridState extends State<SudokuGrid> {
         ),
         IconButton(
           onPressed: () {
-            if (currentCell == null) return;
-            var t = SudokuSolver.solveCellWithTechniques(game, currentCell!.rowNo, currentCell!.cellNo, SudokuTechniquesEnum.values);
+            var t = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
             if (t == null) {
               setState(() {
                 hintText = AppLocalizations.of(context).hintCanNotBeSolved;

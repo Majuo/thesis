@@ -38,11 +38,19 @@ class Sudoku {
   }
 
   Iterable<int> getRowValues(int rowNo) {
-    return board.elementAt(rowNo).map((cell) => cell.value);
+    return getRowCells(rowNo).map((cell) => cell.value);
+  }
+
+  Iterable<SudokuCell> getRowCells(int rowNo) {
+    return board.elementAt(rowNo);
   }
 
   Iterable<int> getColumnValues(int columnNo) {
-    return board.map((row) => row.elementAt(columnNo).value);
+    return getColumnCells(columnNo).map((cell) => cell.value);
+  }
+
+  Iterable<SudokuCell> getColumnCells(int columnNo) {
+    return board.map((row) => row.elementAt(columnNo));
   }
 
   Iterable<int> getBlockValuesByCell(SudokuCell cell) {
@@ -50,12 +58,16 @@ class Sudoku {
   }
 
   Iterable<int> getBlockValues(int rowNo, int columnNo) {
-    var result = List<int>.empty(growable: true);
+    return getBlockCells(rowNo, columnNo).map((cell) => cell.value);
+  }
+
+  Iterable<SudokuCell> getBlockCells(int rowNo, int columnNo) {
+    var result = List<SudokuCell>.empty(growable: true);
     var blockStartY = rowNo - rowNo % 3;
     var blockStartX = columnNo - columnNo % 3;
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < 3; j++) {
-        result.add(board.elementAt(blockStartY + i).elementAt(blockStartX + j).value);
+        result.add(board.elementAt(blockStartY + i).elementAt(blockStartX + j));
       }
     }
     return result;
