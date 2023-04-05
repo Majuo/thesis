@@ -1,4 +1,4 @@
-import 'package:sudoku_app/game_internals/solver/techniques/i_sudoku_technique.dart';
+import 'package:sudoku_app/game_internals/solver/technique_result.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_container.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
@@ -14,9 +14,10 @@ void main(List<String> arguments){
 }
 
 class SudokuSolver {
-	static ISudokuTechnique? solveCellWithTechniques(Sudoku board, Iterable<SudokuTechniquesEnum> techniques, {bool applyResult = false}) {
+	static TechniqueResult? solveCellWithTechniques(Sudoku board, Iterable<SudokuTechniquesEnum> techniques, {bool applyResult = false}) {
 		for (var technique in TechniquesContainer.getTechniques(techniques)) {
-			if (technique.trySolve(board, applyResult: applyResult) != null) return technique;
+      var result = technique.trySolve(board, applyResult: applyResult);
+			if (result != null) return result;
 		}
 		return null;
 	}

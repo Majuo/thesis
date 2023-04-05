@@ -6,9 +6,9 @@ import 'package:sudoku_app/game_internals/solver/techniques/last_remaining_cell_
 import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_technique.dart';
 
 class SudokuTechniqueNamePicker {
-	static String getTechniqueName(BuildContext context, ISudokuTechnique technique)
+	static String getTechniqueName(BuildContext context, Type technique)
 	{
-		switch (technique.runtimeType) {
+		switch (technique) {
 		case SudokuRulesTechnique:
 			return AppLocalizations.of(context).sudokuRules;
 		case LastPossibleNumberTechnique:
