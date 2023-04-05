@@ -14,7 +14,7 @@ class CurrentTheme with ChangeNotifier {
 	ThemeData getThemeData() {
 		switch (currentTheme) {
 			case AppTheme.light:
-		    	return AppThemeData.lightTheme;
+				return AppThemeData.lightTheme;
 			case AppTheme.dark:
 				return AppThemeData.darkTheme;
 			case AppTheme.highContrast:

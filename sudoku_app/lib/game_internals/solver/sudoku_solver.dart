@@ -16,7 +16,7 @@ void main(List<String> arguments){
 class SudokuSolver {
 	static TechniqueResult? solveCellWithTechniques(Sudoku board, Iterable<SudokuTechniquesEnum> techniques, {bool applyResult = false}) {
 		for (var technique in TechniquesContainer.getTechniques(techniques)) {
-      var result = technique.trySolve(board, applyResult: applyResult);
+			var result = technique.trySolve(board, applyResult: applyResult);
 			if (result != null) return result;
 		}
 		return null;
