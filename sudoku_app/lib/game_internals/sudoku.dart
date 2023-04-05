@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:sudoku_app/game_internals/sudoku_cell.dart';
 import 'dart:math' as math;
 
@@ -6,6 +8,7 @@ class Sudoku {
 	List<List<int>> solution = List.empty(growable: true);
 	List<List<int>> initState = List.empty(growable: true);
 	SudokuCell? currentCell;
+  static final HashSet<int> numSet = HashSet.from({1, 2, 3, 4, 5, 6, 7, 8, 9});
 
   bool checkWin() {
     if (board.any((row) => row.any((cell) => cell.value == 0))) return false;

@@ -11,7 +11,6 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 	@override
 	TechniqueResult? trySolve(Sudoku sudoku, {bool applyResult = false}) {
 		int solution = 0;
-		var numSet = HashSet.from({1, 2, 3, 4, 5, 6, 7, 8, 9});
     int rowNo = 0;
     int colNo = 0;
     for (var i = 0; i < 9; i++) {
@@ -19,7 +18,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 		  var rowSet = HashSet.from(sudoku.getRowValues(i));
 		  rowSet.remove(0);
       if (rowSet.length == 8) {
-        solution = numSet.difference(rowSet).single as int;
+        solution = Sudoku.numSet.difference(rowSet).single;
         colNo = sudoku.getRowCells(i).firstWhere((c) => c.value == 0).col;
         if (applyResult)
         {
@@ -31,7 +30,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
       var colSet = HashSet.from(sudoku.getColumnValues(i));
       colSet.remove(0);
       if (colSet.length == 8) {
-        solution = numSet.difference(colSet).single as int;
+        solution = Sudoku.numSet.difference(colSet).single;
         rowNo = sudoku.getColumnCells(i).firstWhere((c) => c.value == 0).row;
         if (applyResult)
         {
@@ -47,7 +46,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
         var blockSet = HashSet.from(blockCells.map((c) => c.value));
         blockSet.remove(0);
         if (blockSet.length == 8) {
-          solution = numSet.difference(blockSet).single as int;
+          solution = Sudoku.numSet.difference(blockSet).single;
           var cell = blockCells.firstWhere((c) => c.value == 0);
           if (applyResult)
           {
