@@ -122,10 +122,10 @@ class _SudokuGridState extends State<SudokuGrid> {
                 hintText = AppLocalizations.of(context).hintCanNotBeSolved;
               });
             } else {
+              if (result.applicableCells == null || result.applicableCells!.isEmpty) return;
               setState(() {
-                hintText = AppLocalizations.of(context).hintCanBeSolvedUsing + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
+                hintText = (result.applicableCells?.length == 1 ? AppLocalizations.of(context).hintCanBeSolvedUsingSingleCell : AppLocalizations.of(context).hintCanBeSolvedUsingMultipleCells) + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
               });
-              if (result.applicableCells == null) return;
               for (var resultCell in result.applicableCells!) {
                 var cellWidget = cellWidgets.elementAt(resultCell.row).elementAt(resultCell.col);
                 cellWidget.currentState?.highlight();

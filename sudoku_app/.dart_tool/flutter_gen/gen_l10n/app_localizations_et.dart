@@ -29,10 +29,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get lastPossibleNumber => 'Ainus võimalik number';
 
   @override
-  String get hintCanNotBeSolved => 'Valitud ruutu ei ole hetkel võimalik lahendada tehnikate abil';
+  String get hintCanNotBeSolved => 'Antud Sudoku ei ole võimalik lahendada teadaolevate tehnikate abil';
 
   @override
-  String get hintCanBeSolvedUsing => 'Valitud ruudul saab rakendada tehnikat: ';
+  String get hintCanBeSolvedUsingSingleCell => 'Märgitud ruudul saab rakendada tehnikat: ';
+
+  @override
+  String get hintCanBeSolvedUsingMultipleCells => 'Märgitud ruutudel saab rakendada tehnikat: ';
 
   @override
   String get nakedSingle => 'Alasti üksik';

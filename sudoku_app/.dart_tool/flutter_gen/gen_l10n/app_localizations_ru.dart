@@ -29,10 +29,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lastPossibleNumber => 'Единственное возможное число';
 
   @override
-  String get hintCanNotBeSolved => 'Для выбранной клетки сейчас невозможно найти решение с помощью техник решения';
+  String get hintCanNotBeSolved => 'Данное Судоку невозможно решить с помощью известных техник решения';
 
   @override
-  String get hintCanBeSolvedUsing => 'Для выбранной клетки может быть применена техника: ';
+  String get hintCanBeSolvedUsingSingleCell => 'Для выделенной клетки может быть применена техника: ';
+
+  @override
+  String get hintCanBeSolvedUsingMultipleCells => 'Для выделенных клеток может быть применена техника: ';
 
   @override
   String get nakedSingle => 'Голые единицы';

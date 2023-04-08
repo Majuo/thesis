@@ -29,10 +29,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lastPossibleNumber => 'Last possible number';
 
   @override
-  String get hintCanNotBeSolved => 'Selected cell can not be currently solved with any techniques';
+  String get hintCanNotBeSolved => 'This Sudoku can\'t be solved with known techniques';
 
   @override
-  String get hintCanBeSolvedUsing => 'Technique can be applied to the selected cell: ';
+  String get hintCanBeSolvedUsingSingleCell => 'Technique can be applied to the highlighted cell: ';
+
+  @override
+  String get hintCanBeSolvedUsingMultipleCells => 'Technique can be applied to the highlighted cells: ';
 
   @override
   String get nakedSingle => 'Naked singles';

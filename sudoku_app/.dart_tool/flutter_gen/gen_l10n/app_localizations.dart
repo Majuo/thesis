@@ -146,14 +146,20 @@ abstract class AppLocalizations {
   /// No description provided for @hintCanNotBeSolved.
   ///
   /// In en, this message translates to:
-  /// **'Selected cell can not be currently solved with any techniques'**
+  /// **'This Sudoku can\'t be solved with known techniques'**
   String get hintCanNotBeSolved;
 
-  /// No description provided for @hintCanBeSolvedUsing.
+  /// No description provided for @hintCanBeSolvedUsingSingleCell.
   ///
   /// In en, this message translates to:
-  /// **'Technique can be applied to the selected cell: '**
-  String get hintCanBeSolvedUsing;
+  /// **'Technique can be applied to the highlighted cell: '**
+  String get hintCanBeSolvedUsingSingleCell;
+
+  /// No description provided for @hintCanBeSolvedUsingMultipleCells.
+  ///
+  /// In en, this message translates to:
+  /// **'Technique can be applied to the highlighted cells: '**
+  String get hintCanBeSolvedUsingMultipleCells;
 
   /// No description provided for @nakedSingle.
   ///
