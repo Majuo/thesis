@@ -24,7 +24,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 				{
 				sudoku.board.elementAt(i).elementAt(colNo).value = solution;
 				}
-				return TechniqueResult(successful: true, solvedCell: SudokuCell(i, colNo, true, solution), usedTechnique: SudokuRulesTechnique);
+				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(i, colNo, true, solution)}), usedTechnique: SudokuRulesTechnique);
 			}
 			// check columns
 			var colSet = HashSet.from(sudoku.getColumnValues(i));
@@ -36,7 +36,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 				{
 					sudoku.board.elementAt(rowNo).elementAt(i).value = solution;
 				}
-				return TechniqueResult(successful: true, solvedCell: SudokuCell(rowNo, i, true, solution), usedTechnique: SudokuRulesTechnique);
+				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(rowNo, i, true, solution)}), usedTechnique: SudokuRulesTechnique);
 			}
 		}
 		// check blocks
@@ -52,7 +52,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 					{
 					sudoku.board.elementAt(cell.row).elementAt(cell.col).value = solution;
 					}
-					return TechniqueResult(successful: true, solvedCell: SudokuCell(cell.row, cell.col, true, solution), usedTechnique: SudokuRulesTechnique);
+					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, solution)}), usedTechnique: SudokuRulesTechnique);
 				}
 			}
 		}

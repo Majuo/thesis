@@ -76,15 +76,27 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 
 	final VoidCallback handleOnTap;
 	SudokuCellWidgetState({required this.handleOnTap});
-	bool isCurrentCell = false;
+  Color cellColor = Colors.white;
 
   void triggerRedraw() {
     setState(() { });
-  }  
+  }
 
-  void switchSelection() {
+  void deselect() {
     setState(() {
-      isCurrentCell = !isCurrentCell;
+      cellColor = Colors.white;
+    });
+  }
+
+  void selectCurrent() {
+    setState(() {
+      cellColor = Colors.yellow;
+    });
+  }
+
+  void highlight() {
+    setState(() {
+      cellColor = Colors.green;
     });
   }
 
@@ -97,7 +109,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
           border: SudokuCellWidget.getCellBorder(widget.rowNo, widget.cellNo)
         ),
         child: ColoredBox(
-          color: isCurrentCell ? Colors.yellow : Colors.white,
+          color: cellColor,
           child: SizedBox(
             width: SudokuCellWidget.cellSize,
             height: SudokuCellWidget.cellSize,

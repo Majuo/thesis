@@ -15,7 +15,7 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
 				if (applyResult) {
 				cell.value = missingNums.first;
 				}
-				return TechniqueResult(successful: true, solvedCell: SudokuCell(cell.row, cell.col, true, missingNums.first), usedTechnique: LastPossibleNumberTechnique);
+				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, missingNums.first)}), usedTechnique: LastPossibleNumberTechnique);
 			}
 		}
 	}

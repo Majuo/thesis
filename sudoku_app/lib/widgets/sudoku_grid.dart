@@ -21,6 +21,7 @@ class _SudokuGridState extends State<SudokuGrid> {
 	Sudoku game = Sudoku.getSampleSudoku(); 
   List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
   SudokuCellWidget? currentCell;
+  List<SudokuCellWidget> highlightedCells = List.empty(growable: true);
   bool isInNotesMode = false;
   bool isGameOver = false;
   String? hintText;
@@ -49,18 +50,16 @@ class _SudokuGridState extends State<SudokuGrid> {
                           }
                         },
                         handleOnTap: () {
-                          setState(() {
-                            hintText = null;
-                          });
+                          clearHighlightedCells();
                           var newCurrentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
                           if (currentCell == newCurrentCell) {
-                            currentCell?.currentState?.switchSelection();
+                            currentCell?.currentState?.deselect();
                             currentCell = null;
                           }
                           else {
-                            currentCell?.currentState?.switchSelection();
+                            currentCell?.currentState?.deselect();
                             currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-                            currentCell?.currentState?.switchSelection();
+                            currentCell?.currentState?.selectCurrent();
                           }
                         },
                         rowNo: cell.row,
@@ -84,6 +83,7 @@ class _SudokuGridState extends State<SudokuGrid> {
           padding: const EdgeInsets.all(10),
           child: 
             SudokuButtonsPanel(numOnClick: (int val) {
+              clearHighlightedCells();
               if (currentCell == null || isGameOver) return;
               var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
               if (boardCell.editable) {
@@ -114,6 +114,8 @@ class _SudokuGridState extends State<SudokuGrid> {
         ),
         IconButton(
           onPressed: () {
+            if (isGameOver) return;
+            clearHighlightedCells();
             var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
             if (result == null) {
               setState(() {
@@ -123,16 +125,11 @@ class _SudokuGridState extends State<SudokuGrid> {
               setState(() {
                 hintText = AppLocalizations.of(context).hintCanBeSolvedUsing + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
               });
-              if (result.solvedCell == null) return;
-              var newCurrentCell = cellWidgets.elementAt(result.solvedCell!.row).elementAt(result.solvedCell!.col);
-              if (currentCell == newCurrentCell) {
-                currentCell?.currentState?.switchSelection();
-                currentCell = null;
-              }
-              else {
-                currentCell?.currentState?.switchSelection();
-                currentCell = cellWidgets.elementAt(result.solvedCell!.row).elementAt(result.solvedCell!.col);
-                currentCell?.currentState?.switchSelection();
+              if (result.applicableCells == null) return;
+              for (var resultCell in result.applicableCells!) {
+                var cellWidget = cellWidgets.elementAt(resultCell.row).elementAt(resultCell.col);
+                cellWidget.currentState?.highlight();
+                highlightedCells.add(cellWidget);
               }
             }
           },
@@ -149,6 +146,16 @@ class _SudokuGridState extends State<SudokuGrid> {
       ]
     );
 	}
+
+  void clearHighlightedCells() {
+    setState(() {
+      hintText = null;
+    });
+    for (var cell in highlightedCells) {
+      cell.currentState?.deselect();
+    }
+    highlightedCells.clear();
+  }
 
   Future<void> showWinAlert() async {
     return showDialog<void>(

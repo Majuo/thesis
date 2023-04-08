@@ -14,7 +14,7 @@ class NakedSingleTechnique implements ISudokuTechnique {
           if (applyResult) {
             cell.value = cell.candidates.first;
           }
-          return TechniqueResult(successful: true, solvedCell: SudokuCell(cell.row, cell.col, true, cell.candidates.first), usedTechnique: NakedSingleTechnique);
+          return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, cell.candidates.first)}), usedTechnique: NakedSingleTechnique);
         }
       }
     }
