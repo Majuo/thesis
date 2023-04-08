@@ -81,7 +81,25 @@ class Sudoku {
 			HashSet<SudokuCell> peerSet = HashSet.from(getRowCells(rowNo));
 			peerSet.addAll(HashSet.from(getColumnCells(columnNo)));
 			peerSet.addAll(HashSet.from(getBlockCells(rowNo, columnNo)));
+      peerSet.removeWhere((c) => c.row == rowNo && c.col == columnNo);
       return peerSet;
+  }
+
+  static bool areCellsInOneRow(Iterable<SudokuCell> cells) {
+    return HashSet.from(cells.map((c) => c.row)).length == 1;
+  }
+
+  static bool areCellsInOneColumn(Iterable<SudokuCell> cells) {
+    return HashSet.from(cells.map((c) => c.col)).length == 1;
+  }
+
+  static bool areCellsInOneBlock(Iterable<SudokuCell> cells) {
+    int intDivRow = cells.first.row ~/ 3;
+    int intDivCol = cells.first.col ~/ 3;
+    for (var cell in cells.skip(1)) {
+      if (cell.row ~/ 3 != intDivRow || cell.col ~/ 3 != intDivCol) return false;
+    }
+    return true;
   }
 
   Iterable<SudokuCell> getBlockCells(int rowNo, int columnNo) {
