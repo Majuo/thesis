@@ -65,7 +65,7 @@ class NakedTripleTechnique implements ISudokuTechnique {
           r.candidates = cell.candidates.map((cc) => cc).toList();
           return r;
         }).toList();
-        return TechniqueResult(successful: true, removedCandidates: resultCells, usedTechnique: NakedTripleTechnique);
+        return TechniqueResult(successful: true, applicableCells: List.from({cell, secondCell, thirdCell}), removedCandidates: resultCells, usedTechnique: NakedTripleTechnique);
       }
     }
 		return null;
