@@ -12,10 +12,7 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
 	TechniqueResult? trySolve(Sudoku sudoku, {bool applyResult = false}) {
 	for (var row in sudoku.board) {
 		for (var cell in row.where((c) => c.value == 0)) {
-			var peerSet = HashSet.from(sudoku.getRowValues(cell.row));
-			peerSet.addAll(HashSet.from(sudoku.getColumnValues(cell.col)));
-			peerSet.addAll(HashSet.from(sudoku.getBlockValuesByCell(cell)));
-			var missingNums = Sudoku.numSet.difference(peerSet);
+			var missingNums = Sudoku.numSet.difference(sudoku.getPeerValues(cell.row, cell.col));
 			if (missingNums.length == 1) {
 				if (applyResult) {
 				cell.value = missingNums.first;

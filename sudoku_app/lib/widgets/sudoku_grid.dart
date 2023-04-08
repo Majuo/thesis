@@ -137,6 +137,15 @@ class _SudokuGridState extends State<SudokuGrid> {
             }
           },
           icon: const Icon(Icons.lightbulb)),
+        TextButton(
+          // TODO: add l10n
+          child: Text("Fill notes"),
+          onPressed: () {
+            setState(() {
+              game.filAllNotes();
+            });
+          },
+        )
       ]
     );
 	}

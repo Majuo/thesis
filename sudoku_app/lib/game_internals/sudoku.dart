@@ -40,6 +40,15 @@ class Sudoku {
     }
   }
 
+  void filAllNotes() {
+    for (var row in board) {
+      for (var cell in row) {
+        cell.candidates.clear();
+        cell.candidates.addAll(numSet.difference(getPeerValues(cell.row, cell.col)));
+      }
+    }
+  }
+
   Iterable<int> getRowValues(int rowNo) {
     return getRowCells(rowNo).map((cell) => cell.value);
   }
@@ -62,6 +71,17 @@ class Sudoku {
 
   Iterable<int> getBlockValues(int rowNo, int columnNo) {
     return getBlockCells(rowNo, columnNo).map((cell) => cell.value);
+  }
+
+  HashSet<int> getPeerValues(int rowNo, int columnNo) {
+    return HashSet.from(getPeerCells(rowNo, columnNo).map((c) => c.value));
+  }
+
+  HashSet<SudokuCell> getPeerCells(int rowNo, int columnNo) {
+			HashSet<SudokuCell> peerSet = HashSet.from(getRowCells(rowNo));
+			peerSet.addAll(HashSet.from(getColumnCells(columnNo)));
+			peerSet.addAll(HashSet.from(getBlockCells(rowNo, columnNo)));
+      return peerSet;
   }
 
   Iterable<SudokuCell> getBlockCells(int rowNo, int columnNo) {
@@ -116,7 +136,7 @@ class Sudoku {
       [1, 2, 5, 8, 7, 4, 3, 9, 6],
       [6, 7, 4, 3, 9, 1, 2, 5, 8],
     ];
-    return generateSudoku(initStateEz, solution);
+    return generateSudoku(initState, solution);
   }
 
 	static Sudoku generateSudoku(List<List<int>>? srcInitState, List<List<int>>? srcSolution) {
