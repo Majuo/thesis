@@ -33,4 +33,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get hintCanBeSolvedUsing => 'Для выбранной клетки может быть применена техника: ';
+
+  @override
+  String get nakedSingle => 'Голые единицы';
+
+  @override
+  String get nakedPair => 'Голые пары';
+
+  @override
+  String get nakedTriple => 'Голые тройки';
+
+  @override
+  String get hiddenSingle => 'Скрытые единицы';
+
+  @override
+  String get hiddenPair => 'Скрытые пары';
+
+  @override
+  String get hiddenTriple => 'Скрытые тройки';
+
+  @override
+  String get pointingPair => 'Указывающие пары';
+
+  @override
+  String get pointingTriple => 'Указывающие тройки';
 }

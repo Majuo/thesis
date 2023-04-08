@@ -33,4 +33,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hintCanBeSolvedUsing => 'Technique can be applied to the selected cell: ';
+
+  @override
+  String get nakedSingle => 'Naked singles';
+
+  @override
+  String get nakedPair => 'Naked pairs';
+
+  @override
+  String get nakedTriple => 'Naked triples';
+
+  @override
+  String get hiddenSingle => 'Hidden singles';
+
+  @override
+  String get hiddenPair => 'Hidden pairs';
+
+  @override
+  String get hiddenTriple => 'Hidden triples';
+
+  @override
+  String get pointingPair => 'Pointing pairs';
+
+  @override
+  String get pointingTriple => 'Pointing triples';
 }

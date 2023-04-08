@@ -8,5 +8,13 @@
   "lastRemainingCell" : "Ainus võimalik ruut",
   "lastPossibleNumber" : "Ainus võimalik number",
   "hintCanNotBeSolved" : "Valitud ruutu ei ole hetkel võimalik lahendada tehnikate abil",
-  "hintCanBeSolvedUsing" : "Valitud ruudul saab rakendada tehnikat: "
+  "hintCanBeSolvedUsing" : "Valitud ruudul saab rakendada tehnikat: ",
+  "nakedSingle" : "Alasti üksik",
+  "nakedPair" : "Alasti paar",
+  "nakedTriple" : "Alasti kolmik",
+  "hiddenSingle" : "Peidetud üksik",
+  "hiddenPair" : "Peidetud paar",
+  "hiddenTriple" : "Peidetud kolmik",
+  "pointingPair" : "Osutav paar",
+  "pointingTriple" : "Osutav kolmik"
 }

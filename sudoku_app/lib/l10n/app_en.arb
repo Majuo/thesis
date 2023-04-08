@@ -8,5 +8,13 @@
   "lastRemainingCell" : "Last remaining cell",
   "lastPossibleNumber" : "Last possible number",
   "hintCanNotBeSolved" : "Selected cell can not be currently solved with any techniques",
-  "hintCanBeSolvedUsing" : "Technique can be applied to the selected cell: "
+  "hintCanBeSolvedUsing" : "Technique can be applied to the selected cell: ",
+  "nakedSingle" : "Naked singles",
+  "nakedPair" : "Naked pairs",
+  "nakedTriple" : "Naked triples",
+  "hiddenSingle" : "Hidden singles",
+  "hiddenPair" : "Hidden pairs",
+  "hiddenTriple" : "Hidden triples",
+  "pointingPair" : "Pointing pairs",
+  "pointingTriple" : "Pointing triples"
 }

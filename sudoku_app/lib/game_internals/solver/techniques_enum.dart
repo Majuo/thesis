@@ -1,5 +1,13 @@
 enum SudokuTechniquesEnum {
 	rules,
 	lastPossibleNumber,
-	lastRemainingCell
+	lastRemainingCell,
+  nakedSingle,
+  nakedPair,
+  nakedTriple,
+  hiddenSingle,
+  hiddenPair,
+  hiddenTriple,
+  pointingPair,
+  pointingTriple
 }

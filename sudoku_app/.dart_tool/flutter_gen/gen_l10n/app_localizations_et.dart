@@ -33,4 +33,28 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hintCanBeSolvedUsing => 'Valitud ruudul saab rakendada tehnikat: ';
+
+  @override
+  String get nakedSingle => 'Alasti üksik';
+
+  @override
+  String get nakedPair => 'Alasti paar';
+
+  @override
+  String get nakedTriple => 'Alasti kolmik';
+
+  @override
+  String get hiddenSingle => 'Peidetud üksik';
+
+  @override
+  String get hiddenPair => 'Peidetud paar';
+
+  @override
+  String get hiddenTriple => 'Peidetud kolmik';
+
+  @override
+  String get pointingPair => 'Osutav paar';
+
+  @override
+  String get pointingTriple => 'Osutav kolmik';
 }

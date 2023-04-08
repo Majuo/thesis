@@ -154,6 +154,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Technique can be applied to the selected cell: '**
   String get hintCanBeSolvedUsing;
+
+  /// No description provided for @nakedSingle.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked singles'**
+  String get nakedSingle;
+
+  /// No description provided for @nakedPair.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked pairs'**
+  String get nakedPair;
+
+  /// No description provided for @nakedTriple.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked triples'**
+  String get nakedTriple;
+
+  /// No description provided for @hiddenSingle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden singles'**
+  String get hiddenSingle;
+
+  /// No description provided for @hiddenPair.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden pairs'**
+  String get hiddenPair;
+
+  /// No description provided for @hiddenTriple.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden triples'**
+  String get hiddenTriple;
+
+  /// No description provided for @pointingPair.
+  ///
+  /// In en, this message translates to:
+  /// **'Pointing pairs'**
+  String get pointingPair;
+
+  /// No description provided for @pointingTriple.
+  ///
+  /// In en, this message translates to:
+  /// **'Pointing triples'**
+  String get pointingTriple;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

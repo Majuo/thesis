@@ -8,5 +8,13 @@
   "lastRemainingCell" : "Единственная возможная клетка",
   "lastPossibleNumber" : "Единственное возможное число",
   "hintCanNotBeSolved" : "Для выбранной клетки сейчас невозможно найти решение с помощью техник решения",
-  "hintCanBeSolvedUsing" : "Для выбранной клетки может быть применена техника: "
+  "hintCanBeSolvedUsing" : "Для выбранной клетки может быть применена техника: ",
+  "nakedSingle" : "Голые единицы",
+  "nakedPair" : "Голые пары",
+  "nakedTriple" : "Голые тройки",
+  "hiddenSingle" : "Скрытые единицы",
+  "hiddenPair" : "Скрытые пары",
+  "hiddenTriple" : "Скрытые тройки",
+  "pointingPair" : "Указывающие пары",
+  "pointingTriple" : "Указывающие тройки"
 }
