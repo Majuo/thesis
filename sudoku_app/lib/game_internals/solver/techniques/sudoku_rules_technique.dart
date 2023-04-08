@@ -58,9 +58,4 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 		}
 		return null;
 	}
-
-	@override
-	String name() {
-		return "sudokuRules";
-	}
 }

@@ -23,9 +23,4 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
 	}
 		return null;
 	}
-
-	@override
-	String name() {
-		return "lastPossibleNumber";
-	}
 }
