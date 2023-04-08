@@ -28,7 +28,7 @@ class SudokuTechniqueNamePicker {
 			return AppLocalizations.of(context).nakedPair;
 		case NakedTripleTechnique:
 			return AppLocalizations.of(context).nakedTriple;
-		case HiddenSinglerTechnique:
+		case HiddenSingleTechnique:
 			return AppLocalizations.of(context).hiddenSingle;
 		case HiddenPairTechnique:
 			return AppLocalizations.of(context).hiddenPair;

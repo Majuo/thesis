@@ -20,7 +20,7 @@ class TechniquesContainer {
 		SudokuTechniquesEnum.nakedSingle : NakedSingleTechnique(),
 		SudokuTechniquesEnum.nakedPair : NakedPairTechnique(),
 		SudokuTechniquesEnum.nakedTriple : NakedTripleTechnique(),
-		SudokuTechniquesEnum.hiddenSingle : HiddenSinglerTechnique(),
+		SudokuTechniquesEnum.hiddenSingle : HiddenSingleTechnique(),
 		SudokuTechniquesEnum.hiddenPair : HiddenPairTechnique(),
 		SudokuTechniquesEnum.hiddenTriple : HiddenTripleTechnique(),
 		SudokuTechniquesEnum.pointingPair : PointingPairTechnique(),

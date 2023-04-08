@@ -42,7 +42,7 @@ class Sudoku {
 
   void filAllNotes() {
     for (var row in board) {
-      for (var cell in row) {
+      for (var cell in row.where((c) => c.value == 0)) {
         cell.candidates.clear();
         cell.candidates.addAll(numSet.difference(getPeerValues(cell.row, cell.col)));
       }
