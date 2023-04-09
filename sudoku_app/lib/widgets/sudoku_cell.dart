@@ -100,6 +100,12 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
     });
   }
 
+  void highlightError() {
+    setState(() {
+      cellColor = Colors.red;
+    });
+  }
+
 	@override
 	Widget build(BuildContext context) {
 		return GestureDetector(
