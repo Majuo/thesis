@@ -60,4 +60,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pointingTriple => 'Pointing triples';
+
+  @override
+  String get fillCandidates => 'Fill pencil marks';
+
+  @override
+  String get newGame => 'New game';
+
+  @override
+  String get easy => 'Easy';
+
+  @override
+  String get medium => 'Medium';
+
+  @override
+  String get hard => 'Hard';
+
+  @override
+  String get veryHard => 'Very hard';
 }

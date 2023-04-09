@@ -17,5 +17,11 @@
   "hiddenPair" : "Hidden pairs",
   "hiddenTriple" : "Hidden triples",
   "pointingPair" : "Pointing pairs",
-  "pointingTriple" : "Pointing triples"
+  "pointingTriple" : "Pointing triples",
+  "fillCandidates" : "Fill pencil marks",
+  "newGame" : "New game",
+  "easy" : "Easy",
+  "medium" : "Medium",
+  "hard" : "Hard",
+  "veryHard" : "Very hard"
 }

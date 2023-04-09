@@ -60,4 +60,22 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get pointingTriple => 'Osutav kolmik';
+
+  @override
+  String get fillCandidates => 'Täida kõik pliiatsimärgid';
+
+  @override
+  String get newGame => 'Uus mäng';
+
+  @override
+  String get easy => 'Kerge';
+
+  @override
+  String get medium => 'Keskmine';
+
+  @override
+  String get hard => 'Raske';
+
+  @override
+  String get veryHard => 'Väga raske';
 }

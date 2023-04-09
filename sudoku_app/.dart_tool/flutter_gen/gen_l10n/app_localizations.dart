@@ -208,6 +208,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pointing triples'**
   String get pointingTriple;
+
+  /// No description provided for @fillCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill pencil marks'**
+  String get fillCandidates;
+
+  /// No description provided for @newGame.
+  ///
+  /// In en, this message translates to:
+  /// **'New game'**
+  String get newGame;
+
+  /// No description provided for @easy.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy'**
+  String get easy;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// No description provided for @hard.
+  ///
+  /// In en, this message translates to:
+  /// **'Hard'**
+  String get hard;
+
+  /// No description provided for @veryHard.
+  ///
+  /// In en, this message translates to:
+  /// **'Very hard'**
+  String get veryHard;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

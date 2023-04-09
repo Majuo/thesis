@@ -17,5 +17,11 @@
   "hiddenPair" : "Скрытые пары",
   "hiddenTriple" : "Скрытые тройки",
   "pointingPair" : "Указывающие пары",
-  "pointingTriple" : "Указывающие тройки"
+  "pointingTriple" : "Указывающие тройки",
+  "fillCandidates" : "Заполнить все заметки",
+  "newGame" : "Новая игра",
+  "easy" : "Легкий",
+  "medium" : "Средний",
+  "hard" : "Сложный",
+  "veryHard" : "Очень сложный"
 }

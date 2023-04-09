@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
 import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
 import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/widgets/cell_candidates.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sudoku_app/widgets/new_game_panel.dart';
 
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 import 'package:sudoku_app/widgets/sudoku_buttons_panel.dart';
@@ -145,14 +147,18 @@ class _SudokuGridState extends State<SudokuGrid> {
           },
           icon: const Icon(Icons.lightbulb)),
         TextButton(
-          // TODO: add l10n
-          child: Text("Fill notes"),
+          child: Text(AppLocalizations.of(context).fillCandidates),
           onPressed: () {
             setState(() {
               game.fillAllNotes();
             });
           },
-        )
+        ),
+        NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
+          setState(() {
+            hintText = "new game clicked with difficulty: $difficulty";
+          });
+        })
       ]
     );
 	}

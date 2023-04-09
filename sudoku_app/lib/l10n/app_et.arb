@@ -17,5 +17,11 @@
   "hiddenPair" : "Peidetud paar",
   "hiddenTriple" : "Peidetud kolmik",
   "pointingPair" : "Osutav paar",
-  "pointingTriple" : "Osutav kolmik"
+  "pointingTriple" : "Osutav kolmik",
+  "fillCandidates" : "Täida kõik pliiatsimärgid",
+  "newGame" : "Uus mäng",
+  "easy" : "Kerge",
+  "medium" : "Keskmine",
+  "hard" : "Raske",
+  "veryHard" : "Väga raske"
 }

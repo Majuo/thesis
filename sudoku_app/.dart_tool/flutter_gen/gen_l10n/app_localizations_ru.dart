@@ -60,4 +60,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pointingTriple => 'Указывающие тройки';
+
+  @override
+  String get fillCandidates => 'Заполнить все заметки';
+
+  @override
+  String get newGame => 'Новая игра';
+
+  @override
+  String get easy => 'Легкий';
+
+  @override
+  String get medium => 'Средний';
+
+  @override
+  String get hard => 'Сложный';
+
+  @override
+  String get veryHard => 'Очень сложный';
 }
