@@ -116,7 +116,7 @@ class _SudokuGridState extends State<SudokuGrid> {
           onPressed: () {
             if (isGameOver) return;
             clearHighlightedCells();
-            var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
+            var result = SudokuSolver.solveCellWithTechniques(game, {SudokuTechniquesEnum.hiddenTriple}, applyResult: true);
             if (result == null) {
               setState(() {
                 hintText = AppLocalizations.of(context).hintCanNotBeSolved;
