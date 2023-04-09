@@ -139,7 +139,7 @@ class _SudokuGridState extends State<SudokuGrid> {
           child: Text("Fill notes"),
           onPressed: () {
             setState(() {
-              game.filAllNotes();
+              game.fillAllNotes();
             });
           },
         )

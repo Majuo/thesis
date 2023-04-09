@@ -19,7 +19,6 @@ class HiddenSingleTechnique implements ISudokuTechnique {
 
       // check columns
       emptyUnitCells = sudoku.getColumnCells(i).where((c) => c.value == 0);
-      candidateMap.clear();
       unitResult = trySolveForCells(emptyUnitCells, candidateMap, applyResult, sudoku);
       if (unitResult != null) return unitResult;
     }
@@ -35,6 +34,7 @@ class HiddenSingleTechnique implements ISudokuTechnique {
 	}
 
   TechniqueResult? trySolveForCells(Iterable<SudokuCell> cells, Map<int, int> candidateMap, bool applyResult, Sudoku sudoku) {
+    candidateMap.clear();
     for (var cell in cells) {
       for (var candidate in cell.candidates) {
         if (candidateMap.containsKey(candidate)) {
@@ -50,7 +50,7 @@ class HiddenSingleTechnique implements ISudokuTechnique {
         if (applyResult) {
           resultCell.candidates.clear();
           resultCell.value = key;
-          sudoku.filAllNotes();
+          sudoku.fillAllNotes();
         }
         return TechniqueResult(successful: true, applicableCells: List.from({resultCell}), removedCandidates: List.from({SudokuCell(resultCell.row, resultCell.col, false, resultCell.value)}), usedTechnique: HiddenSingleTechnique);
       }

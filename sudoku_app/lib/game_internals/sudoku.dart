@@ -40,7 +40,7 @@ class Sudoku {
     }
   }
 
-  void filAllNotes() {
+  void fillAllNotes() {
     for (var row in board) {
       for (var cell in row.where((c) => c.value == 0)) {
         cell.candidates.clear();
