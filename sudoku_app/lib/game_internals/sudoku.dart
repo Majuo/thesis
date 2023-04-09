@@ -12,7 +12,7 @@ class Sudoku {
 
   bool checkWin() {
     if (board.any((row) => row.any((cell) => cell.value == 0))) return false;
-    // TODO: add check for errors
+    if (errorCells.isNotEmpty) return false;
     if (solution.isNotEmpty) {
       for (var row in board) {
         for (var cell in row) {
