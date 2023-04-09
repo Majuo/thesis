@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
+import 'package:sudoku_app/game_internals/generator/sudoku_generator.dart';
 import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
@@ -156,7 +157,13 @@ class _SudokuGridState extends State<SudokuGrid> {
         ),
         NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
           setState(() {
-            hintText = "new game clicked with difficulty: $difficulty";
+            currentCell?.currentState?.deselect();
+            currentCell = null;
+            clearHighlightedCells();
+            clearErrorCells();
+            game = SudokuGenerator.generateSudoku(difficulty);
+            isGameOver = false;
+            hintText = "";
           });
         })
       ]
