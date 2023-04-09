@@ -22,7 +22,6 @@ class _SudokuGridState extends State<SudokuGrid> {
   List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
   SudokuCellWidget? currentCell;
   List<SudokuCellWidget> highlightedCells = List.empty(growable: true);
-  List<SudokuCellWidget> errorCells = List.empty(growable: true);
   bool isInNotesMode = false;
   bool isGameOver = false;
   String? hintText;
@@ -53,7 +52,7 @@ class _SudokuGridState extends State<SudokuGrid> {
                         handleOnTap: () {
                           clearHighlightedCells();
                           var newCurrentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-                          if (errorCells.contains(currentCell)) {
+                          if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
                             currentCell?.currentState?.highlightError();
                           } else {
                             currentCell?.currentState?.deselect();
@@ -94,20 +93,12 @@ class _SudokuGridState extends State<SudokuGrid> {
                   boardCell.value = val;
                   // check errors
                   clearErrorCells();
-                  for (var row in game.board) {
-                    for (var cell in row.where((rc) => rc.editable && rc.value != 0)) {
-                      if (game.getPeerValues(cell.row, cell.col).contains(cell.value)) {
-                        for (var errorCell in game.getPeerCells(cell.row, cell.col).where((c) => c.value == cell.value)) {
-                          var cellWidget = cellWidgets.elementAt(errorCell.row).elementAt(errorCell.col);
-                          cellWidget.currentState?.highlightError();
-                          errorCells.add(cellWidget);
-                        }
-                        var cellWidget = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-                        cellWidget.currentState?.highlightError();
-                        errorCells.add(cellWidget);
-                      }
-                    }
+                  game.checkErrors();
+                  for (var errorCell in game.errorCells) {
+                    var cellWidget = cellWidgets.elementAt(errorCell.row).elementAt(errorCell.col);
+                    cellWidget.currentState?.highlightError();
                   }
+
                 } else if (val != 0) {
                   if (boardCell.candidates.contains(val)) {
                     boardCell.candidates.remove(val);
@@ -177,14 +168,15 @@ class _SudokuGridState extends State<SudokuGrid> {
   }
 
   void clearErrorCells() {
-    for (var cell in errorCells) {
-      if (cell == currentCell) {
-        cell.currentState?.selectCurrent();
+    for (var cell in game.errorCells) {
+      var cellWidget = cellWidgets.elementAt(cell.row).elementAt(cell.col);
+      if (cellWidget == currentCell) {
+        cellWidget.currentState?.selectCurrent();
       } else {
-        cell.currentState?.deselect();
+        cellWidget.currentState?.deselect();
       }
     }
-    errorCells.clear();
+    game.errorCells.clear();
   }
 
   Future<void> showWinAlert() async {

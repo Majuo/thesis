@@ -7,7 +7,7 @@ class Sudoku {
 	List<List<SudokuCell>> board = List.empty(growable: true);
 	List<List<int>> solution = List.empty(growable: true);
 	List<List<int>> initState = List.empty(growable: true);
-	SudokuCell? currentCell;
+  List<SudokuCell> errorCells = List.empty(growable: true);
   static final HashSet<int> numSet = HashSet.from({1, 2, 3, 4, 5, 6, 7, 8, 9});
 
   bool checkWin() {
@@ -100,6 +100,19 @@ class Sudoku {
       if (cell.row ~/ 3 != intDivRow || cell.col ~/ 3 != intDivCol) return false;
     }
     return true;
+  }
+
+  Iterable<SudokuCell>? checkErrors() {
+    for (var row in board) {
+      for (var cell in row.where((rc) => rc.editable && rc.value != 0)) {
+        if (getPeerValues(cell.row, cell.col).contains(cell.value)) {
+          for (var errorCell in getPeerCells(cell.row, cell.col).where((c) => c.value == cell.value)) {
+            errorCells.add(errorCell);
+          }
+          errorCells.add(cell);
+        }
+      }
+    }
   }
 
   Iterable<SudokuCell> getBlockCells(int rowNo, int columnNo) {
