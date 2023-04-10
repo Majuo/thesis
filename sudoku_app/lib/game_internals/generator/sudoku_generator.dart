@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
+import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
 
@@ -11,39 +12,15 @@ class SudokuGenerator {
     switch (difficulty) {
       case SudokuDifficultyEnum.easy:
         filledCells = 41;
-        usedTechniques.addAll({
-          SudokuTechniquesEnum.rules,
-          SudokuTechniquesEnum.lastPossibleNumber,
-          SudokuTechniquesEnum.lastRemainingCell
-        });
+        usedTechniques.addAll(SudokuTechniquesExtension.easyTechniques());
         break;
       case SudokuDifficultyEnum.medium:
         filledCells = 34;
-        usedTechniques.addAll({
-          SudokuTechniquesEnum.rules,
-          SudokuTechniquesEnum.lastPossibleNumber,
-          SudokuTechniquesEnum.lastRemainingCell,
-          SudokuTechniquesEnum.nakedSingle,
-          SudokuTechniquesEnum.nakedPair,
-          SudokuTechniquesEnum.hiddenSingle,
-          SudokuTechniquesEnum.hiddenPair,
-        });
+        usedTechniques.addAll(SudokuTechniquesExtension.mediumTechniques());
         break;
       case SudokuDifficultyEnum.hard:
         filledCells = 27;
-        usedTechniques.addAll({
-          SudokuTechniquesEnum.rules,
-          SudokuTechniquesEnum.lastPossibleNumber,
-          SudokuTechniquesEnum.lastRemainingCell,
-          SudokuTechniquesEnum.nakedSingle,
-          SudokuTechniquesEnum.nakedPair,
-          SudokuTechniquesEnum.hiddenSingle,
-          SudokuTechniquesEnum.hiddenPair,
-          SudokuTechniquesEnum.nakedTriple,
-          SudokuTechniquesEnum.hiddenTriple,
-          SudokuTechniquesEnum.pointingPair,
-          SudokuTechniquesEnum.pointingTriple
-        });
+        usedTechniques.addAll(SudokuTechniquesExtension.hardTechniques());
         break;
       case SudokuDifficultyEnum.veryHard:
         filledCells = 20;
@@ -55,11 +32,22 @@ class SudokuGenerator {
     var solution = getRandomSolution();
     var initState = solution.map((r) => [...r]).toList();
     for (var i = 0; i < (81 - filledCells); i++) {
-      var row = Random().nextInt(9);
-      var cell = Random().nextInt(9);
-      initState.elementAt(row).replaceRange(cell, cell + 1, {0});
+      var cellRemoved = false;
+      do {
+        int row = 0;
+        int col = 0;
+        do {
+          row = Random().nextInt(9);
+          col = Random().nextInt(9);
+        } while (initState[row][col] == 0);
+        initState[row][col] = 0;
+        if (!SudokuSolver.solveSudokuWithTechniques(Sudoku.generateSudoku(initState, solution), usedTechniques)) {
+          initState[row][col] = solution[row][col];
+          continue;
+        }
+        cellRemoved = true;
+      } while (!cellRemoved);
     }
-    solution[0][0] = 69;
     return Sudoku.generateSudoku(initState, solution);
   }
 

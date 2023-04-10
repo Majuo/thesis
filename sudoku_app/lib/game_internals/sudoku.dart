@@ -222,6 +222,20 @@ class Sudoku {
         result += cell.value.toString();
       }
     }
+
+    result += "\n----- init state -----";
+    for (var i = 0; i < 9; i++) {
+      result += "\n";
+      for (var j = 0; j < 9; j++) {
+        if (j == 0 && (i == 3 || i == 6)) {
+          result += "---------------\n";
+        }
+        if ({3, 6}.contains(j)) {
+          result += " | ";
+        }
+        result += initState[i][j].toString();
+      }
+    }
     return result;
   }
 }
