@@ -25,7 +25,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
           var cell = sudoku.board.elementAt(i).elementAt(colNo);
 				  cell.value = solution;
           cell.candidates.clear();
-          var peerCells = sudoku.getPeerCells(rowNo, i);
+          var peerCells = sudoku.getPeerCells(i, colNo);
           for (var pc in peerCells) {
             pc.candidates.remove(solution);
           }
@@ -65,7 +65,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
             var c = sudoku.board.elementAt(cell.row).elementAt(cell.col);
 					  c.value = solution;
             c.candidates.clear();
-            var peerCells = sudoku.getPeerCells(rowNo, i);
+            var peerCells = sudoku.getPeerCells(rowNo, j);
             for (var pc in peerCells) {
               pc.candidates.remove(solution);
             }
