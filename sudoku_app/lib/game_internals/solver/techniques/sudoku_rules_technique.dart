@@ -62,10 +62,9 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 					var cell = blockCells.firstWhere((c) => c.value == 0);
 					if (applyResult)
 					{
-            var c = sudoku.board.elementAt(cell.row).elementAt(cell.col);
-					  c.value = solution;
-            c.candidates.clear();
-            var peerCells = sudoku.getPeerCells(rowNo, j);
+					  cell.value = solution;
+            cell.candidates.clear();
+            var peerCells = sudoku.getPeerCells(cell.row, cell.col);
             for (var pc in peerCells) {
               pc.candidates.remove(solution);
             }
