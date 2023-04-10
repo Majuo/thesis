@@ -15,38 +15,68 @@ class SudokuGenerator {
         usedTechniques.addAll(SudokuTechniquesExtension.easyTechniques());
         break;
       case SudokuDifficultyEnum.medium:
-        filledCells = 34;
+        filledCells = 35;
         usedTechniques.addAll(SudokuTechniquesExtension.mediumTechniques());
         break;
       case SudokuDifficultyEnum.hard:
-        filledCells = 27;
+        filledCells = 29;
         usedTechniques.addAll(SudokuTechniquesExtension.hardTechniques());
         break;
       case SudokuDifficultyEnum.veryHard:
-        filledCells = 20;
+        filledCells = 23;
         usedTechniques.addAll(SudokuTechniquesEnum.values);
         break;
       default:
         throw Exception("unknown difficulty");  
     }
     var solution = getRandomSolution();
-    var initState = solution.map((r) => [...r]).toList();
-    for (var i = 0; i < (81 - filledCells); i++) {
-      var cellRemoved = false;
+    var retries = 0;
+    var needsRetry = true;
+    List<List<int>> initState = [];
+    do {
+      retries += 1;
+      initState = solution.map((r) => [...r]).toList();
+      var removeIndices = List<int>.empty(growable: true);
+      var removedCells = 0;
+      var sameCount = 0;
+      for (var i = 0; i < 81 ; i++) {
+        removeIndices.add(i);
+      }
       do {
-        int row = 0;
-        int col = 0;
-        do {
-          row = Random().nextInt(9);
-          col = Random().nextInt(9);
-        } while (initState[row][col] == 0);
+        sameCount += 1;
+        var index = Random().nextInt(removeIndices.length);
+        var cellNo = removeIndices[index];
+        var row = cellNo ~/ 9;
+        var col = cellNo % 9;
+        if (initState[row].where((c) => c == 0).length == 8) {
+          // don't allow empty rows
+          removeIndices.removeWhere((i) => i ~/ 9 == row);
+          continue;
+        }
+        if (initState.map((r) => r[col]).where((c) => c == 0).length == 8) {
+          // don't allow empty columns
+          removeIndices.removeWhere((i) => i % 9 == col);
+          continue;
+        }
         initState[row][col] = 0;
-        if (!SudokuSolver.solveSudokuWithTechniques(Sudoku.generateSudoku(initState, solution), usedTechniques)) {
+        bool? res = SudokuSolver.solveSudokuWithTechniques(Sudoku.generateSudoku(initState, solution), usedTechniques);
+        if (res == null) {
+          return Sudoku.generateSudoku(initState, solution);
+        }
+        if (!res) {
           initState[row][col] = solution[row][col];
           continue;
         }
-        cellRemoved = true;
-      } while (!cellRemoved);
+        removeIndices.removeAt(index);
+        removedCells += 1;
+        sameCount = 0;
+      } while (!(removedCells == 81 - filledCells) && sameCount < 100);
+      if (removedCells == 81 - filledCells) {
+        needsRetry = false;
+      }
+    } while (retries < 10 && needsRetry);
+    if (retries > 10) {
+      throw Exception("Unable to generate new Sudoku with given parameters: difficulty: $difficulty");
     }
     return Sudoku.generateSudoku(initState, solution);
   }

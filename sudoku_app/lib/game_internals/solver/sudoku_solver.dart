@@ -22,7 +22,7 @@ class SudokuSolver {
 		return null;
 	}
 
-	static bool solveSudokuWithTechniques(Sudoku game, Iterable<SudokuTechniquesEnum> techniques) {
+	static bool? solveSudokuWithTechniques(Sudoku game, Iterable<SudokuTechniquesEnum> techniques) {
     game.fillAllNotes();
     while (!game.checkWin()) {
       if (!game.board.any((row) => row.any((cell) => cell.value == 0)) && !game.checkWin()) {
@@ -32,7 +32,6 @@ class SudokuSolver {
       for (var technique in TechniquesContainer.getTechniques(techniques)) {
         techniqueResult = technique.trySolve(game, applyResult: true);
         if (techniqueResult != null) {
-          print("technique - ${techniqueResult.usedTechnique}");
           // TODO: remove tmp code
           var error = false;
           for (var i = 0; i < 9; i++) {
@@ -55,6 +54,7 @@ class SudokuSolver {
           }
           if (error) {
             print("error detected! technique ${techniqueResult.usedTechnique}. row: ${techniqueResult.applicableCells!.first.row}. col: ${techniqueResult.applicableCells!.first.col}.");
+            return null;
           }
           // TODO: tmp code
           break;
