@@ -223,7 +223,7 @@ class Sudoku {
       }
     }
 
-    result += "\n----- init state -----";
+    result += "\n\n----- init state -----";
     for (var i = 0; i < 9; i++) {
       result += "\n";
       for (var j = 0; j < 9; j++) {
@@ -234,6 +234,20 @@ class Sudoku {
           result += " | ";
         }
         result += initState[i][j].toString();
+      }
+    }
+
+    result += "\n\n----- solution -----";
+    for (var i = 0; i < 9; i++) {
+      result += "\n";
+      for (var j = 0; j < 9; j++) {
+        if (j == 0 && (i == 3 || i == 6)) {
+          result += "---------------\n";
+        }
+        if ({3, 6}.contains(j)) {
+          result += " | ";
+        }
+        result += solution[i][j].toString();
       }
     }
     return result;
