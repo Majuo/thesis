@@ -157,18 +157,28 @@ class _SudokuGridState extends State<SudokuGrid> {
         ),
         NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
           setState(() {
-            currentCell?.currentState?.deselect();
-            currentCell = null;
-            clearHighlightedCells();
-            clearErrorCells();
-            game = SudokuGenerator.generateSudoku(difficulty);
-            isGameOver = false;
-            hintText = "";
+            resetBoard(SudokuGenerator.generateSudoku(difficulty));
           });
-        })
+        }),
+        TextButton(
+          onPressed: () {
+            resetBoard(Sudoku.generateSudoku(game.initState, game.solution));
+          }, 
+          // TODO add l10n
+          child: Text("Reset"))
       ]
     );
 	}
+
+  void resetBoard(Sudoku newGame) {
+    currentCell?.currentState?.deselect();
+    currentCell = null;
+    clearHighlightedCells();
+    clearErrorCells();
+    game = newGame;
+    isGameOver = false;
+    hintText = "";
+  }
 
   void clearHighlightedCells() {
     setState(() {
