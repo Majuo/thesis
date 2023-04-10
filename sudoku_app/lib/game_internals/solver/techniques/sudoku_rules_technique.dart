@@ -22,7 +22,13 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 				colNo = sudoku.getRowCells(i).firstWhere((c) => c.value == 0).col;
 				if (applyResult)
 				{
-				sudoku.board.elementAt(i).elementAt(colNo).value = solution;
+          var cell = sudoku.board.elementAt(i).elementAt(colNo);
+				  cell.value = solution;
+          cell.candidates.clear();
+          var peerCells = sudoku.getPeerCells(rowNo, i);
+          for (var pc in peerCells) {
+            pc.candidates.remove(solution);
+          }
 				}
 				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(i, colNo, true, solution)}), usedTechnique: SudokuRulesTechnique);
 			}
@@ -34,7 +40,13 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 				rowNo = sudoku.getColumnCells(i).firstWhere((c) => c.value == 0).row;
 				if (applyResult)
 				{
-					sudoku.board.elementAt(rowNo).elementAt(i).value = solution;
+          var cell = sudoku.board.elementAt(rowNo).elementAt(i);
+          cell.value = solution;
+          cell.candidates.clear();
+          var peerCells = sudoku.getPeerCells(rowNo, i);
+          for (var pc in peerCells) {
+            pc.candidates.remove(solution);
+          }
 				}
 				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(rowNo, i, true, solution)}), usedTechnique: SudokuRulesTechnique);
 			}
@@ -50,7 +62,13 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 					var cell = blockCells.firstWhere((c) => c.value == 0);
 					if (applyResult)
 					{
-					sudoku.board.elementAt(cell.row).elementAt(cell.col).value = solution;
+            var c = sudoku.board.elementAt(cell.row).elementAt(cell.col);
+					  c.value = solution;
+            c.candidates.clear();
+            var peerCells = sudoku.getPeerCells(rowNo, i);
+            for (var pc in peerCells) {
+              pc.candidates.remove(solution);
+            }
 					}
 					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, solution)}), usedTechnique: SudokuRulesTechnique);
 				}

@@ -13,6 +13,11 @@ class NakedSingleTechnique implements ISudokuTechnique {
         if (cell.value == 0 && cell.candidates.isNotEmpty && cell.candidates.length == 1) {
           if (applyResult) {
             cell.value = cell.candidates.first;
+            cell.candidates.clear();
+            var peerCells = sudoku.getPeerCells(cell.row, cell.col);
+            for (var pc in peerCells) {
+              pc.candidates.remove(cell.candidates.first);
+            }
           }
           return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, cell.candidates.first)}), usedTechnique: NakedSingleTechnique);
         }

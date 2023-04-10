@@ -32,6 +32,11 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 				if (success) {
 					if (applyResult) {
 					  fittingCell!.value = num;
+            fittingCell.candidates.clear();
+            var peerCells = sudoku.getPeerCells(fittingCell.row, fittingCell.col);
+            for (var pc in peerCells) {
+              pc.candidates.remove(num);
+            }
 					}
 					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 				}
@@ -57,6 +62,11 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 				if (success) {
 					if (applyResult) {
 					  fittingCell!.value = num;
+            fittingCell.candidates.clear();
+            var peerCells = sudoku.getPeerCells(fittingCell.row, fittingCell.col);
+            for (var pc in peerCells) {
+              pc.candidates.remove(num);
+            }
 					}
 					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 				}
@@ -84,7 +94,12 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 					}
 					if (success) {
 						if (applyResult) {
-						fittingCell!.value = num;
+						  fittingCell!.value = num;
+              fittingCell.candidates.clear();
+              var peerCells = sudoku.getPeerCells(fittingCell.row, fittingCell.col);
+              for (var pc in peerCells) {
+                pc.candidates.remove(num);
+              }
 						}
 						return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 					}

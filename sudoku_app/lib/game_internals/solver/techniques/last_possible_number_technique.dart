@@ -13,7 +13,12 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
 			var missingNums = Sudoku.numSet.difference(sudoku.getPeerValues(cell.row, cell.col));
 			if (missingNums.length == 1) {
 				if (applyResult) {
-				cell.value = missingNums.first;
+          cell.candidates.clear();
+				  cell.value = missingNums.first;
+          var peerCells = sudoku.getPeerCells(cell.row, cell.col);
+          for (var pc in peerCells) {
+            pc.candidates.remove(missingNums.first);
+          }
 				}
 				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, missingNums.first)}), usedTechnique: LastPossibleNumberTechnique);
 			}

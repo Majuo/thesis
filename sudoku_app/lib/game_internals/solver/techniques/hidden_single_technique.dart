@@ -50,7 +50,10 @@ class HiddenSingleTechnique implements ISudokuTechnique {
         if (applyResult) {
           resultCell.candidates.clear();
           resultCell.value = key;
-          sudoku.fillAllNotes();
+          var peerCells = sudoku.getPeerCells(resultCell.row, resultCell.col);
+          for (var pc in peerCells) {
+            pc.candidates.remove(key);
+          }
         }
         return TechniqueResult(successful: true, applicableCells: List.from({resultCell}), removedCandidates: List.from({SudokuCell(resultCell.row, resultCell.col, false, resultCell.value)}), usedTechnique: HiddenSingleTechnique);
       }
