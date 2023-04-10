@@ -33,7 +33,7 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 					if (applyResult) {
 					  fittingCell!.value = num;
 					}
-					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}));
+					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 				}
 			}
 			// check columns
@@ -58,7 +58,7 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 					if (applyResult) {
 					  fittingCell!.value = num;
 					}
-					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}));
+					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 				}
 			}
 		}
@@ -86,7 +86,7 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
 						if (applyResult) {
 						fittingCell!.value = num;
 						}
-						return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}));
+						return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(fittingCell!.row, fittingCell.col, true, num)}), usedTechnique: LastRemainingCellTechnique);
 					}
 				}
 			}
