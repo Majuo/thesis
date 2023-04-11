@@ -31,5 +31,6 @@
   "navigationMenuOption" : "Navigation menu",
   "adaptive" : "Adaptive",
   "bottomNavigationBar" : "Bottom",
-  "sidebar" : "Sidebar"
+  "sidebar" : "Sidebar",
+  "hint" : "Hint"
 }

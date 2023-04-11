@@ -31,5 +31,6 @@
   "navigationMenuOption" : "Меню навигации",
   "adaptive" : "Адаптивное",
   "bottomNavigationBar" : "Снизу",
-  "sidebar" : "Сбоку"
+  "sidebar" : "Сбоку",
+  "hint" : "Подсказка"
 }

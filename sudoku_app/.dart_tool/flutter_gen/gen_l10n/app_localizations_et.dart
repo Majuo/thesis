@@ -102,4 +102,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get sidebar => 'Külgriba';
+
+  @override
+  String get hint => 'Vihje';
 }

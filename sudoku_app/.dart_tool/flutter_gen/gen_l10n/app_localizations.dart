@@ -292,6 +292,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sidebar'**
   String get sidebar;
+
+  /// No description provided for @hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint'**
+  String get hint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

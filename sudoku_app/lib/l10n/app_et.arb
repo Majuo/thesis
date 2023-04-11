@@ -31,5 +31,6 @@
   "navigationMenuOption" : "Navigeerimismenüü",
   "adaptive" : "Adaptiivne",
   "bottomNavigationBar" : "Allpool",
-  "sidebar" : "Külgriba"
+  "sidebar" : "Külgriba",
+  "hint" : "Vihje"
 }

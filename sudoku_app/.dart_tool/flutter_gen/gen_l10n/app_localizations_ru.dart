@@ -102,4 +102,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get sidebar => 'Сбоку';
+
+  @override
+  String get hint => 'Подсказка';
 }

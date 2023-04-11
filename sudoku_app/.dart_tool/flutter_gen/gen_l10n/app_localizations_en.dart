@@ -102,4 +102,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sidebar => 'Sidebar';
+
+  @override
+  String get hint => 'Hint';
 }

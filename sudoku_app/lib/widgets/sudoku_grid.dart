@@ -39,7 +39,9 @@ class _SudokuGridState extends State<SudokuGrid> {
             List<Row> widgets = List.empty(growable: true);
             for (var row in game.board) {
               var rowWidget = Row(children: List.empty(growable: true),);
-              cellWidgets.add(List.empty(growable: true));
+              if (cellWidgets.length < 9) {
+                cellWidgets.add(List.empty(growable: true));
+              }
               for (var cell in row) {
                 var cellWidget = SudokuCellWidget(getCellContent: () {
                       if (cell.value > 0) {
@@ -55,7 +57,9 @@ class _SudokuGridState extends State<SudokuGrid> {
                     rowNo: cell.row,
                     cellNo: cell.col
                   );
-                  cellWidgets.elementAt(cell.row).add(cellWidget);
+                  if (cellWidgets.elementAt(cell.row).length < 9) {
+                    cellWidgets.elementAt(cell.row).add(cellWidget);
+                  }
                   rowWidget.children.add(cellWidget);
               }
               widgets.add(rowWidget);

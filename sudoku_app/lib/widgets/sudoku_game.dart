@@ -95,35 +95,69 @@ class _SudokuGameState extends State<SudokuGame> {
               isInNotesMode = !isInNotesMode;
             },),
         ),
-        IconButton(
-          onPressed: () {
-            if (isGameOver) return;
-            clearHighlightedCells();
-            var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
-            if (result == null) {
-              setState(() {
-                hintText = AppLocalizations.of(context).hintCanNotBeSolved;
-              });
-            } else {
-              if (result.applicableCells == null || result.applicableCells!.isEmpty) return;
-              setState(() {
-                hintText = (result.applicableCells?.length == 1 ? AppLocalizations.of(context).hintCanBeSolvedUsingSingleCell : AppLocalizations.of(context).hintCanBeSolvedUsingMultipleCells) + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
-              });
-              for (var resultCell in result.applicableCells!) {
-                var cellWidget = cellWidgets.elementAt(resultCell.row).elementAt(resultCell.col);
-                cellWidget.currentState?.highlight();
-                highlightedCells.add(cellWidget);
-              }
-            }
-          },
-          icon: const Icon(Icons.lightbulb)),
-        TextButton(
-          child: Text(AppLocalizations.of(context).fillCandidates),
-          onPressed: () {
-            setState(() {
-              game.fillAllNotes();
-            });
-          },
+        SizedBox(
+          width: SudokuGrid.gridSize,
+          height: SudokuCellWidget.cellSize * 1.2,
+          child: Padding(
+            padding: const EdgeInsets.all(5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    if (isGameOver) return;
+                    clearHighlightedCells();
+                    var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
+                    if (result == null) {
+                      setState(() {
+                        hintText = AppLocalizations.of(context).hintCanNotBeSolved;
+                      });
+                    } else {
+                      if (result.applicableCells == null || result.applicableCells!.isEmpty) return;
+                      setState(() {
+                        hintText = (result.applicableCells?.length == 1 ? AppLocalizations.of(context).hintCanBeSolvedUsingSingleCell : AppLocalizations.of(context).hintCanBeSolvedUsingMultipleCells) + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
+                      });
+                      for (var resultCell in result.applicableCells!) {
+                        var cellWidget = cellWidgets.elementAt(resultCell.row).elementAt(resultCell.col);
+                        cellWidget.currentState?.highlight();
+                        highlightedCells.add(cellWidget);
+                      }
+                    }
+                  },
+                  child: Row(
+                    children: [
+                      const Icon(Icons.lightbulb),
+                      Text(AppLocalizations.of(context).hint)
+                    ]
+                  )
+                ),
+                TextButton(
+                  child: Row(
+                    children: [
+                      const Icon(Icons.edit_square),
+                      Text(AppLocalizations.of(context).fillCandidates)
+                    ]
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      game.fillAllNotes();
+                    });
+                  },
+                ),
+                TextButton(
+                  onPressed: () {
+                    resetBoard(Sudoku.generateSudoku(game.initState, game.solution));
+                  }, 
+                  child: Row(
+                    children: [
+                      const Icon(Icons.restart_alt),
+                      Text(AppLocalizations.of(context).reset)
+                    ]
+                  )
+                )
+              ],
+            ),
+          ),
         ),
         NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
           SudokuGenerator.generateSudoku(difficulty).then((value) {
@@ -132,11 +166,6 @@ class _SudokuGameState extends State<SudokuGame> {
             });
           });
         }),
-        TextButton(
-          onPressed: () {
-            resetBoard(Sudoku.generateSudoku(game.initState, game.solution));
-          }, 
-          child: Text(AppLocalizations.of(context).reset))
       ]
     );
 	}
@@ -146,7 +175,10 @@ class _SudokuGameState extends State<SudokuGame> {
     currentCell = null;
     clearHighlightedCells();
     clearErrorCells();
-    game = newGame;
+    game.board = newGame.board;
+    game.solution = newGame.solution;
+    game.initState = newGame.initState;
+    game.errorCells = newGame.errorCells;
     isGameOver = false;
     hintText = "";
   }
