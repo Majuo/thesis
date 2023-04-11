@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/widgets/sudoku_grid.dart';
+import 'package:sudoku_app/widgets/sudoku_game.dart';
 
 class GamePage extends StatefulWidget {
 	const GamePage({super.key});
@@ -9,7 +9,7 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  SudokuGrid grid = const SudokuGrid();
+  SudokuGame grid = const SudokuGame();
 
 	@override
 	Widget build(BuildContext context) {
