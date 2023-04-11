@@ -1,0 +1,22 @@
+[
+  {
+    "initState": "--d-------hi---ac-c-----gbdb--c-d---a---------f--h-c--di---b-----g--c-h--------e-",
+    "solution": "gbdacfeihehibdgacfcafeihgbdbghcfdiaeadcibehfgifeghacdbdiahebfgcfegdacbhihcbfgidea"
+  },
+  {
+    "initState": "-------ei-d------ag-a--h-----h---------db--c-----g----dib----f---c---d---a-i-c-gh",
+    "solution": "bhfacdgeiedibfgchagcaeihfbdabhcefidgiegdbahcfcfdhgieabdibgheafchgcfabdiefaeidcbgh"
+  },
+  {
+    "initState": "---a----g-----e-b----h-gad-------i--e---h-b---gi--ah--h--f------dc-----------bf-a",
+    "solution": "ihdabcefgafgdiecbhcebhfgadibchgefiadeafihdbgcdgibcahefhbafgidcefdceahgibgiecdbfha"
+  },
+  {
+    "initState": "f----------------h---c-h-ibba-fd------e-gi-f-----a-g---df------i-----d--e----b--i",
+    "solution": "fihabdecgcebgifadhagdcehfibbagfdeihcdcehgibfahfibacgedgdficahbeibcehgdafehadfbcgi"
+  },
+  {
+    "initState": "----b-fc-----eh---d-----b------a-i---i----ehb-hf-------a-----ge--ci-------e---hf-",
+    "solution": "egiabdfchfbacehdigdchfigbeaceghabidfaidgfcehbbhfedigaciabdhfcgehfcigeabdgdebcahfi"
+  }
+]

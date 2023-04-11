@@ -156,8 +156,10 @@ class _SudokuGridState extends State<SudokuGrid> {
           },
         ),
         NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
-          setState(() {
-            resetBoard(SudokuGenerator.generateSudoku(difficulty));
+          SudokuGenerator.generateSudoku(difficulty).then((value) {
+            setState(() {
+              resetBoard(value);
+            });
           });
         }),
         TextButton(

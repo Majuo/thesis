@@ -1,14 +1,126 @@
+import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
+import 'package:flutter/services.dart' show rootBundle;
+
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
+import 'package:sudoku_app/game_internals/generator/sudoku_template.dart';
 import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
 
+void main(List<String> arguments) {
+  // for adding new templates
+  SudokuGenerator.generateSudokuTemplate(SudokuDifficultyEnum.easy);
+}
+
 class SudokuGenerator {
-  static Sudoku generateSudoku(SudokuDifficultyEnum difficulty) {
+
+
+  static Map<int, String> intToStrMap = {
+    1 : "a",
+    2 : "b",
+    3 : "c",
+    4 : "d",
+    5 : "e",
+    6 : "f",
+    7 : "g",
+    8 : "h",
+    9 : "i",
+    0 : "-",
+  };
+
+  static Map<SudokuDifficultyEnum, String> fileNamePartMap = {
+    SudokuDifficultyEnum.easy : "easy",
+    SudokuDifficultyEnum.medium : "medium",
+    SudokuDifficultyEnum.hard : "hard",
+    SudokuDifficultyEnum.veryHard : "very_hard"
+  };
+
+  static String templateDirectoryPath = "lib\\game_internals\\generator\\generated_templates\\";
+  static String templateDirectoryAssetPath = "lib/game_internals/generator/generated_templates/";
+
+  static Future<Sudoku> generateSudoku(SudokuDifficultyEnum difficulty) async {
+    String fileNamePart = fileNamePartMap[difficulty] ?? "easy";
+    var jsonString = await rootBundle.loadString("$templateDirectoryAssetPath$fileNamePart.json");
+    List<dynamic> templatesJson = jsonDecode(jsonString);
+    var template = SudokuTemplate.fromJson(templatesJson[Random().nextInt(templatesJson.length)]);
+    return permutate(template);
+  }
+
+  static Sudoku permutate(SudokuTemplate template) {
+    List<List<int>> initStateResult = List.empty(growable: true);
+    List<List<int>> solutionResult = List.empty(growable: true);
+
+    var mirrorHorizontally = Random().nextBool();
+    var mirrorVertically = Random().nextBool();
+    var rotateTimes = Random().nextInt(4);
+
+    // permutation 1 - mirror
+    if (mirrorVertically) {
+      template.initState = template.initState.reversed.toList();
+      template.solution = template.solution.reversed.toList();
+    }
+    if (mirrorHorizontally) {
+      for (var i = 0; i < 9; i++) {
+        template.initState[i] = template.initState[i].reversed.toList();
+        template.solution[i] = template.solution[i].reversed.toList();
+      }
+    }
+    // permutation 2 - rotate
+    var initStateTemp = template.initState.map((r) => [...r]).toList();
+    var solutionTemp = template.solution.map((r) => [...r]).toList();
+    for (var i = 0; i < rotateTimes; i++) {
+      // swap 90 degrees clockwise x rotateTimes
+      for (int i = 0; i < 9 / 2; i++) {
+        for (int j = i; j < 9 - i - 1; j++) {
+          String temp = initStateTemp[i][j];
+          initStateTemp[i][j] = initStateTemp[9 - 1 - j][i];
+          initStateTemp[9 - 1 - j][i] = initStateTemp[9 - 1 - i][9 - 1 - j];
+          initStateTemp[9 - 1 - i][9 - 1 - j] = initStateTemp[j][9 - 1 - i];
+          initStateTemp[j][9 - 1 - i] = temp;
+
+          temp = solutionTemp[i][j];
+          solutionTemp[i][j] = solutionTemp[9 - 1 - j][i];
+          solutionTemp[9 - 1 - j][i] = solutionTemp[9 - 1 - i][9 - 1 - j];
+          solutionTemp[9 - 1 - i][9 - 1 - j] = solutionTemp[j][9 - 1 - i];
+          solutionTemp[j][9 - 1 - i] = temp;
+        }
+      }
+      template.initState = initStateTemp.map((r) => [...r]).toList();
+      template.solution = solutionTemp.map((r) => [...r]).toList();
+    }
+
+    // permutation 3 - replace chars with numbers
+    Map<String, int> strToIntMap = {};
+    List<String> strings = ["a", "b", "c", "d", "e", "f", "g", "h", "i"];
+    List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]..shuffle();
+    for (var i = 0; i < 9; i++) {
+      strToIntMap[strings[i]] = nums[i];
+    }
+    strToIntMap["-"] = 0;
+    for (var i = 0; i < 9; i++) {
+      initStateResult.add(List.empty(growable: true));
+      solutionResult.add(List.empty(growable: true));
+      for (var j = 0; j < 9; j++) {
+        initStateResult.elementAt(i).add(0);
+        solutionResult.elementAt(i).add(0);
+      }
+    }
+    for (var i = 0; i < 9; i++) {
+      for (var j = 0; j < 9; j++) {
+        initStateResult[i][j] = strToIntMap[template.initState[i][j]] ?? 0;
+        solutionResult[i][j] = strToIntMap[template.solution[i][j]] ?? 0;
+      }
+    }
+    return Sudoku.generateSudoku(initStateResult, solutionResult);
+  }
+
+  static void generateSudokuTemplate(SudokuDifficultyEnum difficulty) {
     int filledCells = 0;
     List<SudokuTechniquesEnum> usedTechniques = List.empty(growable: true);
+    String fileNamePart = fileNamePartMap[difficulty] ?? "easy";
     switch (difficulty) {
       case SudokuDifficultyEnum.easy:
         filledCells = 41;
@@ -59,11 +171,7 @@ class SudokuGenerator {
           continue;
         }
         initState[row][col] = 0;
-        bool? res = SudokuSolver.solveSudokuWithTechniques(Sudoku.generateSudoku(initState, solution), usedTechniques);
-        if (res == null) {
-          return Sudoku.generateSudoku(initState, solution);
-        }
-        if (!res) {
+        if (!SudokuSolver.solveSudokuWithTechniques(Sudoku.generateSudoku(initState, solution), usedTechniques)) {
           initState[row][col] = solution[row][col];
           continue;
         }
@@ -78,7 +186,16 @@ class SudokuGenerator {
     if (retries > 10) {
       throw Exception("Unable to generate new Sudoku with given parameters: difficulty: $difficulty");
     }
-    return Sudoku.generateSudoku(initState, solution);
+
+    SudokuTemplate newTemplate = SudokuTemplate();
+    newTemplate.initState = initState.map((r) => r.map((c) => intToStrMap[c]!).toList()).toList();
+    newTemplate.solution = solution.map((r) => r.map((c) => intToStrMap[c]!).toList()).toList();
+
+    var file = File("$templateDirectoryPath$fileNamePart.json");
+    List<dynamic> templates = jsonDecode(file.readAsStringSync());
+    templates.add(newTemplate.toJson());
+    var encoder = const JsonEncoder.withIndent("  ");
+    file.writeAsStringSync(encoder.convert(templates));
   }
 
   // solution generation is based on https://www.geeksforgeeks.org/program-sudoku-generator/
