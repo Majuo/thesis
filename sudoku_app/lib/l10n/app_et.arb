@@ -23,5 +23,9 @@
   "easy" : "Kerge",
   "medium" : "Keskmine",
   "hard" : "Raske",
-  "veryHard" : "Väga raske"
+  "veryHard" : "Väga raske",
+  "menuItemGame" : "Mäng",
+  "menuItemLearning" : "Õppimine",
+  "menuItemSettings" : "Seaded",
+  "reset" : "Tühista"
 }

@@ -78,4 +78,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get veryHard => 'Очень сложный';
+
+  @override
+  String get menuItemGame => 'Игра';
+
+  @override
+  String get menuItemLearning => 'Обучение';
+
+  @override
+  String get menuItemSettings => 'Настройки';
+
+  @override
+  String get reset => 'Сбросить';
 }

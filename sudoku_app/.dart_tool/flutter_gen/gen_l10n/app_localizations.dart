@@ -244,6 +244,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Very hard'**
   String get veryHard;
+
+  /// No description provided for @menuItemGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Game'**
+  String get menuItemGame;
+
+  /// No description provided for @menuItemLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning'**
+  String get menuItemLearning;
+
+  /// No description provided for @menuItemSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get menuItemSettings;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

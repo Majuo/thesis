@@ -166,8 +166,7 @@ class _SudokuGridState extends State<SudokuGrid> {
           onPressed: () {
             resetBoard(Sudoku.generateSudoku(game.initState, game.solution));
           }, 
-          // TODO add l10n
-          child: Text("Reset"))
+          child: Text(AppLocalizations.of(context).reset))
       ]
     );
 	}

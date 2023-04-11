@@ -78,4 +78,16 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get veryHard => 'Väga raske';
+
+  @override
+  String get menuItemGame => 'Mäng';
+
+  @override
+  String get menuItemLearning => 'Õppimine';
+
+  @override
+  String get menuItemSettings => 'Seaded';
+
+  @override
+  String get reset => 'Tühista';
 }

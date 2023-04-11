@@ -23,5 +23,9 @@
   "easy" : "Easy",
   "medium" : "Medium",
   "hard" : "Hard",
-  "veryHard" : "Very hard"
+  "veryHard" : "Very hard",
+  "menuItemGame" : "Game",
+  "menuItemLearning" : "Learning",
+  "menuItemSettings" : "Settings",
+  "reset" : "Reset"
 }

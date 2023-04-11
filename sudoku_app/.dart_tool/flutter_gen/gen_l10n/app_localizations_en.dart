@@ -78,4 +78,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get veryHard => 'Very hard';
+
+  @override
+  String get menuItemGame => 'Game';
+
+  @override
+  String get menuItemLearning => 'Learning';
+
+  @override
+  String get menuItemSettings => 'Settings';
+
+  @override
+  String get reset => 'Reset';
 }
