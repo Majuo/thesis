@@ -27,5 +27,9 @@
   "menuItemGame" : "Игра",
   "menuItemLearning" : "Обучение",
   "menuItemSettings" : "Настройки",
-  "reset" : "Сбросить"
+  "reset" : "Сбросить",
+  "navigationMenuOption" : "Меню навигации",
+  "adaptive" : "Адаптивное",
+  "bottomNavigationBar" : "Снизу",
+  "sidebar" : "Сбоку"
 }

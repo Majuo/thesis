@@ -268,6 +268,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset'**
   String get reset;
+
+  /// No description provided for @navigationMenuOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigation menu'**
+  String get navigationMenuOption;
+
+  /// No description provided for @adaptive.
+  ///
+  /// In en, this message translates to:
+  /// **'Adaptive'**
+  String get adaptive;
+
+  /// No description provided for @bottomNavigationBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom'**
+  String get bottomNavigationBar;
+
+  /// No description provided for @sidebar.
+  ///
+  /// In en, this message translates to:
+  /// **'Sidebar'**
+  String get sidebar;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

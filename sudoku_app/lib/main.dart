@@ -16,16 +16,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  VoidCallback listener = () {};
 	@override
 	void initState() {
 		super.initState();
-		currentTheme.addListener(() {
+    listener = () {
 			setState(() {});
-		});
-		currentLocale.addListener(() {
-			setState(() {});
-		});
+		};
+		currentTheme.addListener(listener);
+		currentLocale.addListener(listener);
 	}
+
+  @override
+  void dispose() {
+    currentTheme.removeListener(listener);
+    currentLocale.removeListener(listener);
+    super.dispose();
+  }
 
 	@override
 	Widget build(BuildContext context) {

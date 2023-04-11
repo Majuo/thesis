@@ -90,4 +90,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reset => 'Сбросить';
+
+  @override
+  String get navigationMenuOption => 'Меню навигации';
+
+  @override
+  String get adaptive => 'Адаптивное';
+
+  @override
+  String get bottomNavigationBar => 'Снизу';
+
+  @override
+  String get sidebar => 'Сбоку';
 }

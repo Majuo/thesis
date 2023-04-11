@@ -90,4 +90,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reset => 'Reset';
+
+  @override
+  String get navigationMenuOption => 'Navigation menu';
+
+  @override
+  String get adaptive => 'Adaptive';
+
+  @override
+  String get bottomNavigationBar => 'Bottom';
+
+  @override
+  String get sidebar => 'Sidebar';
 }

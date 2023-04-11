@@ -27,5 +27,9 @@
   "menuItemGame" : "Mäng",
   "menuItemLearning" : "Õppimine",
   "menuItemSettings" : "Seaded",
-  "reset" : "Tühista"
+  "reset" : "Tühista",
+  "navigationMenuOption" : "Navigeerimismenüü",
+  "adaptive" : "Adaptiivne",
+  "bottomNavigationBar" : "Allpool",
+  "sidebar" : "Külgriba"
 }

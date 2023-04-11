@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/config.dart';
 import 'package:sudoku_app/gamepage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sudoku_app/learning_page.dart';
+import 'package:sudoku_app/screen_size_helpers.dart';
+import 'package:sudoku_app/settings/navigatio_menu_setting.dart';
+import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/settings/settings_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +16,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  VoidCallback listener = () {};
+
+	@override
+	void initState() {
+		super.initState();
+    listener = () {
+			setState(() {});
+		};
+    currentNavMenuSetting.addListener(listener);
+	}
+
+  @override
+  void dispose() {
+    currentNavMenuSetting.removeListener(listener);
+    super.dispose();
+  }
+
 	int _selectedIndex = 0;
 	static const List<Widget> _widgetOptions = <Widget>[
 		GamePage(),
@@ -26,35 +47,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            ListTile(
-              title: Text("Item 1"),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text("Item 2"),
-              onTap: () {},
-            )
-          ],
-        ),
-      ),
+      drawer: getDrawer(context),
       appBar: AppBar(
-        title: const Text("Sudoku App"),
+        backgroundColor: Colors.blueAccent,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
-          BottomNavigationBarItem(icon: Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: Visibility(
+        visible: NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context)),
+        child: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: const Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
+            BottomNavigationBarItem(icon: const Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
+            BottomNavigationBarItem(icon: const Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
@@ -70,5 +80,47 @@ class _HomePageState extends State<HomePage> {
       default:
         return "Unknown menu item";
     }
+  }
+
+  Widget? getDrawer(BuildContext context) {
+    if (NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context))) return null;
+    return Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(child: Text("Sudoku App")),
+            ListTile(
+              title: Row(children: [
+                const Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.grid_on)),
+                Text(getMenuItemName(context, GamePage))
+              ]),
+              onTap: () {
+                _onItemTapped(_widgetOptions.indexWhere((element) => element.runtimeType == GamePage));
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Row(children: [
+                const Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.school)),
+                Text(getMenuItemName(context, LearningPage))
+              ]),
+              onTap: () {
+                _onItemTapped(_widgetOptions.indexWhere((element) => element.runtimeType == LearningPage));
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Row(children: [
+                const Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.settings)),
+                Text(getMenuItemName(context, SettingsPage))
+              ]),
+              onTap: () {
+                _onItemTapped(_widgetOptions.indexWhere((element) => element.runtimeType == SettingsPage));
+                Navigator.pop(context);
+              },
+            )
+          ],
+        ),
+      );
   }
 }

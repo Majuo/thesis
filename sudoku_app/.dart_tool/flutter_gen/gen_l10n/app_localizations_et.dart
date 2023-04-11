@@ -90,4 +90,16 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get reset => 'Tühista';
+
+  @override
+  String get navigationMenuOption => 'Navigeerimismenüü';
+
+  @override
+  String get adaptive => 'Adaptiivne';
+
+  @override
+  String get bottomNavigationBar => 'Allpool';
+
+  @override
+  String get sidebar => 'Külgriba';
 }

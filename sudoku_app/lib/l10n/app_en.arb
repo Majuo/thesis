@@ -27,5 +27,9 @@
   "menuItemGame" : "Game",
   "menuItemLearning" : "Learning",
   "menuItemSettings" : "Settings",
-  "reset" : "Reset"
+  "reset" : "Reset",
+  "navigationMenuOption" : "Navigation menu",
+  "adaptive" : "Adaptive",
+  "bottomNavigationBar" : "Bottom",
+  "sidebar" : "Sidebar"
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/locale/current_locale.dart';
 import 'package:sudoku_app/locale/locale_language_name.dart';
+import 'package:sudoku_app/locale/navigation_menu_option_name_picker.dart';
+import 'package:sudoku_app/settings/navigatio_menu_setting.dart';
+import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/theme/app_theme.dart';
 import 'package:sudoku_app/theme/current_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,21 +14,30 @@ import '../config.dart';
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
-
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  VoidCallback listener = () {};
 
 	@override
 	void initState() {
 		super.initState();
-		currentTheme.addListener(() {
+    listener = () {
 			setState(() {});
-		});
+		};
+		currentTheme.addListener(listener);
+    currentNavMenuSetting.addListener(listener);
 	}
-	
+
+  @override
+  void dispose() {
+    currentTheme.removeListener(listener);
+    currentNavMenuSetting.removeListener(listener);
+    super.dispose();
+  }
+
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
@@ -67,6 +79,25 @@ class _SettingsPageState extends State<SettingsPage> {
 									return DropdownMenuItem<Locale>(
 										value: value,
 										child: Text(LocaleLanguageName.langNames[value.languageCode] ?? "Unknown locale")
+									);
+								}).toList()
+							),
+            ]
+          ),
+					Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						children: [
+							Text(AppLocalizations.of(context).navigationMenuOption),
+							const Text(" : "),
+							DropdownButton<NavigationMenuOption>(
+								value: NavigationMenuSetting.currentSetting,
+								onChanged: (NavigationMenuOption? value) {
+									currentNavMenuSetting.changeCurrentNavMenuSetting(value ?? NavigationMenuOption.adaptive);
+								},
+								items: NavigationMenuOption.values.map<DropdownMenuItem<NavigationMenuOption>>((NavigationMenuOption value) {
+									return DropdownMenuItem<NavigationMenuOption>(
+										value: value,
+										child: Text(NavigationMenuOptionNamePicker.getNavMenuOptionName(context, value))
 									);
 								}).toList()
 							),
