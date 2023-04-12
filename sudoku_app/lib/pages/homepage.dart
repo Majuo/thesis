@@ -34,10 +34,10 @@ class _HomePageState extends State<HomePage> {
   }
 
 	int _selectedIndex = 0;
-	static const List<Widget> _widgetOptions = <Widget>[
-		GamePage(),
+	static final List<Widget> _widgetOptions = <Widget>[
+		const GamePage(),
     LearningPage(),
-		SettingsPage(),
+		const SettingsPage(),
 	];
 	void _onItemTapped(int index) {
 		setState(() {
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: getDrawer(context),
       appBar: AppBar(
+        title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType)),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
