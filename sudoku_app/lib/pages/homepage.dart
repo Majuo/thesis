@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/config.dart';
-import 'package:sudoku_app/gamepage.dart';
+import 'package:sudoku_app/pages/gamepage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:sudoku_app/learning_page.dart';
+import 'package:sudoku_app/pages/learning_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
 import 'package:sudoku_app/settings/navigatio_menu_setting.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
-import 'package:sudoku_app/settings/settings_page.dart';
+import 'package:sudoku_app/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

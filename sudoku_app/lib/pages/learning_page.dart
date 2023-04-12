@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/sudoku_rules_page.dart';
+import 'package:sudoku_app/pages/techniques/sudoku_rules_page.dart';
 
 class LearningPage extends StatelessWidget {
   const LearningPage({super.key});
