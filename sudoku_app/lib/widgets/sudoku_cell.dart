@@ -79,28 +79,33 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
   Color cellColor = Colors.white;
 
   void triggerRedraw() {
+    if (!mounted) return;
     setState(() { });
   }
 
   void deselect() {
+    if (!mounted) return;
     setState(() {
       cellColor = Colors.white;
     });
   }
 
   void selectCurrent() {
+    if (!mounted) return;
     setState(() {
       cellColor = Colors.yellow;
     });
   }
 
   void highlight() {
+    if (!mounted) return;
     setState(() {
       cellColor = Colors.green;
     });
   }
 
   void highlightError() {
+    if (!mounted) return;
     setState(() {
       cellColor = Colors.red;
     });
@@ -108,6 +113,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 
 	@override
 	Widget build(BuildContext context) {
+    widget.currentState = this;
 		return GestureDetector(
 			onTap: widget.handleOnTap,
       child: Container(

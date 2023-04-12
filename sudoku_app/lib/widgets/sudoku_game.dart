@@ -24,12 +24,12 @@ class SudokuGame extends StatefulWidget {	const SudokuGame({super.key});
 
 class _SudokuGameState extends State<SudokuGame> {
 	Sudoku game = Sudoku.getSampleSudoku(); 
-  List<List<SudokuCellWidget>> cellWidgets = List.empty(growable: true);
   SudokuCellWidget? currentCell;
   List<SudokuCellWidget> highlightedCells = List.empty(growable: true);
   bool isInNotesMode = false;
   bool isGameOver = false;
   String? hintText;
+  SudokuGrid? gridWidget;
 
   @override
 	Widget build(BuildContext context) {
@@ -54,24 +54,26 @@ class _SudokuGameState extends State<SudokuGame> {
       mainAxisSize: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisSize.min : MainAxisSize.max,
       mainAxisAlignment: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisAlignment.start : MainAxisAlignment.center,
       children: [
-        SudokuGrid(
-        game: game,
-        cellWidgets: cellWidgets,
-        cellHandleOnTap: (SudokuCell cell) {
-          clearHighlightedCells();
-          var newCurrentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-          if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
-            currentCell?.currentState?.highlightError();
-          } else {
-            currentCell?.currentState?.deselect();
-          }
-          if (currentCell == newCurrentCell) {
-            currentCell = null;
-          } else {
-            currentCell = cellWidgets.elementAt(cell.row).elementAt(cell.col);
-            currentCell?.currentState?.selectCurrent();
-          }
-        }),
+        () {
+          gridWidget = SudokuGrid(
+          game: game,
+          cellHandleOnTap: (SudokuCell cell) {
+            clearHighlightedCells();
+            var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col);
+            if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
+              currentCell?.currentState?.highlightError();
+            } else {
+              currentCell?.currentState?.deselect();
+            }
+            if (currentCell == newCurrentCell) {
+              currentCell = null;
+            } else {
+              currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
+              currentCell?.currentState?.selectCurrent();
+            }
+          });
+          return gridWidget!;
+        } (),
         Padding(
           padding: const EdgeInsets.all(5),
           child: Text(hintText ?? ""),
@@ -90,7 +92,7 @@ class _SudokuGameState extends State<SudokuGame> {
                   clearErrorCells();
                   game.checkErrors();
                   for (var errorCell in game.errorCells) {
-                    var cellWidget = cellWidgets.elementAt(errorCell.row).elementAt(errorCell.col);
+                    var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(errorCell.row).children.elementAt(errorCell.col) as SudokuCellWidget;
                     cellWidget.currentState?.highlightError();
                   }
 
@@ -177,7 +179,7 @@ class _SudokuGameState extends State<SudokuGame> {
               hintText = (result.applicableCells?.length == 1 ? AppLocalizations.of(context).hintCanBeSolvedUsingSingleCell : AppLocalizations.of(context).hintCanBeSolvedUsingMultipleCells) + SudokuTechniqueNamePicker.getTechniqueName(context, result.usedTechnique!);
             });
             for (var resultCell in result.applicableCells!) {
-              var cellWidget = cellWidgets.elementAt(resultCell.row).elementAt(resultCell.col);
+              var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(resultCell.row).children.elementAt(resultCell.col) as SudokuCellWidget;
               cellWidget.currentState?.highlight();
               highlightedCells.add(cellWidget);
             }
@@ -242,7 +244,7 @@ class _SudokuGameState extends State<SudokuGame> {
 
   void clearErrorCells() {
     for (var cell in game.errorCells) {
-      var cellWidget = cellWidgets.elementAt(cell.row).elementAt(cell.col);
+      var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
       if (cellWidget == currentCell) {
         cellWidget.currentState?.selectCurrent();
       } else {

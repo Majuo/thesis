@@ -9,39 +9,38 @@ class SudokuGrid extends StatefulWidget {
   SudokuGrid({
     super.key,
     required this.game,
-    required this.cellWidgets,
     required this.cellHandleOnTap
   });
-	Sudoku game; 
-  List<List<SudokuCellWidget>> cellWidgets;
+	Sudoku game;
   Function(SudokuCell) cellHandleOnTap;
+  SudokuGridState? currentState;
   static double gridSize = SudokuCellWidget.cellSize * 9 + SudokuCellWidget.outerBorderWidth * 2 + SudokuCellWidget.innerThickBorderWidth * 4 + SudokuCellWidget.defaultBorderWidth * 12;
 
   @override
-  State<SudokuGrid> createState() => _SudokuGridState(game: game, cellWidgets: cellWidgets);
+  State<SudokuGrid> createState() {
+    currentState = SudokuGridState(game: game);
+    return currentState!;
+    }
 }
 
-class _SudokuGridState extends State<SudokuGrid> {
-  _SudokuGridState({
-    required this.game,
-    required this.cellWidgets
+class SudokuGridState extends State<SudokuGrid> {
+  SudokuGridState({
+    required this.game
   });
 	Sudoku game; 
-  List<List<SudokuCellWidget>> cellWidgets;
+  List<Row> cellWidgets = List.empty(growable: true);
   @override
   Widget build(BuildContext context) {
+    widget.currentState = this;
+    cellWidgets.clear();
     return SizedBox(
       width: SudokuGrid.gridSize,
       height: SudokuGrid.gridSize,
       child: Center(
         child: Column(
           children: (() {
-            List<Row> widgets = List.empty(growable: true);
             for (var row in game.board) {
               var rowWidget = Row(children: List.empty(growable: true),);
-              if (cellWidgets.length < 9) {
-                cellWidgets.add(List.empty(growable: true));
-              }
               for (var cell in row) {
                 var cellWidget = SudokuCellWidget(getCellContent: () {
                       if (cell.value > 0) {
@@ -57,14 +56,11 @@ class _SudokuGridState extends State<SudokuGrid> {
                     rowNo: cell.row,
                     cellNo: cell.col
                   );
-                  if (cellWidgets.elementAt(cell.row).length < 9) {
-                    cellWidgets.elementAt(cell.row).add(cellWidget);
-                  }
                   rowWidget.children.add(cellWidget);
               }
-              widgets.add(rowWidget);
+              cellWidgets.add(rowWidget);
             }
-            return widgets;
+            return cellWidgets;
           })()
         ),
       ),
