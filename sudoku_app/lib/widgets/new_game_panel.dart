@@ -15,10 +15,16 @@ class _NewGamePanelState extends State<NewGamePanel> {
   SudokuDifficultyEnum currentDifficulty = SudokuDifficultyEnum.easy;
   @override
   Widget build(BuildContext context) {
-    return 					
-    Row(
+    return Row(
+      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 5),
+          child: TextButton(
+            onPressed: () { widget.newGameOnClick(currentDifficulty); },
+            child: Text(AppLocalizations.of(context).newGame)),
+        ),
         DropdownButton<SudokuDifficultyEnum>(
           value: currentDifficulty,
           onChanged: (SudokuDifficultyEnum? value) {
@@ -34,10 +40,7 @@ class _NewGamePanelState extends State<NewGamePanel> {
               child: Text(SudokuDifficultyNamePicker.getDifficultyName(context, value))
             );
           }).toList()
-        ),
-        TextButton(
-          onPressed: () { widget.newGameOnClick(currentDifficulty); },
-          child: Text(AppLocalizations.of(context).newGame))
+        )
       ]
     );
   }
