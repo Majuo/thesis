@@ -209,6 +209,24 @@ abstract class AppLocalizations {
   /// **'Pointing triples'**
   String get pointingTriple;
 
+  /// No description provided for @xwing.
+  ///
+  /// In en, this message translates to:
+  /// **'X-wing'**
+  String get xwing;
+
+  /// No description provided for @ywing.
+  ///
+  /// In en, this message translates to:
+  /// **'Y-wing'**
+  String get ywing;
+
+  /// No description provided for @swordfish.
+  ///
+  /// In en, this message translates to:
+  /// **'Swordfish'**
+  String get swordfish;
+
   /// No description provided for @fillCandidates.
   ///
   /// In en, this message translates to:
@@ -298,6 +316,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hint'**
   String get hint;
+
+  /// No description provided for @pencilMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Pencil marks'**
+  String get pencilMarks;
+
+  /// No description provided for @basics.
+  ///
+  /// In en, this message translates to:
+  /// **'Basics'**
+  String get basics;
+
+  /// No description provided for @beginnerTechniques.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner techniques'**
+  String get beginnerTechniques;
+
+  /// No description provided for @intermediateTechniques.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermediate techniques'**
+  String get intermediateTechniques;
+
+  /// No description provided for @advancedTechniques.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced techniques'**
+  String get advancedTechniques;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

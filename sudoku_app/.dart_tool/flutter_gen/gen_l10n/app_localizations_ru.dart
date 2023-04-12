@@ -62,6 +62,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pointingTriple => 'Указывающие тройки';
 
   @override
+  String get xwing => 'X-крыло';
+
+  @override
+  String get ywing => 'Y-крыло';
+
+  @override
+  String get swordfish => 'Рыба-меч';
+
+  @override
   String get fillCandidates => 'Заполнить все заметки';
 
   @override
@@ -105,4 +114,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get hint => 'Подсказка';
+
+  @override
+  String get pencilMarks => 'Заметки';
+
+  @override
+  String get basics => 'Основы';
+
+  @override
+  String get beginnerTechniques => 'Начальные техники';
+
+  @override
+  String get intermediateTechniques => 'Более сложные техники';
+
+  @override
+  String get advancedTechniques => 'Продвинутые техники';
 }

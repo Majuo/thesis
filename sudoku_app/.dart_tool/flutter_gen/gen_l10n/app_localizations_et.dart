@@ -62,6 +62,15 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pointingTriple => 'Osutav kolmik';
 
   @override
+  String get xwing => 'X-tiib';
+
+  @override
+  String get ywing => 'Y-tiib';
+
+  @override
+  String get swordfish => 'Mõõkkala';
+
+  @override
   String get fillCandidates => 'Täida kõik pliiatsimärgid';
 
   @override
@@ -105,4 +114,19 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hint => 'Vihje';
+
+  @override
+  String get pencilMarks => 'Pliiatsimärgid';
+
+  @override
+  String get basics => 'Algteadmised';
+
+  @override
+  String get beginnerTechniques => 'Algaja tehnikad';
+
+  @override
+  String get intermediateTechniques => 'Kesktaseme tehnikad';
+
+  @override
+  String get advancedTechniques => 'Edasijõudnud tehnikad';
 }

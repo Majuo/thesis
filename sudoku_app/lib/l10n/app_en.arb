@@ -18,6 +18,9 @@
   "hiddenTriple" : "Hidden triples",
   "pointingPair" : "Pointing pairs",
   "pointingTriple" : "Pointing triples",
+  "xwing" : "X-wing",
+  "ywing" : "Y-wing",
+  "swordfish" : "Swordfish",
   "fillCandidates" : "Fill pencil marks",
   "newGame" : "New game",
   "easy" : "Easy",
@@ -32,5 +35,10 @@
   "adaptive" : "Adaptive",
   "bottomNavigationBar" : "Bottom",
   "sidebar" : "Sidebar",
-  "hint" : "Hint"
+  "hint" : "Hint",
+  "pencilMarks" : "Pencil marks",
+  "basics" : "Basics",
+  "beginnerTechniques" : "Beginner techniques",
+  "intermediateTechniques" : "Intermediate techniques",
+  "advancedTechniques" : "Advanced techniques"
 }

@@ -11,6 +11,9 @@ import 'package:sudoku_app/game_internals/solver/techniques/naked_triple_techniq
 import 'package:sudoku_app/game_internals/solver/techniques/pointing_pair_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/pointing_triple_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/swordfish_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/x_wing_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dart';
 
 class SudokuTechniqueNamePicker {
 	static String getTechniqueName(BuildContext context, Type technique)
@@ -38,6 +41,12 @@ class SudokuTechniqueNamePicker {
 			return AppLocalizations.of(context).pointingPair;
 		case PointingTripleTechnique:
 			return AppLocalizations.of(context).pointingTriple;
+		case XWingTechnique:
+			return AppLocalizations.of(context).xwing;
+		case YWingTechnique:
+			return AppLocalizations.of(context).ywing;
+		case SwordfishTechnique:
+			return AppLocalizations.of(context).swordfish;
 		default:
 			return "Unknown technique";
 		}

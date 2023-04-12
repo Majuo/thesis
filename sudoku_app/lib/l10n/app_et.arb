@@ -18,6 +18,9 @@
   "hiddenTriple" : "Peidetud kolmik",
   "pointingPair" : "Osutav paar",
   "pointingTriple" : "Osutav kolmik",
+  "xwing" : "X-tiib",
+  "ywing" : "Y-tiib",
+  "swordfish" : "Mõõkkala",
   "fillCandidates" : "Täida kõik pliiatsimärgid",
   "newGame" : "Uus mäng",
   "easy" : "Kerge",
@@ -32,5 +35,10 @@
   "adaptive" : "Adaptiivne",
   "bottomNavigationBar" : "Allpool",
   "sidebar" : "Külgriba",
-  "hint" : "Vihje"
+  "hint" : "Vihje",
+  "pencilMarks" : "Pliiatsimärgid",
+  "basics" : "Algteadmised",
+  "beginnerTechniques" : "Algaja tehnikad",
+  "intermediateTechniques" : "Kesktaseme tehnikad",
+  "advancedTechniques" : "Edasijõudnud tehnikad"
 }

@@ -62,6 +62,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pointingTriple => 'Pointing triples';
 
   @override
+  String get xwing => 'X-wing';
+
+  @override
+  String get ywing => 'Y-wing';
+
+  @override
+  String get swordfish => 'Swordfish';
+
+  @override
   String get fillCandidates => 'Fill pencil marks';
 
   @override
@@ -105,4 +114,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hint => 'Hint';
+
+  @override
+  String get pencilMarks => 'Pencil marks';
+
+  @override
+  String get basics => 'Basics';
+
+  @override
+  String get beginnerTechniques => 'Beginner techniques';
+
+  @override
+  String get intermediateTechniques => 'Intermediate techniques';
+
+  @override
+  String get advancedTechniques => 'Advanced techniques';
 }

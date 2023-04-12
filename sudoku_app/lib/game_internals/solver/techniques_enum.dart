@@ -9,7 +9,10 @@ enum SudokuTechniquesEnum {
   hiddenPair,
   hiddenTriple,
   pointingPair,
-  pointingTriple
+  pointingTriple,
+  xwing,
+  ywing,
+  swordfish
 }
 
 extension SudokuTechniquesExtension on SudokuTechniquesEnum {

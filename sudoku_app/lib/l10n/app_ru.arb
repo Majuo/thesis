@@ -19,6 +19,9 @@
   "pointingPair" : "Указывающие пары",
   "pointingTriple" : "Указывающие тройки",
   "fillCandidates" : "Заполнить все заметки",
+  "xwing" : "X-крыло",
+  "ywing" : "Y-крыло",
+  "swordfish" : "Рыба-меч",
   "newGame" : "Новая игра",
   "easy" : "Легкий",
   "medium" : "Средний",
@@ -32,5 +35,10 @@
   "adaptive" : "Адаптивное",
   "bottomNavigationBar" : "Снизу",
   "sidebar" : "Сбоку",
-  "hint" : "Подсказка"
+  "hint" : "Подсказка",
+  "pencilMarks" : "Заметки",
+  "basics" : "Основы",
+  "beginnerTechniques" : "Начальные техники",
+  "intermediateTechniques" : "Более сложные техники",
+  "advancedTechniques" : "Продвинутые техники"
 }

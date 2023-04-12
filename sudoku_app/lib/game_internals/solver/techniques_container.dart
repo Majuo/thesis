@@ -10,6 +10,9 @@ import 'package:sudoku_app/game_internals/solver/techniques/naked_triple_techniq
 import 'package:sudoku_app/game_internals/solver/techniques/pointing_pair_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/pointing_triple_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/swordfish_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/x_wing_technique.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 
 class TechniquesContainer {
@@ -25,6 +28,9 @@ class TechniquesContainer {
 		SudokuTechniquesEnum.hiddenTriple : HiddenTripleTechnique(),
 		SudokuTechniquesEnum.pointingPair : PointingPairTechnique(),
 		SudokuTechniquesEnum.pointingTriple : PointingTripleTechnique(),
+    SudokuTechniquesEnum.xwing : XWingTechnique(),
+    SudokuTechniquesEnum.ywing : YWingTechnique(),
+    SudokuTechniquesEnum.swordfish : SwordfishTechnique()
 	};
 
 	static List<ISudokuTechnique> getTechniques(Iterable<SudokuTechniquesEnum> techniques) {
