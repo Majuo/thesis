@@ -16,8 +16,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 		for (var i = 0; i < 9; i++) {
 			// check rows
 			var rowSet = HashSet.from(sudoku.getRowValues(i));
-			rowSet.remove(0);
-			if (rowSet.length == 8) {
+			if (rowSet.remove(0) && rowSet.length == 8) {
 				solution = Sudoku.numSet.difference(rowSet).single;
 				colNo = sudoku.getRowCells(i).firstWhere((c) => c.value == 0).col;
 				if (applyResult)
@@ -34,8 +33,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 			}
 			// check columns
 			var colSet = HashSet.from(sudoku.getColumnValues(i));
-			colSet.remove(0);
-			if (colSet.length == 8) {
+			if (colSet.remove(0) && colSet.length == 8) {
 				solution = Sudoku.numSet.difference(colSet).single;
 				rowNo = sudoku.getColumnCells(i).firstWhere((c) => c.value == 0).row;
 				if (applyResult)
@@ -56,8 +54,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
 			for (var j = 0; j < 9; j += 3) {
 				var blockCells = sudoku.getBlockCells(i, j);
 				var blockSet = HashSet.from(blockCells.map((c) => c.value));
-				blockSet.remove(0);
-				if (blockSet.length == 8) {
+				if (blockSet.remove(0) && blockSet.length == 8) {
 					solution = Sudoku.numSet.difference(blockSet).single;
 					var cell = blockCells.firstWhere((c) => c.value == 0);
 					if (applyResult)
