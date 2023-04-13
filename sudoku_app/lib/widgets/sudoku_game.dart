@@ -15,17 +15,38 @@ import 'package:sudoku_app/widgets/sudoku_buttons_panel.dart';
 import 'package:sudoku_app/widgets/sudoku_grid.dart';
 
 class SudokuGame extends StatefulWidget {	const SudokuGame({super.key});
+  static Sudoku? game;
+  static bool isGameOver = false;
 
 	@override
 	State<SudokuGame> createState() => _SudokuGameState();
 }
 
 class _SudokuGameState extends State<SudokuGame> {
-	Sudoku game = Sudoku.getSampleSudoku(); 
+
+  @override
+  void initState() {
+    if (SudokuGame.game != null) {
+      game = SudokuGame.game!;
+    } else {
+      game = Sudoku.getSampleSudoku();
+    }
+    isGameOver = SudokuGame.isGameOver;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    SudokuGame.game = game;
+    SudokuGame.isGameOver = isGameOver;
+    super.dispose();
+  }
+
+	late Sudoku game; 
   SudokuCellWidget? currentCell;
   List<SudokuCellWidget> highlightedCells = List.empty(growable: true);
   bool isInNotesMode = false;
-  bool isGameOver = false;
+  bool isGameOver = SudokuGame.isGameOver;
   String? hintText;
   SudokuGrid? gridWidget;
 
