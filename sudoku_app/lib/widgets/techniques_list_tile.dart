@@ -32,7 +32,7 @@ class TechniquesListTile extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(

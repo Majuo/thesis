@@ -16,7 +16,6 @@ class SudokuCellWidget extends StatefulWidget {
   int cellNo;
   int rowNo;
 	final VoidCallback handleOnTap;
-	bool isCurrentCell = false;
 
 	final Function getCellContent;
   SudokuCellWidgetState? currentState;
@@ -93,7 +92,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
   void selectCurrent() {
     if (!mounted) return;
     setState(() {
-      cellColor = Colors.yellow;
+      cellColor = const Color.fromRGBO(255, 245, 99, 1);
     });
   }
 
@@ -107,7 +106,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
   void highlightError() {
     if (!mounted) return;
     setState(() {
-      cellColor = Colors.red;
+      cellColor = const Color.fromARGB(255, 255, 109, 98);
     });
   }
 

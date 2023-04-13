@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 
 class CellCandidates extends StatelessWidget {
-	CellCandidates({super.key, required this.candidates});
+	const CellCandidates({super.key, required this.candidates});
 	final List<int> candidates;
 
 	double getFontSize() {
-		double result = SudokuCellWidget.cellSize ~/ 3 - 2;
+		double result = SudokuCellWidget.cellSize ~/ 3 - 3;
 		return result > 8 ? result : 8;
 	}
 

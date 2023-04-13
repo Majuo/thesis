@@ -58,7 +58,7 @@ class _LearningPageState extends State<LearningPage> {
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}notes.png",
                   techniaueName: AppLocalizations.of(context).pencilMarks,
                 ),
               ],
