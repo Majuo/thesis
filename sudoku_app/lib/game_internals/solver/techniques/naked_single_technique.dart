@@ -20,7 +20,7 @@ class NakedSingleTechnique implements ISudokuTechnique {
               pc.candidates.remove(candidate);
             }
           }
-          return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, candidate)}), usedTechnique: NakedSingleTechnique);
+          return TechniqueResult(successful: true, applicableCells: [SudokuCell(cell.row, cell.col, true, candidate)], usedTechnique: NakedSingleTechnique);
         }
       }
     }

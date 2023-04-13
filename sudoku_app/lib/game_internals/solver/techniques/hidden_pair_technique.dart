@@ -63,7 +63,7 @@ class HiddenPairTechnique implements ISudokuTechnique {
           if (cellSet.every((c) => c.candidates.length == 2)) return null;
           if (applyResult) {
             for (var c in cellSet) {
-              c.candidates = List.from({me.key, me1.key});
+              c.candidates = [me.key, me1.key];
             }
           }
           var removedCandidatesResult = cellSet.map((c) {

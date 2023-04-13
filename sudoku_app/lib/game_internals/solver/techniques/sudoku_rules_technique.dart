@@ -29,7 +29,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
             pc.candidates.remove(solution);
           }
 				}
-				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(i, colNo, true, solution)}), usedTechnique: SudokuRulesTechnique);
+				return TechniqueResult(successful: true, applicableCells: [SudokuCell(i, colNo, true, solution)], usedTechnique: SudokuRulesTechnique);
 			}
 			// check columns
 			var colSet = HashSet.from(sudoku.getColumnValues(i));
@@ -46,7 +46,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
             pc.candidates.remove(solution);
           }
 				}
-				return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(rowNo, i, true, solution)}), usedTechnique: SudokuRulesTechnique);
+				return TechniqueResult(successful: true, applicableCells: [SudokuCell(rowNo, i, true, solution)], usedTechnique: SudokuRulesTechnique);
 			}
 		}
 		// check blocks
@@ -66,7 +66,7 @@ class SudokuRulesTechnique implements ISudokuTechnique {
               pc.candidates.remove(solution);
             }
 					}
-					return TechniqueResult(successful: true, applicableCells: List.from({SudokuCell(cell.row, cell.col, true, solution)}), usedTechnique: SudokuRulesTechnique);
+					return TechniqueResult(successful: true, applicableCells: [SudokuCell(cell.row, cell.col, true, solution)], usedTechnique: SudokuRulesTechnique);
 				}
 			}
 		}
