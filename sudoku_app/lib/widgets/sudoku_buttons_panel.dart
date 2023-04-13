@@ -5,8 +5,8 @@ import 'package:sudoku_app/widgets/sudoku_grid.dart';
 class SudokuButtonsPanel extends StatefulWidget {
   SudokuButtonsPanel({super.key, required this.numOnClick, required this.notesOnClick});
   static const Color lightGreyColor = Color.fromRGBO(200, 200, 200, 1);
-  Function(int) numOnClick;
-  Function() notesOnClick;
+  final Function(int) numOnClick;
+  final Function() notesOnClick;
 
   @override
   State<SudokuButtonsPanel> createState() => _SudokuButtonsPanelState();

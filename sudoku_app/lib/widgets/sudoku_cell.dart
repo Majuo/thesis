@@ -4,7 +4,7 @@ class SudokuCellWidget extends StatefulWidget {
   static const double defaultBorderWidth = 1;
   static const double outerBorderWidth = 4;
   static const double innerThickBorderWidth = 2;
-  static double cellSize = 40;
+  static const double cellSize = 40;
   static const Color borderColor = Colors.black;
 	SudokuCellWidget({
 			super.key,
@@ -13,8 +13,8 @@ class SudokuCellWidget extends StatefulWidget {
       required this.rowNo,
       required this.cellNo
 		});
-  int cellNo;
-  int rowNo;
+  final int cellNo;
+  final int rowNo;
 	final VoidCallback handleOnTap;
 
 	final Function getCellContent;

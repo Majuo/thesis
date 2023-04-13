@@ -102,7 +102,7 @@ class Sudoku {
     return true;
   }
 
-  Iterable<SudokuCell>? checkErrors() {
+  void checkErrors() {
     for (var row in board) {
       for (var cell in row.where((rc) => rc.editable && rc.value != 0)) {
         if (getPeerValues(cell.row, cell.col).contains(cell.value)) {
@@ -140,19 +140,6 @@ class Sudoku {
       [0, 0, 3, 5, 0, 6, 7, 0, 0],
       [1, 0, 0, 0, 7, 0, 0, 0, 6],
       [6, 0, 4, 0, 0, 0, 2, 0, 8],
-    ];
-    List<List<int>> initStateEz = [
-      [7, 6, 8, 9, 1, 5, 4, 3, 2],
-      [3, 4, 1, 2, 8, 7, 5, 6, 9],
-      [5, 9, 2, 4, 6, 3, 1, 8, 7],
-      //---------------------------
-      [8, 1, 7, 6, 3, 2, 9, 4, 5],
-      [4, 3, 9, 7, 5, 8, 6, 2, 1],
-      [2, 5, 6, 1, 4, 9, 8, 7, 3],
-      //---------------------------
-      [9, 8, 3, 5, 2, 6, 7, 1, 4],
-      [1, 2, 5, 8, 7, 4, 3, 9, 6],
-      [6, 7, 4, 0, 0, 1, 2, 5, 8],
     ];
     List<List<int>> solution = [
       [7, 6, 8, 9, 1, 5, 4, 3, 2],

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_generator.dart';
