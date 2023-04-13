@@ -78,27 +78,27 @@ class _LearningPageState extends State<LearningPage> {
               children: [
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}lastPossibleNumber.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastPossibleNumberTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}lastRemainingCell.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastRemainingCellTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}nakedSingle.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedSingleTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}nakedPair.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedPairTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
-                  imageAssetPath: "${LearningPage.assetFolder}rules.png",
+                  imageAssetPath: "${LearningPage.assetFolder}nakedTriple.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedTripleTechnique),
                 ),
                 TechniquesListTile(
