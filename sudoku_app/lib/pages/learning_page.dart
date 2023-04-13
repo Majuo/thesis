@@ -19,7 +19,7 @@ import 'package:sudoku_app/widgets/techniques_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LearningPage extends StatefulWidget {
-  LearningPage({super.key});
+  const LearningPage({super.key});
   static const double learningPagePadding = 10;
   static const String assetFolder = "lib/assets/tileListIcons/";
 

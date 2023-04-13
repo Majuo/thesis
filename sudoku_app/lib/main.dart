@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
 			supportedLocales: AppLocalizations.supportedLocales,
 			locale: CurrentLocale.currentLocale,
 			theme: currentTheme.getThemeData(),
-			home: HomePage()
+			home: const HomePage()
 		);
 	}
 }

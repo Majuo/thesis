@@ -59,13 +59,13 @@ class _SudokuGameState extends State<SudokuGame> {
           game: game,
           cellHandleOnTap: (SudokuCell cell) {
             clearHighlightedCells();
-            var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col);
+            var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
             if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
               currentCell?.currentState?.highlightError();
             } else {
               currentCell?.currentState?.deselect();
             }
-            if (currentCell == newCurrentCell) {
+            if (currentCell?.rowNo == newCurrentCell.rowNo && currentCell?.cellNo == newCurrentCell.cellNo) {
               currentCell = null;
             } else {
               currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
@@ -93,7 +93,9 @@ class _SudokuGameState extends State<SudokuGame> {
                   game.checkErrors();
                   for (var errorCell in game.errorCells) {
                     var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(errorCell.row).children.elementAt(errorCell.col) as SudokuCellWidget;
-                    cellWidget.currentState?.highlightError();
+                    if (cellWidget.rowNo != currentCell?.rowNo || cellWidget.cellNo != currentCell?.cellNo) {
+                      cellWidget.currentState?.highlightError();
+                    }
                   }
 
                 } else if (val != 0) {
@@ -124,21 +126,23 @@ class _SudokuGameState extends State<SudokuGame> {
   }
 
   Widget getGameControlPanel(BuildContext context) {
-    return SizedBox(
-      width: !ScreenSizeHelpers.isVerticalOrientation(context) ? min((ScreenSizeHelpers.displayWidth(context) - SudokuGrid.gridSize) / 2, SudokuGrid.gridSize / 2) : SudokuGrid.gridSize,
-      child: Column(
-        crossAxisAlignment: !ScreenSizeHelpers.isVerticalOrientation(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
-        children: [
-          getGameControlButtonsPanel(context),
-          NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
-            SudokuGenerator.generateSudoku(difficulty).then((value) {
-              setState(() {
-                resetBoard(value);
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Column(
+          crossAxisAlignment: !ScreenSizeHelpers.isVerticalOrientation(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+          children: [
+            getGameControlButtonsPanel(context),
+            NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
+              SudokuGenerator.generateSudoku(difficulty).then((value) {
+                setState(() {
+                  resetBoard(value);
+                });
               });
-            });
-          }),
-        ]
-      ),
+            }),
+          ]
+        ),
+      ]
     );
   }
 
@@ -245,7 +249,7 @@ class _SudokuGameState extends State<SudokuGame> {
   void clearErrorCells() {
     for (var cell in game.errorCells) {
       var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
-      if (cellWidget == currentCell) {
+      if (cellWidget.cellNo == currentCell?.cellNo && cellWidget.rowNo == currentCell?.rowNo) {
         cellWidget.currentState?.selectCurrent();
       } else {
         cellWidget.currentState?.deselect();
