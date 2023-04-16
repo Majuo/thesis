@@ -29,7 +29,13 @@ class _SudokuGameState extends State<SudokuGame> {
     if (SudokuGame.game != null) {
       game = SudokuGame.game!;
     } else {
-      game = Sudoku.getSampleSudoku();
+      //game = Sudoku.getSampleSudoku();  // for testing
+      game = Sudoku.getEmptySudoku();
+      SudokuGenerator.generateSudoku(SudokuDifficultyEnum.easy).then((value) {
+        setState(() {
+          resetBoard(value);
+        });
+      });
     }
     isGameOver = SudokuGame.isGameOver;
     super.initState();
@@ -152,13 +158,15 @@ class _SudokuGameState extends State<SudokuGame> {
           crossAxisAlignment: !ScreenSizeHelpers.isVerticalOrientation(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
           children: [
             getGameControlButtonsPanel(context),
-            NewGamePanel(newGameOnClick: (SudokuDifficultyEnum difficulty) {
-              SudokuGenerator.generateSudoku(difficulty).then((value) {
-                setState(() {
-                  resetBoard(value);
+            NewGamePanel(
+              newGameOnClick: (SudokuDifficultyEnum difficulty) {
+                SudokuGenerator.generateSudoku(difficulty).then((value) {
+                  setState(() {
+                    resetBoard(value);
+                  });
                 });
-              });
-            }),
+              }
+            ),
           ]
         ),
       ]

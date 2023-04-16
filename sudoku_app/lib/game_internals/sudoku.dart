@@ -157,6 +157,17 @@ class Sudoku {
     return generateSudoku(initState, solution);
   }
 
+  static Sudoku getEmptySudoku() {
+    List<List<int>> emptyList = List.empty(growable: true);
+    for (var i = 0; i < 9; i++) {
+      emptyList.add(List.empty(growable: true));
+      for (var j = 0; j < 9; j++) {
+        emptyList.elementAt(i).add(0);
+      }
+    }
+    return generateSudoku(emptyList, emptyList);
+  }
+
 	static Sudoku generateSudoku(List<List<int>>? srcInitState, List<List<int>>? srcSolution) {
     var isRandom = srcInitState == null || srcSolution == null;
 		var result = Sudoku();
