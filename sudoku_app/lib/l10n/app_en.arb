@@ -40,5 +40,12 @@
   "basics" : "Basics",
   "beginnerTechniques" : "Beginner techniques",
   "intermediateTechniques" : "Intermediate techniques",
-  "advancedTechniques" : "Advanced techniques"
+  "advancedTechniques" : "Advanced techniques",
+  "welcome": "Welcome!",
+  "seeBasics" : "Would you like to see Sudoku rules first?",
+  "yes" : "Yes, please",
+  "no" : "I know the rules",
+  "congratulations" : "Congratulations",
+  "youWon" : "You solved the puzzle!",
+  "ok" : "OK"
 }

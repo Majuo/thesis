@@ -279,22 +279,22 @@ class _SudokuGameState extends State<SudokuGame> {
 
   Future<void> showWinAlert() async {
     return showDialog<void>(
-    context: context,
-    barrierDismissible: true,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Congratulations'),
-        content: const Text('You won!'),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context).congratulations),
+          content: Text(AppLocalizations.of(context).youWon),
+          actions: <Widget>[
+            TextButton(
+              child: Text(AppLocalizations.of(context).ok),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

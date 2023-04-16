@@ -40,5 +40,12 @@
   "basics" : "Основы",
   "beginnerTechniques" : "Начальные техники",
   "intermediateTechniques" : "Более сложные техники",
-  "advancedTechniques" : "Продвинутые техники"
+  "advancedTechniques" : "Продвинутые техники",
+  "welcome": "Добро пожаловать!",
+  "seeBasics" : "Хочешь сначала посмотреть правила Судоку?",
+  "yes" : "Да",
+  "no" : "Спасибо, я знаю правила",
+  "congratulations" : "Поздравляем",
+  "youWon" : "Судоку решено правильно",
+  "ok" : "Хорошо"
 }

@@ -129,4 +129,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get advancedTechniques => 'Advanced techniques';
+
+  @override
+  String get welcome => 'Welcome!';
+
+  @override
+  String get seeBasics => 'Would you like to see Sudoku rules first?';
+
+  @override
+  String get yes => 'Yes, please';
+
+  @override
+  String get no => 'I know the rules';
+
+  @override
+  String get congratulations => 'Congratulations';
+
+  @override
+  String get youWon => 'You solved the puzzle!';
+
+  @override
+  String get ok => 'OK';
 }

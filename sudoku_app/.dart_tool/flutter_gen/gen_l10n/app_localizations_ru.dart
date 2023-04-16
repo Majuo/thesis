@@ -129,4 +129,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get advancedTechniques => 'Продвинутые техники';
+
+  @override
+  String get welcome => 'Добро пожаловать!';
+
+  @override
+  String get seeBasics => 'Хочешь сначала посмотреть правила Судоку?';
+
+  @override
+  String get yes => 'Да';
+
+  @override
+  String get no => 'Спасибо, я знаю правила';
+
+  @override
+  String get congratulations => 'Поздравляем';
+
+  @override
+  String get youWon => 'Судоку решено правильно';
+
+  @override
+  String get ok => 'Хорошо';
 }

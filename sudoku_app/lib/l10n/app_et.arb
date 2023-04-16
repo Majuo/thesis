@@ -40,5 +40,12 @@
   "basics" : "Algteadmised",
   "beginnerTechniques" : "Algaja tehnikad",
   "intermediateTechniques" : "Kesktaseme tehnikad",
-  "advancedTechniques" : "Edasijõudnud tehnikad"
+  "advancedTechniques" : "Edasijõudnud tehnikad",
+  "welcome": "Tere tulemast!",
+  "seeBasics" : "Kas tahad kõigepealt näha Sudoku reegleid?",
+  "yes" : "Jah",
+  "no" : "Ei",
+  "congratulations" : "Palju õnne",
+  "youWon" : "Sudoku on lahendatud õigesti",
+  "ok" : "OK"
 }

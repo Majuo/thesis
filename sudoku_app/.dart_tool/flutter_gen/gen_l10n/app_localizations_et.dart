@@ -129,4 +129,25 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get advancedTechniques => 'Edasijõudnud tehnikad';
+
+  @override
+  String get welcome => 'Tere tulemast!';
+
+  @override
+  String get seeBasics => 'Kas tahad kõigepealt näha Sudoku reegleid?';
+
+  @override
+  String get yes => 'Jah';
+
+  @override
+  String get no => 'Ei';
+
+  @override
+  String get congratulations => 'Palju õnne';
+
+  @override
+  String get youWon => 'Sudoku on lahendatud õigesti';
+
+  @override
+  String get ok => 'OK';
 }

@@ -346,6 +346,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Advanced techniques'**
   String get advancedTechniques;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome!'**
+  String get welcome;
+
+  /// No description provided for @seeBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Would you like to see Sudoku rules first?'**
+  String get seeBasics;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, please'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'I know the rules'**
+  String get no;
+
+  /// No description provided for @congratulations.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations'**
+  String get congratulations;
+
+  /// No description provided for @youWon.
+  ///
+  /// In en, this message translates to:
+  /// **'You solved the puzzle!'**
+  String get youWon;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
