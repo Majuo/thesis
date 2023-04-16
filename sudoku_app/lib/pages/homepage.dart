@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/config.dart';
 import 'package:sudoku_app/pages/gamepage.dart';
@@ -9,6 +12,9 @@ import 'package:sudoku_app/settings/navigation_menu_setting.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/pages/settings_page.dart';
 import 'package:sudoku_app/settings/shared_preferences_manager.dart';
+import 'package:sudoku_app/widgets/sudoku_cell.dart';
+
+import '../widgets/sudoku_grid.dart';
 
 class HomePage extends StatefulWidget {
   final Future<bool> firstRun;
@@ -51,6 +57,20 @@ class _HomePageState extends State<HomePage> {
 	}
   @override
   Widget build(BuildContext context) {
+    double appBarHeight = Platform.isAndroid && !ScreenSizeHelpers.isVerticalOrientation(context) ? 35 : 50;
+    double availableHeight = ScreenSizeHelpers.displayHeight(context) - 20 - appBarHeight;
+    if (NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (ScreenSizeHelpers.isVerticalOrientation(context) && NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive)) {
+      availableHeight -= 60;
+    }
+    if (Platform.isAndroid) {
+      availableHeight -= 24;
+    }
+    if (ScreenSizeHelpers.isVerticalOrientation(context)) {
+      SudokuGrid.gridSize = min(min((availableHeight / 13) * 9, ScreenSizeHelpers.displayWidth(context) / 1.2), 500);
+    } else {
+      SudokuGrid.gridSize = min(min((availableHeight / 11) * 9, ScreenSizeHelpers.displayWidth(context) / 1.5), 500);
+    }
+    SudokuCellWidget.cellSize = (SudokuGrid.gridSize - 2 * SudokuCellWidget.outerBorderWidth - 4 * SudokuCellWidget.innerThickBorderWidth - 12 * SudokuCellWidget.defaultBorderWidth) / 9;
     if (checkFirstRun) {
       widget.firstRun.then((value) {
         if (value) {
@@ -93,23 +113,37 @@ class _HomePageState extends State<HomePage> {
     }
     return Scaffold(
       drawer: getDrawer(context),
-      appBar: AppBar(
-        title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType)),
-        backgroundColor: Colors.blueAccent,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(appBarHeight),
+        child: AppBar(
+          title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType), style: TextStyle(fontSize: appBarHeight * 0.6)),
+          backgroundColor: Colors.blueAccent,
+          leading: Builder(
+            builder: (context) {
+              return IconButton(
+                icon: Icon(Icons.menu, size: appBarHeight * 0.6),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              );
+            }
+          ),
+        ),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Visibility(
         visible: NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context)),
-        child: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: const Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
-            BottomNavigationBarItem(icon: const Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
-            BottomNavigationBarItem(icon: const Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+        child: SizedBox(
+          height: 60,
+          child: BottomNavigationBar(
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: const Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
+              BottomNavigationBarItem(icon: const Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
+              BottomNavigationBarItem(icon: const Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+          ),
         ),
       ),
     );

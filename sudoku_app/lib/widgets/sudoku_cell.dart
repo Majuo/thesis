@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/widgets/sudoku_grid.dart';
 
 class SudokuCellWidget extends StatefulWidget {
   static const double defaultBorderWidth = 1;
   static const double outerBorderWidth = 4;
   static const double innerThickBorderWidth = 2;
-  static const double cellSize = 40;
+  static double cellSize = 0;
   static const Color borderColor = Colors.black;
 	SudokuCellWidget({
 			super.key,
@@ -17,7 +18,7 @@ class SudokuCellWidget extends StatefulWidget {
   final int rowNo;
 	final VoidCallback handleOnTap;
 
-	final Function getCellContent;
+	final Function(double) getCellContent;
   SudokuCellWidgetState? currentState;
 
   @override
@@ -73,6 +74,8 @@ class SudokuCellWidget extends StatefulWidget {
 
 class SudokuCellWidgetState extends State<SudokuCellWidget> {
 
+  double cellSize = 0;
+
 	final VoidCallback handleOnTap;
 	SudokuCellWidgetState({required this.handleOnTap});
   Color cellColor = Colors.white;
@@ -112,6 +115,9 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 
 	@override
 	Widget build(BuildContext context) {
+    setState(() {
+      cellSize = (SudokuGrid.gridSize - 2 * SudokuCellWidget.outerBorderWidth - 4 * SudokuCellWidget.innerThickBorderWidth - 12 * SudokuCellWidget.defaultBorderWidth) / 9;
+    });
     widget.currentState = this;
 		return GestureDetector(
 			onTap: widget.handleOnTap,
@@ -122,10 +128,10 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
         child: ColoredBox(
           color: cellColor,
           child: SizedBox(
-            width: SudokuCellWidget.cellSize,
-            height: SudokuCellWidget.cellSize,
+            width: cellSize,
+            height: cellSize,
             child: Center(
-              child: widget.getCellContent()
+              child: widget.getCellContent(cellSize)
             ),
           ),
         ),

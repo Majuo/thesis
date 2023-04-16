@@ -71,7 +71,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get swordfish => 'Mõõkkala';
 
   @override
-  String get fillCandidates => 'Täida kõik pliiatsimärgid';
+  String get fillCandidates => 'Täida pliiatsimärgid';
 
   @override
   String get newGame => 'Uus mäng';

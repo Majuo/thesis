@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/widgets/sudoku_cell.dart';
 
 class CellCandidates extends StatelessWidget {
-	const CellCandidates({super.key, required this.candidates});
+  double cellSize;
+
+	CellCandidates({super.key, required this.candidates, required this.cellSize});
 	final List<int> candidates;
 
 	double getFontSize() {
-		double result = SudokuCellWidget.cellSize ~/ 3 - 3;
+		double result = cellSize ~/ 3 - 3;
 		return result > 8 ? result : 8;
 	}
 
 	@override
 	Widget build(BuildContext context) {
 		return SizedBox(
-			width: SudokuCellWidget.cellSize,
-			height: SudokuCellWidget.cellSize,
+			width: cellSize,
+			height: cellSize,
 			child: Column(
 				mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 				children: () {
@@ -25,8 +26,8 @@ class CellCandidates extends StatelessWidget {
 							int candidate = i * 3 + j;
 							row.children.add(
 								SizedBox(
-								height: SudokuCellWidget.cellSize / 3,
-								width: SudokuCellWidget.cellSize / 3,
+								height: cellSize / 3,
+								width: cellSize / 3,
 								child: Center(
 									child: Text(
 									candidates.contains(candidate) ? candidate.toString() : " ",

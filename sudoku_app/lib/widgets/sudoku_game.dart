@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_generator.dart';
@@ -99,9 +101,10 @@ class _SudokuGameState extends State<SudokuGame> {
           });
           return gridWidget!;
         } (),
-        Padding(
-          padding: const EdgeInsets.all(5),
-          child: Text(hintText ?? ""),
+        SizedBox(
+          width: SudokuGrid.gridSize,
+          height: SudokuCellWidget.cellSize,
+          child: Text(hintText ?? "", textAlign: TextAlign.center, maxLines: 2, style: TextStyle(fontSize: SudokuCellWidget.cellSize / 3)),
         ),
         Padding(
           padding: const EdgeInsets.all(10),
@@ -176,8 +179,8 @@ class _SudokuGameState extends State<SudokuGame> {
   Widget getGameControlButtonsPanel(BuildContext context) {
     if (ScreenSizeHelpers.isVerticalOrientation(context)) {
       return SizedBox(
-        width: SudokuGrid.gridSize,
-        height: SudokuCellWidget.cellSize * 1.2,
+        width: SudokuGrid.gridSize * 1.2,
+        height: Platform.isAndroid ? SudokuCellWidget.cellSize * 1.5 : SudokuCellWidget.cellSize,  // Icon buttons are rendered differently on windows and android
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Row(
@@ -218,7 +221,7 @@ class _SudokuGameState extends State<SudokuGame> {
         },
         child: Row(
           children: [
-            const Icon(Icons.lightbulb),
+            const Icon(Icons.lightbulb, size: 16),
             Padding(padding: const EdgeInsets.only(left: 5), child: Text(AppLocalizations.of(context).hint))
           ]
         )
@@ -226,7 +229,7 @@ class _SudokuGameState extends State<SudokuGame> {
       TextButton(
         child: Row(
           children: [
-            const Icon(Icons.edit_square),
+            const Icon(Icons.edit_square, size: 16),
             Padding(padding: const EdgeInsets.only(left: 5), child: Text(AppLocalizations.of(context).fillCandidates))
           ]
         ),
@@ -242,7 +245,7 @@ class _SudokuGameState extends State<SudokuGame> {
         }, 
         child: Row(
           children: [
-            const Icon(Icons.restart_alt),
+            const Icon(Icons.restart_alt, size: 16),
             Padding(padding: const EdgeInsets.only(left: 5), child: Text(AppLocalizations.of(context).reset))
           ]
         )

@@ -71,7 +71,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get swordfish => 'Рыба-меч';
 
   @override
-  String get fillCandidates => 'Заполнить все заметки';
+  String get fillCandidates => 'Заполнить заметки';
 
   @override
   String get newGame => 'Новая игра';

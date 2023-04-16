@@ -56,11 +56,12 @@ class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                           borderRadius: BorderRadius.circular(3)
                         ),
                       ),
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
                     ),
                     onPressed: () {
-                    widget.numOnClick(i);
-                  },
-                    child: Text(i.toString())
+                      widget.numOnClick(i);
+                    },
+                    child: Text(i.toString(), style: TextStyle(fontSize: SudokuCellWidget.cellSize / 1.5))
                   ),
                 ));
                 continue;
@@ -76,11 +77,12 @@ class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                           borderRadius: BorderRadius.circular(3)
                         ),
                       ),
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
                     ),
                     onPressed: () {
                       widget.numOnClick(0);
                     },
-                    icon: const Icon(Icons.clear)
+                    icon: Icon(Icons.clear, size: SudokuCellWidget.cellSize / 1.7)
                   )
                 ));
               } else if (i == 11) {
@@ -95,13 +97,14 @@ class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                           borderRadius: BorderRadius.circular(3)
                         ),
                       ),
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
                     ),
                     onPressed: () {
                       isInNotesMode = !isInNotesMode;
                       switchButtonsColors();
                       widget.notesOnClick();
                     },
-                    icon: const Icon(Icons.edit)
+                    icon: Icon(Icons.edit, size: SudokuCellWidget.cellSize / 1.7)
                   )
                 );
                 result.add(btn);
