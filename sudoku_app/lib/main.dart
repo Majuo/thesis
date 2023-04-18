@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
-			title: 'Flutter Demo',
+			title: 'Sudoku Guide',
 			localizationsDelegates: AppLocalizations.localizationsDelegates,
 			supportedLocales: AppLocalizations.supportedLocales,
 			locale: CurrentLocale.currentLocale,
