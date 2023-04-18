@@ -150,4 +150,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ok => 'OK';
+
+  @override
+  String get sudokuRulesDescription1 => 'Sudoku is a logic game that consists of a 9x9 grid divided into 3x3 regions or blocks, where some of the squares are filled with numbers.';
+
+  @override
+  String get sudokuRulesDescription2 => 'To solve Sudoku, you have to fill in the empty cells with numbers.';
+
+  @override
+  String get sudokuRulesDescription3 => 'Sudoku is considered correctly solved if all the cells are filled in according to the rules. \nThe rules are as follows: \n - all rows, columns and blocks must contain numbers from 1 to 9 \n - numbers cannot be repeated in any row, column or block.';
+
+  @override
+  String get sudokuRulesDescription4 => 'Rows, columns and blocks can all be referred to as groups. \nUsing these rules it is possible to find the values of some cells. If there is only one empty cell left in a group, then the only number 1-9 that is not in the group can be placed there immediately.\nFor example, the block below contains all numbers except 7. Therefore, the empty square can be filled with 7.';
+
+  @override
+  String get solvePuzzleLearning => 'Now you apply the new knowledge to solve this problem:';
 }

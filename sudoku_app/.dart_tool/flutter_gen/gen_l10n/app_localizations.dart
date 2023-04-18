@@ -388,6 +388,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OK'**
   String get ok;
+
+  /// No description provided for @sudokuRulesDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Sudoku is a logic game that consists of a 9x9 grid divided into 3x3 regions or blocks, where some of the squares are filled with numbers.'**
+  String get sudokuRulesDescription1;
+
+  /// No description provided for @sudokuRulesDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'To solve Sudoku, you have to fill in the empty cells with numbers.'**
+  String get sudokuRulesDescription2;
+
+  /// No description provided for @sudokuRulesDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Sudoku is considered correctly solved if all the cells are filled in according to the rules. \nThe rules are as follows: \n - all rows, columns and blocks must contain numbers from 1 to 9 \n - numbers cannot be repeated in any row, column or block.'**
+  String get sudokuRulesDescription3;
+
+  /// No description provided for @sudokuRulesDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'Rows, columns and blocks can all be referred to as groups. \nUsing these rules it is possible to find the values of some cells. If there is only one empty cell left in a group, then the only number 1-9 that is not in the group can be placed there immediately.\nFor example, the block below contains all numbers except 7. Therefore, the empty square can be filled with 7.'**
+  String get sudokuRulesDescription4;
+
+  /// No description provided for @solvePuzzleLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Now you apply the new knowledge to solve this problem:'**
+  String get solvePuzzleLearning;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
