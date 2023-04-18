@@ -116,16 +116,19 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(appBarHeight),
         child: AppBar(
-          title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType), style: TextStyle(fontSize: appBarHeight * 0.6)),
+          title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType), style: TextStyle(fontSize: appBarHeight * 0.5)),
           backgroundColor: Colors.blueAccent,
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                icon: Icon(Icons.menu, size: appBarHeight * 0.6),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              );
-            }
-          ),
+          leading: () {
+            if (NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context))) return null;
+            return Builder(
+              builder: (context) {
+                return IconButton(
+                  icon: Icon(Icons.menu, size: appBarHeight * 0.6),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                );
+              }
+            );
+          } ()
         ),
       ),
       body: Center(
@@ -168,7 +171,12 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(child: Text("Sudoku App")),
+            SizedBox(
+              height: min(300, ScreenSizeHelpers.displayHeight(context) * 0.4),
+              child: DrawerHeader(
+                  child: Image.asset("lib/assets/logo.png", alignment: Alignment.topLeft)
+                ),
+            ),
             ListTile(
               title: Row(children: [
                 const Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.grid_on)),

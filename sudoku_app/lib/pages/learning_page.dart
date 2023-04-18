@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/hidden_pair_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/hidden_single_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/hidden_triple_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/last_possible_number_technique.dart';
@@ -109,7 +110,7 @@ class _LearningPageState extends State<LearningPage> {
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenSingleTechnique),
+                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenPairTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
