@@ -3,16 +3,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/config.dart';
+import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_technique.dart';
 import 'package:sudoku_app/pages/gamepage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sudoku_app/pages/learning_page.dart';
-import 'package:sudoku_app/pages/techniques/sudoku_rules_page.dart';
+import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
 import 'package:sudoku_app/settings/navigation_menu_setting.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/pages/settings_page.dart';
 import 'package:sudoku_app/settings/shared_preferences_manager.dart';
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/sudokue_rules_description.dart';
 
 import '../widgets/sudoku_grid.dart';
 
@@ -94,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(AppLocalizations.of(context).yes),
                     onPressed: () {
                       Navigator.of(context).pop();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SudokuRulesTechniquePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique:SudokuRulesTechnique, pageContent: SudokuRulesDescription())));
                     },
                   ),
                   TextButton(

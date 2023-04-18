@@ -14,8 +14,9 @@ import 'package:sudoku_app/game_internals/solver/techniques/swordfish_technique.
 import 'package:sudoku_app/game_internals/solver/techniques/x_wing_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dart';
 import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
-import 'package:sudoku_app/pages/techniques/sudoku_rules_page.dart';
+import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/sudokue_rules_description.dart';
 import 'package:sudoku_app/widgets/techniques_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -52,7 +53,7 @@ class _LearningPageState extends State<LearningPage> {
               children: [
                 TechniquesListTile(
                   onTapHandler: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SudokuRulesTechniquePage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: SudokuRulesTechnique,pageContent: SudokuRulesDescription())));
                   },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, SudokuRulesTechnique),
