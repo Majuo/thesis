@@ -77,6 +77,14 @@ class _SudokuGameState extends State<SudokuGame> {
     );
 	}
   Widget getBoardWithNumberButtons(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      if (currentCell != null) {
+        var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(currentCell!.rowNo).children.elementAt(currentCell!.cellNo) as SudokuCellWidget;
+        currentCell = newCurrentCell;
+        currentCell!.currentState?.selectCurrent();
+      }
+    });
     return Column(
       mainAxisSize: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisSize.min : MainAxisSize.max,
       mainAxisAlignment: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisAlignment.start : MainAxisAlignment.center,
