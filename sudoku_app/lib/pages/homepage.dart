@@ -14,7 +14,7 @@ import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/pages/settings_page.dart';
 import 'package:sudoku_app/settings/shared_preferences_manager.dart';
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
-import 'package:sudoku_app/widgets/techniques_descriptions/sudokue_rules_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/sudoku_rules_description.dart';
 
 import '../widgets/sudoku_grid.dart';
 

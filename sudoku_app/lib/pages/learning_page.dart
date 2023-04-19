@@ -16,7 +16,7 @@ import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dar
 import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
-import 'package:sudoku_app/widgets/techniques_descriptions/sudokue_rules_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/sudoku_rules_description.dart';
 import 'package:sudoku_app/widgets/techniques_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
