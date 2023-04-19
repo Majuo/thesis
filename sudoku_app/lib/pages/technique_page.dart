@@ -8,7 +8,6 @@ import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
 import '../screen_size_helpers.dart';
 
 class TechniquePage extends StatelessWidget {
-  static const double contentHorizontalPadding = 15;
   static double contentWidth = 0;
   static double fontSize = 16;
   const TechniquePage({super.key, required this.technique, required this.pageContent});
@@ -16,7 +15,7 @@ class TechniquePage extends StatelessWidget {
   final Widget pageContent;
   @override
   Widget build(BuildContext context) {
-    contentWidth = ScreenSizeHelpers.displayWidth(context) - 2 * contentHorizontalPadding;
+    contentWidth = ScreenSizeHelpers.displayWidth(context);
     double appBarHeight = Platform.isAndroid && !ScreenSizeHelpers.isVerticalOrientation(context) ? 35 : 50;
     return Scaffold(
       backgroundColor: Colors.blue[50],
@@ -27,19 +26,36 @@ class TechniquePage extends StatelessWidget {
           backgroundColor: Colors.blueAccent,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: contentHorizontalPadding),
-        child: pageContent
-      ),
+      body: pageContent
     );
   }
 
   static Widget getTechniquePageText(String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: SizedBox(
         width: TechniquePage.contentWidth,
         child: Text(text, textAlign: TextAlign.justify, style: TextStyle(fontSize: TechniquePage.fontSize))
+      ),
+    );
+  }
+
+  static Widget getTechniquePageSection(List<Widget> children) {
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue[200]!),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          color: Colors.blue[100]
+        ),
+        child: SizedBox(
+          width: TechniquePage.contentWidth,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: children,
+          ),
+        ),
       ),
     );
   }
@@ -49,12 +65,15 @@ class TechniquePage extends StatelessWidget {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return SizedBox(
-            width: contentWidth,
-            height: min(min(400, snapshot.data!), ScreenSizeHelpers.displayHeight(context) * 0.7),
-            child: Align(
-              alignment: ScreenSizeHelpers.isVerticalOrientation(context) ? Alignment.center : Alignment.topLeft,
-              child: image,
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: SizedBox(
+              width: contentWidth,
+              height: min(min(400, snapshot.data!), ScreenSizeHelpers.displayHeight(context) * 0.7),
+              child: Align(
+                alignment: ScreenSizeHelpers.isVerticalOrientation(context) ? Alignment.center : Alignment.topLeft,
+                child: image,
+              ),
             ),
           );
         } else {
