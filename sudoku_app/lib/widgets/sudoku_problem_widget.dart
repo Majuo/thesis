@@ -26,6 +26,7 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
   bool isProblemInInitState = true;
   int changesLeft = 0;
   int incorrectChanges = 0;
+  SudokuButtonsPanel? numberButtonsWidget;
 
   _SudokuProblemWidgetState({required this.problem});
 
@@ -62,6 +63,10 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
         currentCell = newCurrentCell;
         currentCell!.currentState?.selectCurrent();
       }
+      if (isInNotesMode) {
+          numberButtonsWidget?.currentState?.isInNotesMode = true;
+          numberButtonsWidget?.currentState?.switchButtonsColors();
+      }
     });
     return Column(
       mainAxisSize: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisSize.min : MainAxisSize.max,
@@ -90,8 +95,8 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
         } (),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: 
-            SudokuButtonsPanel(numOnClick: (int val) {
+          child: () {
+            numberButtonsWidget = SudokuButtonsPanel(numOnClick: (int val) {
               clearHighlightedCells();
               if (currentCell == null || isProblemSolved) return;
               var boardCell = problem.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
@@ -124,7 +129,9 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
             },
             notesOnClick: () {
               isInNotesMode = !isInNotesMode;
-            },),
+            },);
+            return numberButtonsWidget;
+          } ()
         ),
         TextButton(
           onPressed: () {
