@@ -442,6 +442,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Find the value of the highlighted cell'**
   String get findSolutionForCell;
+
+  /// No description provided for @pencilMarksDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Pencil marks are used to mark the numbers that fit a given square when the value of the square is not known. Matching numbers are otherwise known as candidates.'**
+  String get pencilMarksDescription1;
+
+  /// No description provided for @pencilMarksDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'At the beginning, all the numbers that could be entered in the square that would not break the rules are added. Pencil marks help to keep track of the possible values of the squares. Also, many Sudoku solving techniques are based on the use of pencil marks.\nIn this app, you need to turn on pencil mark mode to enter pencil marks. This can be done by pressing a button with the pencil.'**
+  String get pencilMarksDescription2;
+
+  /// No description provided for @pencilMarksProblem.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in candidates for the highlighted cell: '**
+  String get pencilMarksProblem;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

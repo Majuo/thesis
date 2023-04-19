@@ -5,10 +5,10 @@ class TechniquesListTile extends StatelessWidget {
   static const double tileHeight = 80;
   static const double tilePadding = 5;
 
-  const TechniquesListTile({super.key, required this.onTapHandler, required this.imageAssetPath, required this.techniaueName});
+  const TechniquesListTile({super.key, required this.onTapHandler, required this.imageAssetPath, required this.techniqueName});
   final VoidCallback onTapHandler;
   final String imageAssetPath;
-  final String techniaueName;
+  final String techniqueName;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class TechniquesListTile extends StatelessWidget {
                 ),
                 Expanded(
                   child: Center(
-                    child: Text(techniaueName)
+                    child: Text(techniqueName)
                   ),
                 )
               ],

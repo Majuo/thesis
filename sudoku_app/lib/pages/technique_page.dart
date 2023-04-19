@@ -10,9 +10,10 @@ import '../screen_size_helpers.dart';
 class TechniquePage extends StatelessWidget {
   static double contentWidth = 0;
   static double fontSize = 16;
-  const TechniquePage({super.key, required this.technique, required this.pageContent});
-  final Type technique;
+  const TechniquePage({super.key, required this.technique, required this.pageContent, this.techniqueNameOverride});
+  final Type? technique;
   final Widget pageContent;
+  final String? techniqueNameOverride;
   @override
   Widget build(BuildContext context) {
     contentWidth = ScreenSizeHelpers.displayWidth(context);
@@ -22,7 +23,7 @@ class TechniquePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(appBarHeight),
         child: AppBar(
-          title: Text(SudokuTechniqueNamePicker.getTechniqueName(context, technique), style: TextStyle(fontSize: appBarHeight * 0.5)),
+          title: Text(techniqueNameOverride ?? SudokuTechniqueNamePicker.getTechniqueName(context, technique!), style: TextStyle(fontSize: appBarHeight * 0.5)),
           backgroundColor: Colors.blueAccent,
         ),
       ),

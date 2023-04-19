@@ -16,6 +16,7 @@ import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dar
 import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/pencil_marks_description.dart';
 import 'package:sudoku_app/widgets/techniques_descriptions/sudoku_rules_description.dart';
 import 'package:sudoku_app/widgets/techniques_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -53,15 +54,17 @@ class _LearningPageState extends State<LearningPage> {
               children: [
                 TechniquesListTile(
                   onTapHandler: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: SudokuRulesTechnique,pageContent: SudokuRulesDescription())));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: SudokuRulesTechnique, pageContent: SudokuRulesDescription())));
                   },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, SudokuRulesTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, SudokuRulesTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TechniquePage(technique: null, pageContent: const PencilMarksDescription(), techniqueNameOverride: AppLocalizations.of(context).pencilMarks)));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}notes.png",
-                  techniaueName: AppLocalizations.of(context).pencilMarks,
+                  techniqueName: AppLocalizations.of(context).pencilMarks,
                 ),
               ],
             ),
@@ -81,42 +84,42 @@ class _LearningPageState extends State<LearningPage> {
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}lastPossibleNumber.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastPossibleNumberTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastPossibleNumberTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}lastRemainingCell.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastRemainingCellTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastRemainingCellTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}nakedSingle.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedSingleTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedSingleTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}nakedPair.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedPairTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedPairTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}nakedTriple.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedTripleTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedTripleTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenSingleTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenSingleTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenPairTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenPairTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenTripleTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenTripleTechnique),
                 ),
               ],
             ),
@@ -136,12 +139,12 @@ class _LearningPageState extends State<LearningPage> {
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingPairTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingPairTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingTripleTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingTripleTechnique),
                 ),
               ],
             ),
@@ -161,17 +164,17 @@ class _LearningPageState extends State<LearningPage> {
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, XWingTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, XWingTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, YWingTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, YWingTechnique),
                 ),
                 TechniquesListTile(
                   onTapHandler: () {},
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
-                  techniaueName: SudokuTechniqueNamePicker.getTechniqueName(context, SwordfishTechnique),
+                  techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, SwordfishTechnique),
                 ),
               ],
             ),

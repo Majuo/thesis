@@ -177,4 +177,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get findSolutionForCell => 'Leia märgitud ruudu väärtust';
+
+  @override
+  String get pencilMarksDescription1 => 'Pliiatsimärke kasutatakse selleks, et märkida numbrid, mis sobivad antud ruutu, kui ruudu väärtust ei ole teada. Sobivaid numbreid nimetatakse teisiti kandidaatideks.';
+
+  @override
+  String get pencilMarksDescription2 => 'Alguses lisatakse kõiki numbreid, mida võiks ruutu sisestada, mis ei rikuks reegleid. Pliiatsimärgid aitavad jälgida, ruutude võimalike väärtusi. Samuti põhinevad paljud Sudoku lahendamise tehnikad pliiatsimärkide kasutamisel.\nSelles rakenduses tuleb märkmete sisestamiseks lülitada sisse pliiatsimärkide režiimi. Seda saab teha vajutades pliiatsiga nupu.';
+
+  @override
+  String get pencilMarksProblem => 'Täida märgitud ruudu kandidaadid: ';
 }
