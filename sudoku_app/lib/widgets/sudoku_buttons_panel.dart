@@ -7,12 +7,16 @@ class SudokuButtonsPanel extends StatefulWidget {
   static const Color lightGreyColor = Color.fromRGBO(200, 200, 200, 1);
   final Function(int) numOnClick;
   final Function() notesOnClick;
+  SudokuButtonsPanelState? currentState;
 
   @override
-  State<SudokuButtonsPanel> createState() => _SudokuButtonsPanelState();
+  State<SudokuButtonsPanel> createState() {
+    currentState = SudokuButtonsPanelState();
+    return currentState as SudokuButtonsPanelState;
+  }
 }
 
-class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
+class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
 
   bool isInNotesMode = false;
 
@@ -35,6 +39,7 @@ class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
 
   @override
   Widget build(BuildContext context) {
+    widget.currentState = this;
     return SizedBox(
       width: SudokuGrid.gridSize * 1.2,
       height: SudokuCellWidget.cellSize,
@@ -109,7 +114,6 @@ class _SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                 );
                 result.add(btn);
               }
-
             }
             return result;
           }(),

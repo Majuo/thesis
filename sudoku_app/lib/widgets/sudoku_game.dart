@@ -57,6 +57,7 @@ class _SudokuGameState extends State<SudokuGame> {
   bool isGameOver = SudokuGame.isGameOver;
   String? hintText;
   SudokuGrid? gridWidget;
+  SudokuButtonsPanel? numberButtonsWidget;
 
   @override
 	Widget build(BuildContext context) {
@@ -83,6 +84,22 @@ class _SudokuGameState extends State<SudokuGame> {
         var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(currentCell!.rowNo).children.elementAt(currentCell!.cellNo) as SudokuCellWidget;
         currentCell = newCurrentCell;
         currentCell!.currentState?.selectCurrent();
+      }
+      if (isInNotesMode) {
+          numberButtonsWidget?.currentState?.isInNotesMode = true;
+          numberButtonsWidget?.currentState?.switchButtonsColors();
+      }
+      for (var errorCell in game.errorCells) {
+        var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(errorCell.row).children.elementAt(errorCell.col) as SudokuCellWidget;
+        if (cellWidget.rowNo != currentCell?.rowNo || cellWidget.cellNo != currentCell?.cellNo) {
+          cellWidget.currentState?.highlightError();
+        }
+      }
+      for (var highlightedCell in highlightedCells) {
+        var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(highlightedCell.rowNo).children.elementAt(highlightedCell.cellNo) as SudokuCellWidget;
+        if (cellWidget.rowNo != currentCell?.rowNo || cellWidget.cellNo != currentCell?.cellNo) {
+          cellWidget.currentState?.highlight();
+        }
       }
     });
     return Column(
@@ -117,8 +134,8 @@ class _SudokuGameState extends State<SudokuGame> {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: 
-            SudokuButtonsPanel(numOnClick: (int val) {
+          child: () {
+            numberButtonsWidget = SudokuButtonsPanel(numOnClick: (int val) {
               clearHighlightedCells();
               if (currentCell == null || isGameOver) return;
               var boardCell = game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo);
@@ -156,7 +173,9 @@ class _SudokuGameState extends State<SudokuGame> {
             },
             notesOnClick: () {
               isInNotesMode = !isInNotesMode;
-            },),
+            },);
+            return numberButtonsWidget;
+          } ()
         ),
       ],
     );
