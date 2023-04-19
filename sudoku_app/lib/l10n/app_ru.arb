@@ -55,5 +55,6 @@
   "solvePuzzleLearning" : "Попробуй решить задачу с помощью полученных знаний:",
   "problemChangesLeft" : "Число клеток, которые нужно изменить: ",
   "problemIncorrectlyChangedCells" : "Неправильно изменённых клеток: ",
-  "problemSolved" : "Задача решена правильно!"
+  "problemSolved" : "Задача решена правильно!",
+  "findSolutionForCell" : "Leia märgitud ruudu väärtust"
 }

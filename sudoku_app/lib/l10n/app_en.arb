@@ -55,5 +55,6 @@
   "solvePuzzleLearning" : "Now you apply the new knowledge to solve this problem:",
   "problemChangesLeft" : "Number of cells that need to be changed: ",
   "problemIncorrectlyChangedCells" : "Incorrectly changed cells: ",
-  "problemSolved" : "You solved the problem!"
+  "problemSolved" : "You solved the problem!",
+  "findSolutionForCell" : "Find the value of the highlighted cell"
 }

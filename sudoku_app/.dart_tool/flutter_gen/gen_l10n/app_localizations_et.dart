@@ -174,4 +174,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get problemSolved => 'Ülesanne on lahendatud õigesti!';
+
+  @override
+  String get findSolutionForCell => 'Leia märgitud ruudu väärtust';
 }

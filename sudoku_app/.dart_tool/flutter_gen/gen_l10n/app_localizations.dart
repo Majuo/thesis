@@ -436,6 +436,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You solved the problem!'**
   String get problemSolved;
+
+  /// No description provided for @findSolutionForCell.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the value of the highlighted cell'**
+  String get findSolutionForCell;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

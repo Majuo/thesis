@@ -174,4 +174,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get problemSolved => 'Задача решена правильно!';
+
+  @override
+  String get findSolutionForCell => 'Leia märgitud ruudu väärtust';
 }

@@ -55,5 +55,6 @@
   "solvePuzzleLearning" : "Nüüd on sul võimalus kasutada uusi teadmisi, et lahendada ülesannet:",
   "problemChangesLeft" : "Ruutude arv, mida tuleb muuta: ",
   "problemIncorrectlyChangedCells" : "Valesti muudetud ruudud: ",
-  "problemSolved" : "Ülesanne on lahendatud õigesti!"
+  "problemSolved" : "Ülesanne on lahendatud õigesti!",
+  "findSolutionForCell" : "Leia märgitud ruudu väärtust"
 }

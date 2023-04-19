@@ -38,12 +38,29 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
           ]
         ),
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).solvePuzzleLearning),
-        SudokuProblemWidget(problem: getRulesProblem())
+        TechniquePage.getTechniquePageText(AppLocalizations.of(context).findSolutionForCell),
+        SudokuProblemWidget(problem: getRulesColumnProblem()),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5),
+          child: Divider(
+            thickness: 0.5,
+          ),
+        ),
+        TechniquePage.getTechniquePageText(AppLocalizations.of(context).findSolutionForCell),
+        SudokuProblemWidget(problem: getRulesRowProblem()),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5),
+          child: Divider(
+            thickness: 0.5,
+          ),
+        ),
+        TechniquePage.getTechniquePageText(AppLocalizations.of(context).findSolutionForCell),
+        SudokuProblemWidget(problem: getRulesBlockProblem())
       ]
     );
   }
 
-  SudokuProblem getRulesProblem() {
+  SudokuProblem getRulesColumnProblem() {
     var problem = SudokuProblem.getSudokuProblem(
     [
       [[6], [2], [0], [3], [8], [0], [9], [0], [7]],
@@ -68,6 +85,62 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
       [[0], [9], [2], [0], [4], [0], [0], [0], [0]],
     ]);
     problem.initColoredCells[problem.board[1][4]] = Colors.green;
+    return problem;
+  }
+
+  SudokuProblem getRulesRowProblem() {
+    var problem = SudokuProblem.getSudokuProblem(
+    [
+      [[0], [0], [9], [0], [8], [0], [0], [2], [0]],
+      [[8], [6], [0], [0], [0], [1], [7], [0], [4]],
+      [[3], [4], [1], [0], [7], [2], [9], [5], [8]],
+      [[0], [0], [0], [7], [0], [0], [0], [0], [0]],
+      [[6], [0], [8], [0], [3], [4], [0], [9], [0]],
+      [[0], [0], [3], [0], [5], [6], [0], [8], [7]],
+      [[0], [8], [6], [2], [0], [7], [0], [0], [3]],
+      [[0], [0], [0], [0], [0], [5], [4], [6], [0]],
+      [[5], [0], [4], [0], [6], [9], [8], [7], [0]],
+    ], 
+    [
+      [[0], [0], [9], [0], [8], [0], [0], [2], [0]],
+      [[8], [6], [0], [0], [0], [1], [7], [0], [4]],
+      [[3], [4], [1], [6], [7], [2], [9], [5], [8]],
+      [[0], [0], [0], [7], [0], [0], [0], [0], [0]],
+      [[6], [0], [8], [0], [3], [4], [0], [9], [0]],
+      [[0], [0], [3], [0], [5], [6], [0], [8], [7]],
+      [[0], [8], [6], [2], [0], [7], [0], [0], [3]],
+      [[0], [0], [0], [0], [0], [5], [4], [6], [0]],
+      [[5], [0], [4], [0], [6], [9], [8], [7], [0]],
+    ]);
+    problem.initColoredCells[problem.board[2][3]] = Colors.green;
+    return problem;
+  }
+
+  SudokuProblem getRulesBlockProblem() {
+    var problem = SudokuProblem.getSudokuProblem(
+    [
+      [[0], [0], [6], [0], [3], [0], [0], [4], [0]],
+      [[5], [8], [1], [0], [9], [4], [0], [0], [3]],
+      [[0], [3], [9], [0], [6], [7], [2], [0], [8]],
+      [[8], [1], [2], [0], [4], [0], [0], [0], [0]],
+      [[3], [9], [5], [6], [0], [0], [8], [0], [0]],
+      [[7], [6], [0], [3], [0], [0], [0], [5], [0]],
+      [[6], [2], [8], [0], [0], [0], [0], [0], [7]],
+      [[0], [4], [0], [0], [0], [8], [0], [0], [6]],
+      [[9], [0], [0], [0], [0], [6], [0], [8], [0]],
+    ], 
+    [
+      [[0], [0], [6], [0], [3], [0], [0], [4], [0]],
+      [[5], [8], [1], [0], [9], [4], [0], [0], [3]],
+      [[0], [3], [9], [0], [6], [7], [2], [0], [8]],
+      [[8], [1], [2], [0], [4], [0], [0], [0], [0]],
+      [[3], [9], [5], [6], [0], [0], [8], [0], [0]],
+      [[7], [6], [4], [3], [0], [0], [0], [5], [0]],
+      [[6], [2], [8], [0], [0], [0], [0], [0], [7]],
+      [[0], [4], [0], [0], [0], [8], [0], [0], [6]],
+      [[9], [0], [0], [0], [0], [6], [0], [8], [0]],
+    ]);
+    problem.initColoredCells[problem.board[5][2]] = Colors.green;
     return problem;
   }
 }

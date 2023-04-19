@@ -174,4 +174,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get problemSolved => 'You solved the problem!';
+
+  @override
+  String get findSolutionForCell => 'Find the value of the highlighted cell';
 }
