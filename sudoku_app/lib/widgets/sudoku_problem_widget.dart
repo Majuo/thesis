@@ -22,27 +22,20 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
   SudokuCellWidget? currentCell;
   bool isInNotesMode = false;
   SudokuGrid? gridWidget;
-  bool isFirstDraw = true;
+  bool isCellsHighlightNeeded = true;
+  bool isProblemInInitState = true;
   int changesLeft = 0;
   int incorrectChanges = 0;
 
   _SudokuProblemWidgetState({required this.problem});
 
   @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      highlightCells();
-    });
-    super.initState();
-  }
-
-  @override
 	Widget build(BuildContext context) {
     if (ScreenSizeHelpers.isVerticalOrientation(context)) {
       return Column(
         children: [
-          getBoardWithButtons(context),
-          getGameStatsPanel(context)
+          getGameStatsPanel(context),
+          getBoardWithButtons(context)
         ]
       );
     }
@@ -56,6 +49,14 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
 	}
 
   Widget getBoardWithButtons(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (isProblemInInitState) {
+        setState(() {
+          isCellsHighlightNeeded = true;
+        });
+        highlightCells();
+      }
+    });
     return Column(
       mainAxisSize: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisSize.min : MainAxisSize.max,
       mainAxisAlignment: ScreenSizeHelpers.isVerticalOrientation(context) ? MainAxisAlignment.start : MainAxisAlignment.center,
@@ -109,6 +110,7 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
                 setState(() {
                   changesLeft = problem.cellsNeedToBeChanged;
                   incorrectChanges = problem.incorrectlyChangedCells;
+                  isProblemInInitState = false;
                 });
               }
             },
@@ -129,13 +131,15 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
             }).toList()).toList();
             problem.checkProblemSolved();
             isProblemSolved = false;
-            isFirstDraw = true;
+            isCellsHighlightNeeded = true;
+            isProblemInInitState = true;
             changesLeft = problem.cellsNeedToBeChanged;
             incorrectChanges = problem.incorrectlyChangedCells;
             setState(() {});
             highlightCells();
           }, 
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               const Icon(Icons.restart_alt, size: 16),
               Padding(padding: const EdgeInsets.only(left: 5), child: Text(AppLocalizations.of(context).reset))
@@ -147,19 +151,20 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
   }
 
   Widget getGameStatsPanel(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Column(
-          crossAxisAlignment: !ScreenSizeHelpers.isVerticalOrientation(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
-          children: [
-            Text("${AppLocalizations.of(context).problemChangesLeft}${problem.cellsNeedToBeChanged}"),
-            Visibility(
-              visible: problem.incorrectlyChangedCells != 0,
-              child: Text("${AppLocalizations.of(context).problemIncorrectlyChangedCells}${problem.incorrectlyChangedCells}")),
-          ]
-        ),
-      ]
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Column(
+            crossAxisAlignment: !ScreenSizeHelpers.isVerticalOrientation(context) ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+            children: [
+              Text("${AppLocalizations.of(context).problemChangesLeft}${problem.cellsNeedToBeChanged}"),
+              problem.incorrectlyChangedCells != 0 ? Text("${AppLocalizations.of(context).problemIncorrectlyChangedCells}${problem.incorrectlyChangedCells}") : const Text(""),
+            ]
+          ),
+        ]
+      ),
     );
   }
 
@@ -171,7 +176,7 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
   }
 
   void highlightCells() {
-    if (isFirstDraw) {
+    if (isCellsHighlightNeeded) {
       if (gridWidget!.currentState == null) {
         return;
       }
@@ -180,7 +185,7 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
         highlightedCells.add(cellWidget);
         cellWidget.currentState?.setCellColor(problem.initColoredCells[cell]!);
       }
-      isFirstDraw = false;
+      isCellsHighlightNeeded = false;
     }
   }
 
