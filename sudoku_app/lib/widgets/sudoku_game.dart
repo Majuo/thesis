@@ -83,22 +83,23 @@ class _SudokuGameState extends State<SudokuGame> {
       children: [
         () {
           gridWidget = SudokuGrid(
-          game: game,
-          cellHandleOnTap: (SudokuCell cell) {
-            clearHighlightedCells();
-            var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
-            if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
-              currentCell?.currentState?.highlightError();
-            } else {
-              currentCell?.currentState?.deselect();
-            }
-            if (currentCell?.rowNo == newCurrentCell.rowNo && currentCell?.cellNo == newCurrentCell.cellNo) {
-              currentCell = null;
-            } else {
-              currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
-              currentCell?.currentState?.selectCurrent();
-            }
-          });
+            game: game,
+            cellHandleOnTap: (SudokuCell cell) {
+              clearHighlightedCells();
+              var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
+              if (currentCell != null && game.errorCells.contains(game.board.elementAt(currentCell!.rowNo).elementAt(currentCell!.cellNo))) {
+                currentCell?.currentState?.highlightError();
+              } else {
+                currentCell?.currentState?.deselect();
+              }
+              if (currentCell?.rowNo == newCurrentCell.rowNo && currentCell?.cellNo == newCurrentCell.cellNo) {
+                currentCell = null;
+              } else {
+                currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
+                currentCell?.currentState?.selectCurrent();
+              }
+            },
+          );
           return gridWidget!;
         } (),
         SizedBox(

@@ -50,11 +50,17 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
 
   Widget getBoardWithButtons(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
       if (isProblemInInitState) {
         setState(() {
           isCellsHighlightNeeded = true;
         });
         highlightCells();
+      }
+      if (currentCell != null) {
+        var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(currentCell!.rowNo).children.elementAt(currentCell!.cellNo) as SudokuCellWidget;
+        currentCell = newCurrentCell;
+        currentCell!.currentState?.selectCurrent();
       }
     });
     return Column(
@@ -63,18 +69,20 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
       children: [
         () {
           gridWidget = SudokuGrid(
-          game: problem,
-          cellHandleOnTap: (SudokuCell cell) {
-            clearHighlightedCells();
-            currentCell?.currentState?.deselect();
-            var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
-            if (currentCell?.rowNo == newCurrentCell.rowNo && currentCell?.cellNo == newCurrentCell.cellNo) {
-              currentCell = null;
-            } else {
-              currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
-              currentCell?.currentState?.selectCurrent();
-            }
-          });
+            game: problem,
+            cellHandleOnTap: (SudokuCell cell) {
+              clearHighlightedCells();
+              isProblemInInitState = false;
+              currentCell?.currentState?.deselect();
+              var newCurrentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
+              if (currentCell?.rowNo == newCurrentCell.rowNo && currentCell?.cellNo == newCurrentCell.cellNo) {
+                currentCell = null;
+              } else {
+                currentCell = gridWidget?.currentState?.cellWidgets.elementAt(cell.row).children.elementAt(cell.col) as SudokuCellWidget;
+                currentCell?.currentState?.selectCurrent();
+              }
+            },
+          );
           problem.checkProblemSolved();
           changesLeft = problem.cellsNeedToBeChanged;
           incorrectChanges = problem.incorrectlyChangedCells;
