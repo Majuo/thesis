@@ -164,5 +164,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sudokuRulesDescription4 => 'Ridu, veerge ja plokke saab nimetada ühe sõnaga - grupp. \nKasutades neid reegleid on võimalik leida mõnede ruutude väärtusi. Kui mingis grupis on jäänud ainult üks tühi ruut, siis võib sinna kohe panna ainus number 1-9, mida grupis ei ole.\nNäiteks allpool olevas plokis on olemas kõik numbrid peale 7. Seepärast võib tühja ruutu kohe panna 7.';
 
   @override
-  String get solvePuzzleLearning => 'Nüüd on sul võimalus kasutada uusi teadmisi, et lahendada ülesannet:';
+  String get solvePuzzleLearning => 'Попробуй решить задачу с помощью полученных знаний:';
+
+  @override
+  String get problemChangesLeft => 'Число клеток, которые нужно изменить: ';
+
+  @override
+  String get problemIncorrectlyChangedCells => 'Неправильно изменённых клеток: ';
+
+  @override
+  String get problemSolved => 'Задача решена правильно!';
 }

@@ -165,4 +165,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get solvePuzzleLearning => 'Now you apply the new knowledge to solve this problem:';
+
+  @override
+  String get problemChangesLeft => 'Number of cells that need to be changed: ';
+
+  @override
+  String get problemIncorrectlyChangedCells => 'Incorrectly changed cells: ';
+
+  @override
+  String get problemSolved => 'You solved the problem!';
 }

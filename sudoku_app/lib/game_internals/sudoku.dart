@@ -1,9 +1,11 @@
 import 'dart:collection';
 
+import 'package:sudoku_app/game_internals/i_have_sudoku_board.dart';
 import 'package:sudoku_app/game_internals/sudoku_cell.dart';
 import 'dart:math' as math;
 
-class Sudoku {
+class Sudoku implements IHaveSudokuBoard {
+  @override
 	List<List<SudokuCell>> board = List.empty(growable: true);
 	List<List<int>> solution = List.empty(growable: true);
 	List<List<int>> initState = List.empty(growable: true);

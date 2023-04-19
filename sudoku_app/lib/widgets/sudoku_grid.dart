@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku_app/game_internals/i_have_sudoku_board.dart';
 import 'package:sudoku_app/game_internals/sudoku_cell.dart';
 import 'package:sudoku_app/widgets/cell_candidates.dart';
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
@@ -11,7 +12,7 @@ class SudokuGrid extends StatefulWidget {
     required this.game,
     required this.cellHandleOnTap
   });
-	Sudoku game;
+	IHaveSudokuBoard game;
   Function(SudokuCell) cellHandleOnTap;
   SudokuGridState? currentState;
   static double gridSize = 0;
@@ -28,7 +29,7 @@ class SudokuGridState extends State<SudokuGrid> {
     required this.game
   });
   double gridSize = 0;
-	Sudoku game; 
+	IHaveSudokuBoard game;
   List<Row> cellWidgets = List.empty(growable: true);
   @override
   Widget build(BuildContext context) {

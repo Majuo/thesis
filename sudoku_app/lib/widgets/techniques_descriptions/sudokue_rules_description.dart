@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sudoku_app/game_internals/sudoku_problem.dart';
+import 'package:sudoku_app/widgets/sudoku_problem_widget.dart';
 
 import '../../pages/technique_page.dart';
 
@@ -28,7 +30,36 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).sudokuRulesDescription4),
         TechniquePage.getTechniquePageImage(img3Future, context, Image.asset("${SudokuRulesDescription.assetFolderPath}box_example.png")),
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).solvePuzzleLearning),
+        SudokuProblemWidget(problem: getRulesProblem())
       ]
     );
+  }
+
+  SudokuProblem getRulesProblem() {
+    var problem = SudokuProblem.getSudokuProblem(
+    [
+      [[6], [2], [0], [3], [8], [0], [9], [0], [7]],
+      [[9], [7], [0], [0], [0], [1], [5], [0], [0]],
+      [[0], [0], [0], [0], [9], [0], [0], [0], [0]],
+      [[0], [5], [9], [4], [1], [0], [6], [2], [0]],
+      [[0], [0], [0], [7], [5], [0], [4], [0], [0]],
+      [[4], [0], [1], [9], [6], [2], [0], [3], [5]],
+      [[0], [0], [6], [1], [7], [0], [3], [5], [0]],
+      [[5], [0], [7], [0], [3], [6], [8], [0], [9]],
+      [[0], [9], [2], [0], [4], [0], [0], [0], [0]],
+    ], 
+    [
+      [[6], [2], [0], [3], [8], [0], [9], [0], [7]],
+      [[9], [7], [0], [0], [2], [1], [5], [0], [0]],
+      [[0], [0], [0], [0], [9], [0], [0], [0], [0]],
+      [[0], [5], [9], [4], [1], [0], [6], [2], [0]],
+      [[0], [0], [0], [7], [5], [0], [4], [0], [0]],
+      [[4], [0], [1], [9], [6], [2], [0], [3], [5]],
+      [[0], [0], [6], [1], [7], [0], [3], [5], [0]],
+      [[5], [0], [7], [0], [3], [6], [8], [0], [9]],
+      [[0], [9], [2], [0], [4], [0], [0], [0], [0]],
+    ]);
+    problem.initColoredCells[problem.board[1][4]] = Colors.green;
+    return problem;
   }
 }

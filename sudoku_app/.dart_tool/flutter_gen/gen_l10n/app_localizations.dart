@@ -418,6 +418,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Now you apply the new knowledge to solve this problem:'**
   String get solvePuzzleLearning;
+
+  /// No description provided for @problemChangesLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of cells that need to be changed: '**
+  String get problemChangesLeft;
+
+  /// No description provided for @problemIncorrectlyChangedCells.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrectly changed cells: '**
+  String get problemIncorrectlyChangedCells;
+
+  /// No description provided for @problemSolved.
+  ///
+  /// In en, this message translates to:
+  /// **'You solved the problem!'**
+  String get problemSolved;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -146,7 +146,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get congratulations => 'Palju õnne';
 
   @override
-  String get youWon => 'Sudoku on lahendatud õigesti';
+  String get youWon => 'Sudoku on lahendatud õigesti!';
 
   @override
   String get ok => 'OK';
@@ -165,4 +165,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get solvePuzzleLearning => 'Nüüd on sul võimalus kasutada uusi teadmisi, et lahendada ülesannet:';
+
+  @override
+  String get problemChangesLeft => 'Ruutude arv, mida tuleb muuta: ';
+
+  @override
+  String get problemIncorrectlyChangedCells => 'Valesti muudetud ruudud: ';
+
+  @override
+  String get problemSolved => 'Ülesanne on lahendatud õigesti!';
 }

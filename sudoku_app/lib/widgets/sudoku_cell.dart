@@ -113,6 +113,13 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
     });
   }
 
+  void setCellColor(Color color) {
+    if (!mounted) return;
+    setState(() {
+      cellColor = color;
+    });
+  }
+
 	@override
 	Widget build(BuildContext context) {
     setState(() {
