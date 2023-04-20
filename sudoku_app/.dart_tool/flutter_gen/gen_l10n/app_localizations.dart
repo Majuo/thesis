@@ -392,7 +392,7 @@ abstract class AppLocalizations {
   /// No description provided for @sudokuRulesDescription1.
   ///
   /// In en, this message translates to:
-  /// **'Sudoku is a logic game that consists of a 9x9 grid divided into 3x3 regions or blocks, where some of the squares are filled with numbers.'**
+  /// **'Sudoku is a logic game that consists of a 9x9 grid divided into 3x3 regions or blocks, where some of the cells are filled with numbers.'**
   String get sudokuRulesDescription1;
 
   /// No description provided for @sudokuRulesDescription2.
@@ -410,7 +410,7 @@ abstract class AppLocalizations {
   /// No description provided for @sudokuRulesDescription4.
   ///
   /// In en, this message translates to:
-  /// **'Rows, columns and blocks can all be referred to as groups. \nUsing these rules it is possible to find the values of some cells. If there is only one empty cell left in a group, then the only number 1-9 that is not in the group can be placed there immediately.\nFor example, the block below contains all numbers except 7. Therefore, the empty square can be filled with 7.'**
+  /// **'Rows, columns and blocks can all be referred to as groups. \nUsing these rules it is possible to find the values of some cells. If there is only one empty cell left in a group, then the only number 1-9 that is not in the group can be placed there immediately.\nFor example, the block below contains all numbers except 7. Therefore, the empty cell can be filled with 7.'**
   String get sudokuRulesDescription4;
 
   /// No description provided for @solvePuzzleLearning.
@@ -446,13 +446,13 @@ abstract class AppLocalizations {
   /// No description provided for @pencilMarksDescription1.
   ///
   /// In en, this message translates to:
-  /// **'Pencil marks are used to mark the numbers that fit a given square when the value of the square is not known. Matching numbers are otherwise known as candidates.'**
+  /// **'Pencil marks are used to mark the numbers that fit a given cell when the value of the cell is not known. Matching numbers are otherwise known as candidates.'**
   String get pencilMarksDescription1;
 
   /// No description provided for @pencilMarksDescription2.
   ///
   /// In en, this message translates to:
-  /// **'At the beginning, all the numbers that could be entered in the square that would not break the rules are added. Pencil marks help to keep track of the possible values of the squares. Also, many Sudoku solving techniques are based on the use of pencil marks.\nIn this app, you need to turn on pencil mark mode to enter pencil marks. This can be done by pressing a button with the pencil.'**
+  /// **'At the beginning, all the numbers that could be entered in the cell that would not break the rules are added. Pencil marks help to keep track of the possible values of the cells. Also, many Sudoku solving techniques are based on the use of pencil marks.\nIn this app, you need to turn on pencil mark mode to enter pencil marks. This can be done by pressing a button with the pencil.'**
   String get pencilMarksDescription2;
 
   /// No description provided for @pencilMarksProblem.
@@ -460,6 +460,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fill in candidates for the highlighted cell: '**
   String get pencilMarksProblem;
+
+  /// No description provided for @lastPossibleNumberDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'One of the simple techniques is the last possible number that fits into a cell. Only one number fits a cell because all others cannot be in that cell since they already exist in units associated with that cell (peers of the cell).'**
+  String get lastPossibleNumberDescription1;
+
+  /// No description provided for @lastPossibleNumberDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'In the picture you can see the square marked in red. Only the number 7 can be in a given square, because all other numbers 1-9 are present in the units associated with this square - numbers 1, 3, 4 and 5 are in the same row, numbers 2, 6 (and also the aforementioned 3 and 5) - in the same block, and numbers 8 and 9 (and 2) - in the same column. Only number 7 remains.'**
+  String get lastPossibleNumberDescription2;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

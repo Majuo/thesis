@@ -82,6 +82,7 @@ flutter:
     - lib/assets/techniques/
     - lib/assets/techniques/sudoku_rules/
     - lib/assets/techniques/pencil_marks/
+    - lib/assets/techniques/last_possible_number/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

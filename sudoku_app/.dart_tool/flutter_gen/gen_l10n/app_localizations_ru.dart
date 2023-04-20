@@ -186,4 +186,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pencilMarksProblem => 'Täida märgitud ruudu kandidaadid: ';
+
+  @override
+  String get lastPossibleNumberDescription1 => 'Üks lihtsamatest tehnikatest on ainus võimalik number, mis sobib mingisse ruutu. Ruutu sobib ainult üks number, sest kõik muud ei saa olla selles ruudus, kuna nad on juba olemas selle ruuduga seotud ühikutes (ruudu kaaslastes).';
+
+  @override
+  String get lastPossibleNumberDescription2 => 'Pildil võib näha punasega märgitud ruutu. Antud ruudus saab olla ainult number 7, sest kõik muud numbrid 1-9 on olemas selle ruuduga seotud ühikutes – numbrid 1, 3, 4 ja 5 on samas reas, numbrid 2, 6 (ja ka eelmainitud 3 ja 5) – samas plokis ning numbrid 8 ja 9 (ja 2) – samas veerus. Jääb ainult number 7.';
 }
