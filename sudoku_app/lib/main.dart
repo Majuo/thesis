@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
 			localizationsDelegates: AppLocalizations.localizationsDelegates,
 			supportedLocales: AppLocalizations.supportedLocales,
 			locale: CurrentLocale.currentLocale,
-			theme: currentTheme.getThemeData(),
+			theme: currentTheme.getThemeData(context),
 			home: HomePage(firstRun: isFirstRun)
 		);
 	}

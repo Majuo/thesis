@@ -119,7 +119,6 @@ class _HomePageState extends State<HomePage> {
         preferredSize: Size.fromHeight(appBarHeight),
         child: AppBar(
           title: Text(getMenuItemName(context, _widgetOptions[_selectedIndex].runtimeType), style: TextStyle(fontSize: appBarHeight * 0.5)),
-          backgroundColor: Colors.blueAccent,
           leading: () {
             if (NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context))) return null;
             return Builder(

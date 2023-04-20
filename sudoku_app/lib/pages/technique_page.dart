@@ -24,7 +24,6 @@ class TechniquePage extends StatelessWidget {
         preferredSize: Size.fromHeight(appBarHeight),
         child: AppBar(
           title: Text(techniqueNameOverride ?? SudokuTechniqueNamePicker.getTechniqueName(context, technique!), style: TextStyle(fontSize: appBarHeight * 0.5)),
-          backgroundColor: Colors.blueAccent,
         ),
       ),
       body: pageContent

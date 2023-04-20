@@ -6,21 +6,43 @@ import 'app_theme_data.dart';
 class CurrentTheme with ChangeNotifier {
 	static AppTheme currentTheme = AppTheme.light;
 
+  static ThemeData? lightThemeData;
+  static ThemeData? darkThemeData;
+  static ThemeData? hcThemeData;
+
 	changeCurrentTheme (AppTheme theme) {
 		currentTheme = theme;
 		notifyListeners();
 	}
 
-	ThemeData getThemeData() {
+	ThemeData getThemeData(BuildContext context) {
 		switch (currentTheme) {
 			case AppTheme.light:
-				return AppThemeData.lightTheme;
+        lightThemeData ??= AppThemeData.lightTheme.copyWith(
+            appBarTheme: AppBarTheme.of(context).copyWith(
+              backgroundColor: Colors.amber
+            ),
+            scaffoldBackgroundColor: Colors.pink[100],
+            bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
+              backgroundColor: Colors.greenAccent,
+              selectedItemColor: Colors.orange,
+              unselectedItemColor: Colors.black
+            ),
+            drawerTheme: DrawerTheme.of(context).copyWith(
+
+            )
+          );
+        return lightThemeData!;
 			case AppTheme.dark:
-				return AppThemeData.darkTheme;
+        darkThemeData ??= AppThemeData.darkTheme;
+        return darkThemeData!;
 			case AppTheme.highContrast:
-				return AppThemeData.lightTheme.copyWith(
-					primaryColor: Colors.red
+        hcThemeData ??= AppThemeData.lightTheme.copyWith(
+          appBarTheme: AppBarTheme.of(context).copyWith(
+            backgroundColor: Colors.amber
+          )
 				);
+        return hcThemeData!;
 			default:
 				return ThemeData.light();
 		}
