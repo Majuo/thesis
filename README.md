@@ -1,2 +1,2 @@
 # thesis
-App for learning Sudoku techniques.
+Ilja Karpenko thesis - App for learning Sudoku techniques.
