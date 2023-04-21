@@ -25,7 +25,8 @@ class _PencilMarksDescriptionState extends State<PencilMarksDescription> {
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).pencilMarksDescription1),
             TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${PencilMarksDescription.assetFolderPath}pencil_marks.png")),
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).pencilMarksDescription2),
-          ]
+          ],
+          context
         ),
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).pencilMarksProblem),
         SudokuProblemWidget(problem: getPencilMarksProblem())

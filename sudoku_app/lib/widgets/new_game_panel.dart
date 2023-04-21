@@ -37,7 +37,7 @@ class _NewGamePanelState extends State<NewGamePanel> {
           items: SudokuDifficultyEnum.values.map<DropdownMenuItem<SudokuDifficultyEnum>>((SudokuDifficultyEnum value) {
             return DropdownMenuItem<SudokuDifficultyEnum>(
               value: value,
-              child: Text(SudokuDifficultyNamePicker.getDifficultyName(context, value))
+              child: Text(SudokuDifficultyNamePicker.getDifficultyName(context, value), style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
             );
           }).toList()
         )

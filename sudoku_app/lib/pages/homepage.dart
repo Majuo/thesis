@@ -169,6 +169,12 @@ class _HomePageState extends State<HomePage> {
   Widget? getDrawer(BuildContext context) {
     if (NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context))) return null;
     return Drawer(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(5),
+              bottomRight: Radius.circular(5)),
+        ),
+        backgroundColor: Theme.of(context).canvasColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

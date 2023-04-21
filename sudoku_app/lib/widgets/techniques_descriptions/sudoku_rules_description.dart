@@ -28,14 +28,16 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
             TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${SudokuRulesDescription.assetFolderPath}empty_sudoku.png")),
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).sudokuRulesDescription2),
             TechniquePage.getTechniquePageImage(img2Future, context, Image.asset("${SudokuRulesDescription.assetFolderPath}solved_sudoku.png")),
-          ]
+          ],
+          context
         ),
         TechniquePage.getTechniquePageSection(
           [
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).sudokuRulesDescription3),
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).sudokuRulesDescription4),
             TechniquePage.getTechniquePageImage(img3Future, context, Image.asset("${SudokuRulesDescription.assetFolderPath}box_example.png")),
-          ]
+          ],
+          context
         ),
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).solvePuzzleLearning),
         TechniquePage.getTechniquePageText(AppLocalizations.of(context).findSolutionForCell),

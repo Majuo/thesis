@@ -19,7 +19,7 @@ class TechniquePage extends StatelessWidget {
     contentWidth = ScreenSizeHelpers.displayWidth(context);
     double appBarHeight = Platform.isAndroid && !ScreenSizeHelpers.isVerticalOrientation(context) ? 35 : 50;
     return Scaffold(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(appBarHeight),
         child: AppBar(
@@ -40,14 +40,14 @@ class TechniquePage extends StatelessWidget {
     );
   }
 
-  static Widget getTechniquePageSection(List<Widget> children) {
+  static Widget getTechniquePageSection(List<Widget> children, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.blue[200]!),
+          border: Border.all(color: Theme.of(context).canvasColor),
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          color: Colors.blue[100]
+          color: Theme.of(context).primaryColorLight
         ),
         child: SizedBox(
           width: TechniquePage.contentWidth,

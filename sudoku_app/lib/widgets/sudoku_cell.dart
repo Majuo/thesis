@@ -6,7 +6,6 @@ class SudokuCellWidget extends StatefulWidget {
   static const double outerBorderWidth = 4;
   static const double innerThickBorderWidth = 2;
   static double cellSize = 0;
-  static const Color borderColor = Colors.black;
 	SudokuCellWidget({
 			super.key,
 			required this.getCellContent,
@@ -27,7 +26,7 @@ class SudokuCellWidget extends StatefulWidget {
     return currentState as SudokuCellWidgetState;
   }
 
-  static Border getCellBorder(int row, int cell)
+  static Border getCellBorder(int row, int cell, BuildContext context)
   {
     int rowModulo = row % 3;
     int cellModulo = cell % 3;
@@ -64,10 +63,10 @@ class SudokuCellWidget extends StatefulWidget {
       rightBorderWidth = SudokuCellWidget.defaultBorderWidth;
     }
     return Border(
-      top: BorderSide(color: SudokuCellWidget.borderColor, width: topBorderWidth),
-      bottom: BorderSide(color: SudokuCellWidget.borderColor, width: bottomBorderWidth),
-      left: BorderSide(color: SudokuCellWidget.borderColor, width: leftBorderWidth),
-      right: BorderSide(color: SudokuCellWidget.borderColor, width: rightBorderWidth)
+      top: BorderSide(color: Theme.of(context).primaryColorDark, width: topBorderWidth),
+      bottom: BorderSide(color: Theme.of(context).primaryColorDark, width: bottomBorderWidth),
+      left: BorderSide(color: Theme.of(context).primaryColorDark, width: leftBorderWidth),
+      right: BorderSide(color: Theme.of(context).primaryColorDark, width: rightBorderWidth)
     );
   }
 }
@@ -78,7 +77,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 
 	final VoidCallback handleOnTap;
 	SudokuCellWidgetState({required this.handleOnTap});
-  Color cellColor = Colors.white;
+  Color? cellColor;
 
   void triggerRedraw() {
     if (!mounted) return;
@@ -88,7 +87,7 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
   void deselect() {
     if (!mounted) return;
     setState(() {
-      cellColor = Colors.white;
+      cellColor = Theme.of(context).primaryColorLight;
     });
   }
 
@@ -130,10 +129,10 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
 			onTap: widget.handleOnTap,
       child: Container(
         decoration: BoxDecoration(
-          border: SudokuCellWidget.getCellBorder(widget.rowNo, widget.cellNo)
+          border: SudokuCellWidget.getCellBorder(widget.rowNo, widget.cellNo, context),
         ),
         child: ColoredBox(
-          color: cellColor,
+          color: cellColor ?? Theme.of(context).primaryColorLight,
           child: SizedBox(
             width: cellSize,
             height: cellSize,

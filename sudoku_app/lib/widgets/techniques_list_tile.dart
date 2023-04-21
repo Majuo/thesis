@@ -23,9 +23,9 @@ class TechniquesListTile extends StatelessWidget {
           height: tileHeight,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.blueGrey[50],
+              color: Theme.of(context).primaryColorLight,
               border: Border.all(
-                color: Colors.black
+                color: Theme.of(context).primaryColorDark
               ),
               borderRadius: const BorderRadius.all(Radius.circular(3))
             ),
@@ -36,7 +36,7 @@ class TechniquesListTile extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.black
+                        color: Theme.of(context).primaryColorDark
                       ),
                       borderRadius: const BorderRadius.all(Radius.circular(3))
                     ),

@@ -47,7 +47,6 @@ class _SettingsPageState extends State<SettingsPage> {
 				children: <Widget>[
 					Row(
 						mainAxisAlignment: MainAxisAlignment.center,
-					
 						children: [
 							Text(AppLocalizations.of(context).colorScheme),
 							const Text(" : "),
@@ -59,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
 								items: AppTheme.values.map<DropdownMenuItem<AppTheme>>((AppTheme value) {
 									return DropdownMenuItem<AppTheme>(
 										value: value,
-										child: Text(ThemeName.getThemeName(context, value))
+										child: Text(ThemeName.getThemeName(context, value), style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
 									);
 								}).toList()
 							),
@@ -78,7 +77,7 @@ class _SettingsPageState extends State<SettingsPage> {
 								items: AppLocalizations.supportedLocales.map<DropdownMenuItem<Locale>>((Locale value) {
 									return DropdownMenuItem<Locale>(
 										value: value,
-										child: Text(LocaleLanguageName.langNames[value.languageCode] ?? "Unknown locale")
+										child: Text(LocaleLanguageName.langNames[value.languageCode] ?? "Unknown locale", style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
 									);
 								}).toList()
 							),
@@ -97,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
 								items: NavigationMenuOption.values.map<DropdownMenuItem<NavigationMenuOption>>((NavigationMenuOption value) {
 									return DropdownMenuItem<NavigationMenuOption>(
 										value: value,
-										child: Text(NavigationMenuOptionNamePicker.getNavMenuOptionName(context, value))
+										child: Text(NavigationMenuOptionNamePicker.getNavMenuOptionName(context, value), style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
 									);
 								}).toList()
 							),
