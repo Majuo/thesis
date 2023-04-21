@@ -139,14 +139,19 @@ class _HomePageState extends State<HomePage> {
         visible: NavigationMenuSetting.currentSetting == NavigationMenuOption.bottomNavigationBar || (NavigationMenuSetting.currentSetting == NavigationMenuOption.adaptive && ScreenSizeHelpers.isVerticalOrientation(context)),
         child: SizedBox(
           height: 60,
-          child: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: const Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
-              BottomNavigationBarItem(icon: const Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
-              BottomNavigationBarItem(icon: const Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
-            ],
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Theme.of(context).primaryColorDark, width: 0.4))
+            ),
+            child: BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(icon: const Icon(Icons.grid_on), label: getMenuItemName(context, GamePage)),
+                BottomNavigationBarItem(icon: const Icon(Icons.school), label: getMenuItemName(context, LearningPage)),
+                BottomNavigationBarItem(icon: const Icon(Icons.settings), label: getMenuItemName(context, SettingsPage)),
+              ],
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+            ),
           ),
         ),
       ),

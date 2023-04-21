@@ -45,7 +45,7 @@ class TechniquePage extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).canvasColor),
+          border: Border.all(color: Theme.of(context).primaryColorDark, width: 0.2),
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           color: Theme.of(context).primaryColorLight
         ),
