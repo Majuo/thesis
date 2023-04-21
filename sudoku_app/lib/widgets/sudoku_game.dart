@@ -220,7 +220,7 @@ class _SudokuGameState extends State<SudokuGame> {
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: getGameControlButtons(context),
+      children: getGameControlButtons(context).map((b) => Padding(padding: const EdgeInsets.symmetric(vertical: 2), child: b)).toList(),
     );
   }
 
