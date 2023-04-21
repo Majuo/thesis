@@ -65,7 +65,7 @@ class _SudokuProblemWidgetState extends State<SudokuProblemWidget> {
       }
       if (isInNotesMode) {
           numberButtonsWidget?.currentState?.isInNotesMode = true;
-          numberButtonsWidget?.currentState?.switchButtonsColors();
+          numberButtonsWidget?.currentState?.switchButtonsColors(context);
       }
     });
     return Column(

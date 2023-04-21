@@ -20,10 +20,10 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
 
   bool isInNotesMode = false;
 
-  Color numBtnColor = Colors.blue;
+  Color? numBtnColor;
   Color notesBtnColor = SudokuButtonsPanel.lightGreyColor;
 
-  void switchButtonsColors() {
+  void switchButtonsColors(BuildContext context) {
     if (isInNotesMode) {
       setState(() {
         notesBtnColor = Colors.grey;
@@ -32,7 +32,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
     } else {
       setState(() {
         notesBtnColor = SudokuButtonsPanel.lightGreyColor;
-        numBtnColor = Colors.blue;
+        numBtnColor = null;
       });
     }
   }
@@ -55,7 +55,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                   height: SudokuCellWidget.cellSize,
                   child: TextButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(numBtnColor),
+                      backgroundColor: numBtnColor == null ? Theme.of(context).textButtonTheme.style!.backgroundColor! : MaterialStateProperty.all(numBtnColor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(3)
@@ -76,7 +76,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                   height: SudokuCellWidget.cellSize,
                   child: IconButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(numBtnColor),
+                      backgroundColor: numBtnColor == null ? Theme.of(context).textButtonTheme.style!.backgroundColor! : MaterialStateProperty.all(numBtnColor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(3)
@@ -106,7 +106,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                     ),
                     onPressed: () {
                       isInNotesMode = !isInNotesMode;
-                      switchButtonsColors();
+                      switchButtonsColors(context);
                       widget.notesOnClick();
                     },
                     icon: Icon(Icons.edit, size: SudokuCellWidget.cellSize / 1.7)

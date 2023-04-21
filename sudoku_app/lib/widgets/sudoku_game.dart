@@ -87,7 +87,7 @@ class _SudokuGameState extends State<SudokuGame> {
       }
       if (isInNotesMode) {
           numberButtonsWidget?.currentState?.isInNotesMode = true;
-          numberButtonsWidget?.currentState?.switchButtonsColors();
+          numberButtonsWidget?.currentState?.switchButtonsColors(context);
       }
       for (var errorCell in game.errorCells) {
         var cellWidget = gridWidget?.currentState?.cellWidgets.elementAt(errorCell.row).children.elementAt(errorCell.col) as SudokuCellWidget;
