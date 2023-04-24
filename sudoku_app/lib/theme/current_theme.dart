@@ -71,27 +71,33 @@ class CurrentTheme with ChangeNotifier {
                 color: Colors.white
               )
             ),
-            canvasColor: Colors.pink[300],
-            scaffoldBackgroundColor: Colors.pink[100],
-            primaryColorLight: Colors.pink[50],
+            canvasColor: Colors.black87,
+            scaffoldBackgroundColor: const Color.fromRGBO(00, 23, 47, 1),
+            primaryColorLight: const Color.fromRGBO(45, 84, 124, 1),
             primaryColorDark: Colors.black,
             textTheme: const TextTheme(
               bodyMedium: TextStyle(
-                color: Colors.pink
+                color: Colors.white
               ),
               displaySmall: TextStyle(
-                color: Colors.pink
+                color: Colors.white
+              ),
+              headlineSmall: TextStyle(
+                color: Colors.white
               ),
             ),
             bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
-              backgroundColor: Colors.greenAccent,
-              selectedItemColor: Colors.orange,
-              unselectedItemColor: Colors.black
+              backgroundColor: const Color.fromRGBO(00, 23, 47, 1),
+              unselectedItemColor: Colors.white,
+              selectedItemColor: Colors.white,
+              selectedIconTheme: const IconThemeData(
+                color: Color.fromRGBO(36, 111, 255, 1),
+              )
             ),
             textButtonTheme: TextButtonThemeData(
               style: ButtonStyle(
-                foregroundColor: const MaterialStatePropertyAll(Colors.pink),
-                backgroundColor: const MaterialStatePropertyAll(Colors.amber),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+                backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(00, 84, 168, 1)),
                 shape: MaterialStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(3)
