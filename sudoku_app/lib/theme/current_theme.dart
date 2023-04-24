@@ -115,10 +115,51 @@ class CurrentTheme with ChangeNotifier {
         return darkThemeData!;
 			case AppTheme.highContrast:
         hcThemeData ??= AppThemeData.lightTheme.copyWith(
-          appBarTheme: AppBarTheme.of(context).copyWith(
-            backgroundColor: Colors.amber
-          )
-				);
+            appBarTheme: AppBarTheme.of(context).copyWith(
+              foregroundColor: Colors.black,
+              backgroundColor: const Color.fromRGBO(66, 161, 255, 1),
+              iconTheme: const IconThemeData(
+                color: Colors.black
+              )
+            ),
+            canvasColor: const Color.fromRGBO(240, 250, 255, 1),
+            scaffoldBackgroundColor: const Color.fromRGBO(240, 240, 255, 1),
+            primaryColorLight: const Color.fromRGBO(250, 250, 255, 1),
+            primaryColorDark: Colors.black, // border color for cells / tiles
+            hintColor: Colors.green,
+            highlightColor: const Color.fromRGBO(255, 245, 99, 1),
+            indicatorColor: const Color.fromARGB(255, 255, 109, 98),
+            textTheme: const TextTheme(
+              bodyMedium: TextStyle(
+                color: Colors.black
+              ),
+              displaySmall: TextStyle(
+                color: Colors.black
+              ),
+              headlineSmall: TextStyle(
+                color: Colors.black
+              ),
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
+              backgroundColor: const Color.fromRGBO(240, 240, 255, 1),
+              unselectedItemColor: Colors.black,
+              selectedItemColor: Colors.black,
+              selectedIconTheme: const IconThemeData(
+                color: Color.fromRGBO(36, 111, 255, 1),
+              )
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+                foregroundColor: const MaterialStatePropertyAll(Colors.black),
+                backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(96, 181, 255, 1)),
+                shape: MaterialStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3)
+                  )
+                )
+              )
+            ),
+          );
         return hcThemeData!;
 			default:
 				return ThemeData.light();
