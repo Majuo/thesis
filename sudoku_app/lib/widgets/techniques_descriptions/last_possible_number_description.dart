@@ -58,7 +58,7 @@ class _LastPossibleNumberDescriptionState extends State<LastPossibleNumberDescri
       [[0], [9], [4], [2], [0], [0], [0], [0], [0]],
       [[0], [0], [0], [0], [9], [0], [4], [0], [5]],
     ]);
-    problem.initColoredCells[problem.board[1][7]] = Colors.green;
+    problem.initColoredCells[problem.board[1][7]] = Theme.of(context).hintColor;
     return problem;
   }
 }

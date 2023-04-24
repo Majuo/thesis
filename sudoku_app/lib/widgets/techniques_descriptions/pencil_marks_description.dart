@@ -58,7 +58,7 @@ class _PencilMarksDescriptionState extends State<PencilMarksDescription> {
       [[0], [0], [0], [6], [0], [0], [0], [0], [0]],
       [[9], [0], [5], [0], [3], [1], [0], [0], [0]],
     ]);
-    problem.initColoredCells[problem.board[5][4]] = Colors.green;
+    problem.initColoredCells[problem.board[5][4]] = Theme.of(context).hintColor;
     return problem;
   }
 }

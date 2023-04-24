@@ -30,6 +30,9 @@ class CurrentTheme with ChangeNotifier {
             scaffoldBackgroundColor: const Color.fromRGBO(240, 240, 255, 1),
             primaryColorLight: const Color.fromRGBO(250, 250, 255, 1),
             primaryColorDark: Colors.black, // border color for cells / tiles
+            hintColor: Colors.green,
+            highlightColor: const Color.fromRGBO(255, 245, 99, 1),
+            indicatorColor: const Color.fromARGB(255, 255, 109, 98),
             textTheme: const TextTheme(
               bodyMedium: TextStyle(
                 color: Colors.black
@@ -73,8 +76,11 @@ class CurrentTheme with ChangeNotifier {
             ),
             canvasColor: Colors.black87,
             scaffoldBackgroundColor: const Color.fromRGBO(00, 23, 47, 1),
-            primaryColorLight: const Color.fromRGBO(45, 84, 124, 1),
+            primaryColorLight: const Color.fromRGBO(40, 79, 119, 1),
             primaryColorDark: Colors.black,
+            hintColor: Colors.green[800],
+            highlightColor: const Color.fromRGBO(44, 120, 195, 1),
+            indicatorColor: const Color.fromRGBO(210, 51, 40, 1),
             textTheme: const TextTheme(
               bodyMedium: TextStyle(
                 color: Colors.white

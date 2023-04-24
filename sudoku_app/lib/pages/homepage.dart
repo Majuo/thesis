@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
           height: 60,
           child: Container(
             decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: Theme.of(context).primaryColorDark, width: 0.4))
+              border: Border(top: BorderSide(color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor!, width: 0.4))
             ),
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[

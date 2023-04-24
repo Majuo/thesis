@@ -94,21 +94,21 @@ class SudokuCellWidgetState extends State<SudokuCellWidget> {
   void selectCurrent() {
     if (!mounted) return;
     setState(() {
-      cellColor = const Color.fromRGBO(255, 245, 99, 1);
+      cellColor = Theme.of(context).highlightColor;
     });
   }
 
   void highlight() {
     if (!mounted) return;
     setState(() {
-      cellColor = Colors.green;
+      cellColor = Theme.of(context).hintColor;
     });
   }
 
   void highlightError() {
     if (!mounted) return;
     setState(() {
-      cellColor = const Color.fromARGB(255, 255, 109, 98);
+      cellColor = Theme.of(context).indicatorColor;
     });
   }
 

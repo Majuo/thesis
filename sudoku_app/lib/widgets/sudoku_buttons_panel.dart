@@ -22,17 +22,20 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
 
   Color? numBtnColor;
   Color notesBtnColor = SudokuButtonsPanel.lightGreyColor;
+  Color? numBtnTextColor;
 
   void switchButtonsColors(BuildContext context) {
     if (isInNotesMode) {
       setState(() {
         notesBtnColor = Colors.grey;
         numBtnColor = SudokuButtonsPanel.lightGreyColor;
+        numBtnTextColor = Colors.black;
       });
     } else {
       setState(() {
         notesBtnColor = SudokuButtonsPanel.lightGreyColor;
         numBtnColor = null;
+        numBtnTextColor = null;
       });
     }
   }
@@ -66,7 +69,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                     onPressed: () {
                       widget.numOnClick(i);
                     },
-                    child: Text(i.toString(), style: TextStyle(fontSize: SudokuCellWidget.cellSize / 1.5))
+                    child: Text(i.toString(), style: TextStyle(fontSize: SudokuCellWidget.cellSize / 1.5, color: numBtnTextColor ?? Theme.of(context).textTheme.bodySmall!.color))
                   ),
                 ));
                 continue;
@@ -87,7 +90,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                     onPressed: () {
                       widget.numOnClick(0);
                     },
-                    icon: Icon(Icons.clear, size: SudokuCellWidget.cellSize / 1.7)
+                    icon: Icon(Icons.clear, size: SudokuCellWidget.cellSize / 1.7, color: numBtnTextColor ?? Theme.of(context).textTheme.bodySmall!.color)
                   )
                 ));
               } else if (i == 11) {
@@ -109,7 +112,7 @@ class SudokuButtonsPanelState extends State<SudokuButtonsPanel> {
                       switchButtonsColors(context);
                       widget.notesOnClick();
                     },
-                    icon: Icon(Icons.edit, size: SudokuCellWidget.cellSize / 1.7)
+                    icon: Icon(Icons.edit, size: SudokuCellWidget.cellSize / 1.7, color: Theme.of(context).primaryColorDark,)
                   )
                 );
                 result.add(btn);

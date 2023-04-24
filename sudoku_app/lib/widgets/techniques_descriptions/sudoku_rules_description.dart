@@ -86,7 +86,7 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
       [[5], [0], [7], [0], [3], [6], [8], [0], [9]],
       [[0], [9], [2], [0], [4], [0], [0], [0], [0]],
     ]);
-    problem.initColoredCells[problem.board[1][4]] = Colors.green;
+    problem.initColoredCells[problem.board[1][4]] = Theme.of(context).hintColor;
     return problem;
   }
 
@@ -114,7 +114,7 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
       [[0], [0], [0], [0], [0], [5], [4], [6], [0]],
       [[5], [0], [4], [0], [6], [9], [8], [7], [0]],
     ]);
-    problem.initColoredCells[problem.board[2][3]] = Colors.green;
+    problem.initColoredCells[problem.board[2][3]] = Theme.of(context).hintColor;
     return problem;
   }
 
@@ -142,7 +142,7 @@ class _SudokuRulesDescriptionState extends State<SudokuRulesDescription> {
       [[0], [4], [0], [0], [0], [8], [0], [0], [6]],
       [[9], [0], [0], [0], [0], [6], [0], [8], [0]],
     ]);
-    problem.initColoredCells[problem.board[5][2]] = Colors.green;
+    problem.initColoredCells[problem.board[5][2]] = Theme.of(context).hintColor;
     return problem;
   }
 }
