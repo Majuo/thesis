@@ -212,8 +212,13 @@ class _SudokuGameState extends State<SudokuGame> {
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: getGameControlButtons(context),
+            mainAxisAlignment: Platform.isAndroid ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.center,
+            children: getGameControlButtons(context).map((e) {
+              if (Platform.isAndroid) {
+                return e;
+              }
+              return Padding(padding: const EdgeInsets.symmetric(horizontal: 3), child: e);
+            }).toList(),
           ),
         ),
       );
