@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TechniquesListTile extends StatelessWidget {
-  static const double tileWidth = 200;
+  static double tileWidth = 250;
   static const double tileHeight = 80;
   static const double tilePadding = 5;
 
@@ -44,9 +44,7 @@ class TechniquesListTile extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Center(
-                    child: Text(techniqueName)
-                  ),
+                  child: Padding(padding: const EdgeInsets.symmetric(horizontal: 5), child: Text(techniqueName))
                 )
               ],
             ),
