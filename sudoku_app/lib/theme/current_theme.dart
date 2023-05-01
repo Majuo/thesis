@@ -122,9 +122,9 @@ class CurrentTheme with ChangeNotifier {
                 color: Colors.black
               )
             ),
-            canvasColor: const Color.fromRGBO(240, 250, 255, 1),
-            scaffoldBackgroundColor: const Color.fromRGBO(240, 240, 255, 1),
-            primaryColorLight: const Color.fromRGBO(250, 250, 255, 1),
+            canvasColor: Colors.white,
+            scaffoldBackgroundColor: Colors.white,
+            primaryColorLight: const Color.fromRGBO(252, 252, 252, 1),
             primaryColorDark: Colors.black, // border color for cells / tiles
             hintColor: Colors.green,
             highlightColor: const Color.fromRGBO(255, 245, 99, 1),
@@ -141,7 +141,7 @@ class CurrentTheme with ChangeNotifier {
               ),
             ),
             bottomNavigationBarTheme: BottomNavigationBarTheme.of(context).copyWith(
-              backgroundColor: const Color.fromRGBO(240, 240, 255, 1),
+              backgroundColor: Colors.white,
               unselectedItemColor: Colors.black,
               selectedItemColor: Colors.black,
               selectedIconTheme: const IconThemeData(
