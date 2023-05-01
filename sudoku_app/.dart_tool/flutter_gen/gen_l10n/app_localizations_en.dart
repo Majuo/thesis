@@ -104,6 +104,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navigationMenuOption => 'Navigation menu';
 
   @override
+  String get textSizeOption => 'Text size';
+
+  @override
   String get adaptive => 'Adaptive';
 
   @override

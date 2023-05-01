@@ -4,6 +4,7 @@ import 'package:sudoku_app/locale/locale_language_name.dart';
 import 'package:sudoku_app/locale/navigation_menu_option_name_picker.dart';
 import 'package:sudoku_app/settings/navigation_menu_setting.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
+import 'package:sudoku_app/settings/text_size_setting.dart';
 import 'package:sudoku_app/theme/app_theme.dart';
 import 'package:sudoku_app/theme/current_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -29,12 +30,14 @@ class _SettingsPageState extends State<SettingsPage> {
 		};
 		currentTheme.addListener(listener);
     currentNavMenuSetting.addListener(listener);
+    currentTextSize.addListener(listener);
 	}
 
   @override
   void dispose() {
     currentTheme.removeListener(listener);
     currentNavMenuSetting.removeListener(listener);
+    currentTextSize.removeListener(listener);
     super.dispose();
   }
 
@@ -100,6 +103,22 @@ class _SettingsPageState extends State<SettingsPage> {
 									);
 								}).toList()
 							),
+						]
+					),
+					Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						children: [
+							Text(AppLocalizations.of(context).textSizeOption),
+							const Text(" : "),
+              Slider(
+                min: 1,
+                max: 2,
+                divisions: 10,
+                value: TextSizeSetting.currentSetting, 
+                onChanged: (double value) {
+                  currentTextSize.changeCurrentTextSizeSetting(value);
+                }
+              )
 						]
 					),
 				],

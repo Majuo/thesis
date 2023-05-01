@@ -293,6 +293,12 @@ abstract class AppLocalizations {
   /// **'Navigation menu'**
   String get navigationMenuOption;
 
+  /// No description provided for @textSizeOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get textSizeOption;
+
   /// No description provided for @adaptive.
   ///
   /// In en, this message translates to:

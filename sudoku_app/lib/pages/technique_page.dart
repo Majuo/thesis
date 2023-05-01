@@ -4,12 +4,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
+import 'package:sudoku_app/settings/text_size_setting.dart';
 
 import '../screen_size_helpers.dart';
 
 class TechniquePage extends StatelessWidget {
   static double contentWidth = 0;
-  static double fontSize = 16;
   const TechniquePage({super.key, required this.technique, required this.pageContent, this.techniqueNameOverride});
   final Type? technique;
   final Widget pageContent;
@@ -35,7 +35,7 @@ class TechniquePage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: SizedBox(
         width: TechniquePage.contentWidth,
-        child: Text(text, textAlign: TextAlign.justify, style: TextStyle(fontSize: TechniquePage.fontSize))
+        child: Text(text, textAlign: TextAlign.justify, style: TextStyle(fontSize: 16 * TextSizeSetting.currentSetting))
       ),
     );
   }

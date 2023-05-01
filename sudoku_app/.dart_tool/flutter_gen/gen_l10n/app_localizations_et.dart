@@ -104,6 +104,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get navigationMenuOption => 'Navigeerimismenüü';
 
   @override
+  String get textSizeOption => 'Teksti suurus';
+
+  @override
   String get adaptive => 'Adaptiivne';
 
   @override

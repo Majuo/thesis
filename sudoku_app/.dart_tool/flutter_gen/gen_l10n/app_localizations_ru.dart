@@ -104,6 +104,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get navigationMenuOption => 'Меню навигации';
 
   @override
+  String get textSizeOption => 'Размер текста';
+
+  @override
   String get adaptive => 'Адаптивное';
 
   @override
