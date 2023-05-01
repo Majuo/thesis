@@ -22,6 +22,12 @@ class _LastPossibleNumberDescriptionState extends State<LastPossibleNumberDescri
       children: [
         TechniquePage.getTechniquePageSection(
           [
+            TechniquePage.getTechniquePageText("${AppLocalizations.of(context).techniquePurpose} : ${AppLocalizations.of(context).techniquePurposeCellValue}"),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
             TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${LastPossibleNumberDescription.assetFolderPath}last_possible_number.png")),
             TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),

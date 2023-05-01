@@ -395,6 +395,24 @@ abstract class AppLocalizations {
   /// **'OK'**
   String get ok;
 
+  /// No description provided for @techniquePurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'Technique purpose'**
+  String get techniquePurpose;
+
+  /// No description provided for @techniquePurposeCellValue.
+  ///
+  /// In en, this message translates to:
+  /// **'finding value of a cell'**
+  String get techniquePurposeCellValue;
+
+  /// No description provided for @techniquePurposeRemoveCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'removal of candidates from cells'**
+  String get techniquePurposeRemoveCandidates;
+
   /// No description provided for @sudokuRulesDescription1.
   ///
   /// In en, this message translates to:

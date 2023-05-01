@@ -155,6 +155,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ok => 'OK';
 
   @override
+  String get techniquePurpose => 'Technique purpose';
+
+  @override
+  String get techniquePurposeCellValue => 'finding value of a cell';
+
+  @override
+  String get techniquePurposeRemoveCandidates => 'removal of candidates from cells';
+
+  @override
   String get sudokuRulesDescription1 => 'Sudoku is a logic game that consists of a 9x9 grid divided into 3x3 regions or blocks, where some of the cells are filled with numbers.';
 
   @override

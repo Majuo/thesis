@@ -155,6 +155,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ok => 'Хорошо';
 
   @override
+  String get techniquePurpose => 'Tehnika eesmärk';
+
+  @override
+  String get techniquePurposeCellValue => 'ruudu väärtuse leidmine';
+
+  @override
+  String get techniquePurposeRemoveCandidates => 'kandidaatide eemaldamine ruutudest';
+
+  @override
   String get sudokuRulesDescription1 => 'Sudoku on loogikamäng, mis kujutab endast 9x9 ruudustikku, mis on jagatud omakorda 3x3 regioonideks või plokideks, kus mõned ruudud on täidetud numbritega.';
 
   @override
