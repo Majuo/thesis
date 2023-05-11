@@ -13,7 +13,7 @@ import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_techniq
 import 'package:sudoku_app/game_internals/solver/techniques/swordfish_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/x_wing_technique.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dart';
-import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
+import 'package:sudoku_app/name_pickers/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
 import 'package:sudoku_app/widgets/techniques_descriptions/last_possible_number_description.dart';
