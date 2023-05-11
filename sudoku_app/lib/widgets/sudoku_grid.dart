@@ -4,8 +4,6 @@ import 'package:sudoku_app/game_internals/sudoku_cell.dart';
 import 'package:sudoku_app/widgets/cell_candidates.dart';
 import 'package:sudoku_app/widgets/sudoku_cell.dart';
 
-import '../game_internals/sudoku.dart';
-
 class SudokuGrid extends StatefulWidget {
   SudokuGrid({
     super.key,
