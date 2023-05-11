@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/settings/current_locale.dart';
-import 'package:sudoku_app/locale/locale_language_name.dart';
-import 'package:sudoku_app/locale/navigation_menu_option_name_picker.dart';
+import 'package:sudoku_app/name_pickers/locale_language_name.dart';
+import 'package:sudoku_app/name_pickers/navigation_menu_option_name_picker.dart';
 import 'package:sudoku_app/settings/navigation_menu_setting.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/settings/text_size_setting.dart';

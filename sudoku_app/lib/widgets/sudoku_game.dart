@@ -7,7 +7,7 @@ import 'package:sudoku_app/game_internals/solver/sudoku_solver.dart';
 import 'package:sudoku_app/game_internals/solver/techniques_enum.dart';
 import 'package:sudoku_app/game_internals/sudoku.dart';
 import 'package:sudoku_app/game_internals/sudoku_cell.dart';
-import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
+import 'package:sudoku_app/name_pickers/sudoku_technique_name_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
 import 'package:sudoku_app/widgets/new_game_panel.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/game_internals/generator/sudoku_difficulty_enum.dart';
-import 'package:sudoku_app/locale/sudoku_difficulty_name_picker.dart';
+import 'package:sudoku_app/name_pickers/sudoku_difficulty_name_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewGamePanel extends StatefulWidget {

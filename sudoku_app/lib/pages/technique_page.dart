@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/locale/sudoku_technique_name_picker.dart';
+import 'package:sudoku_app/name_pickers/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/settings/text_size_setting.dart';
 
 import '../screen_size_helpers.dart';
