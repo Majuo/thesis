@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/config.dart';
 import 'package:sudoku_app/game_internals/solver/techniques/sudoku_rules_technique.dart';
-import 'package:sudoku_app/pages/gamepage.dart';
+import 'package:sudoku_app/pages/game_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sudoku_app/pages/learning_page.dart';
 import 'package:sudoku_app/pages/technique_page.dart';

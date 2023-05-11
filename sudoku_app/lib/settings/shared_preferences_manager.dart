@@ -1,11 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sudoku_app/config.dart';
-import 'package:sudoku_app/locale/current_locale.dart';
+import 'package:sudoku_app/settings/current_locale.dart';
 import 'package:sudoku_app/settings/navigation_menu_option.dart';
 import 'package:sudoku_app/settings/navigation_menu_setting.dart';
 import 'package:sudoku_app/settings/text_size_setting.dart';
-import 'package:sudoku_app/theme/app_theme.dart';
-import 'package:sudoku_app/theme/current_theme.dart';
+import 'package:sudoku_app/settings/theme/app_theme.dart';
+import 'package:sudoku_app/settings/theme/current_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main(List<String> arguments){

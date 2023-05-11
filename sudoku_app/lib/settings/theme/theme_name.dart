@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku_app/theme/app_theme.dart';
+import 'package:sudoku_app/settings/theme/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeName {

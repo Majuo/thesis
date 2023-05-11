@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_app/config.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:sudoku_app/pages/homepage.dart';
-import 'package:sudoku_app/locale/current_locale.dart';
+import 'package:sudoku_app/pages/home_page.dart';
+import 'package:sudoku_app/settings/current_locale.dart';
 import 'package:sudoku_app/settings/shared_preferences_manager.dart';
 
 void main() {
