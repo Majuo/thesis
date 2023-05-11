@@ -86,25 +86,28 @@ class _SettingsPageState extends State<SettingsPage> {
 							),
             ]
           ),
-					Row(
-						mainAxisAlignment: MainAxisAlignment.center,
-						children: [
-							Text(AppLocalizations.of(context).navigationMenuOption),
-							const Text(" : "),
-							DropdownButton<NavigationMenuOption>(
-								value: NavigationMenuSetting.currentSetting,
-								onChanged: (NavigationMenuOption? value) {
-									currentNavMenuSetting.changeCurrentNavMenuSetting(value ?? NavigationMenuOption.adaptive);
-								},
-								items: NavigationMenuOption.values.map<DropdownMenuItem<NavigationMenuOption>>((NavigationMenuOption value) {
-									return DropdownMenuItem<NavigationMenuOption>(
-										value: value,
-										child: Text(NavigationMenuOptionNamePicker.getNavMenuOptionName(context, value), style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
-									);
-								}).toList()
-							),
-						]
-					),
+					Visibility(
+            visible: false,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(AppLocalizations.of(context).navigationMenuOption),
+                const Text(" : "),
+                DropdownButton<NavigationMenuOption>(
+                  value: NavigationMenuSetting.currentSetting,
+                  onChanged: (NavigationMenuOption? value) {
+                    currentNavMenuSetting.changeCurrentNavMenuSetting(value ?? NavigationMenuOption.adaptive);
+                  },
+                  items: NavigationMenuOption.values.map<DropdownMenuItem<NavigationMenuOption>>((NavigationMenuOption value) {
+                    return DropdownMenuItem<NavigationMenuOption>(
+                      value: value,
+                      child: Text(NavigationMenuOptionNamePicker.getNavMenuOptionName(context, value), style: TextStyle(color: Theme.of(context).textTheme.bodyMedium!.color))
+                    );
+                  }).toList()
+                ),
+              ]
+            ),
+          ),
 					Row(
 						mainAxisAlignment: MainAxisAlignment.center,
 						children: [
