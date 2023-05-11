@@ -59,7 +59,7 @@ class NakedPairTechnique implements ISudokuTechnique {
           r.candidates = cell.candidates.map((cc) => cc).toList();
           return r;
         }).toList();
-        return TechniqueResult(successful: true, applicableCells: [cell, secondCell], removedCandidates: resultCells, usedTechnique: NakedPairTechnique);
+        return TechniqueResult(applicableCells: [cell, secondCell], removedCandidates: resultCells, usedTechnique: NakedPairTechnique);
       }
     }
 		return null;

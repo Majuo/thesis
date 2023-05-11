@@ -78,7 +78,7 @@ class HiddenTripleTechnique implements ISudokuTechnique {
               r.candidates = c.candidates.where((c) => c != me.key && c != me1.key && c!= me2.key).map((cc) => cc).toList();
               return r;
             });
-            return TechniqueResult(successful: true, applicableCells: cellSet.toList(), removedCandidates: removedCandidatesResult.toList(), usedTechnique: HiddenTripleTechnique);
+            return TechniqueResult(applicableCells: cellSet.toList(), removedCandidates: removedCandidatesResult.toList(), usedTechnique: HiddenTripleTechnique);
           }
         }
       }

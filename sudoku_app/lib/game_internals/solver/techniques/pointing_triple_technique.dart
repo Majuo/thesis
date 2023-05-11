@@ -43,7 +43,7 @@ class PointingTripleTechnique implements ISudokuTechnique {
             r.candidates = {sc}.toList();
             return r;
           }).toList();
-          return TechniqueResult(successful: true, applicableCells: candidateCells.toList(), removedCandidates: resultCells, usedTechnique: PointingTripleTechnique);
+          return TechniqueResult(applicableCells: candidateCells.toList(), removedCandidates: resultCells, usedTechnique: PointingTripleTechnique);
         }
       }
     }

@@ -20,7 +20,7 @@ class LastPossibleNumberTechnique implements ISudokuTechnique {
             pc.candidates.remove(missingNums.first);
           }
 				}
-				return TechniqueResult(successful: true, applicableCells: [SudokuCell(cell.row, cell.col, true, missingNums.first)], usedTechnique: LastPossibleNumberTechnique);
+				return TechniqueResult(applicableCells: [SudokuCell(cell.row, cell.col, true, missingNums.first)], usedTechnique: LastPossibleNumberTechnique);
 			}
 		}
 	}

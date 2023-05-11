@@ -53,7 +53,7 @@ class LastRemainingCellTechnique implements ISudokuTechnique {
             pc.candidates.remove(num);
           }
         }
-        return TechniqueResult(successful: true, applicableCells: [SudokuCell(fittingCell!.row, fittingCell.col, true, num)], usedTechnique: LastRemainingCellTechnique);
+        return TechniqueResult(applicableCells: [SudokuCell(fittingCell!.row, fittingCell.col, true, num)], usedTechnique: LastRemainingCellTechnique);
       }
     }
     return null;

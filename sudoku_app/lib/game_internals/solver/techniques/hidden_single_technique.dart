@@ -55,7 +55,7 @@ class HiddenSingleTechnique implements ISudokuTechnique {
             pc.candidates.remove(key);
           }
         }
-        return TechniqueResult(successful: true, applicableCells: [resultCell], removedCandidates: [SudokuCell(resultCell.row, resultCell.col, false, resultCell.value)], usedTechnique: HiddenSingleTechnique);
+        return TechniqueResult(applicableCells: [resultCell], removedCandidates: [SudokuCell(resultCell.row, resultCell.col, false, resultCell.value)], usedTechnique: HiddenSingleTechnique);
       }
     }
     return null;

@@ -43,7 +43,7 @@ class PointingPairTechnique implements ISudokuTechnique {
             r.candidates = {sc}.toList();
             return r;
           }).toList();
-          return TechniqueResult(successful: true, applicableCells: candidateCells.toList(), removedCandidates: resultCells, usedTechnique: PointingPairTechnique);
+          return TechniqueResult(applicableCells: candidateCells.toList(), removedCandidates: resultCells, usedTechnique: PointingPairTechnique);
         }
       }
     }
