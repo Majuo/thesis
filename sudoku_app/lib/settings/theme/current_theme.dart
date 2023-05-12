@@ -117,7 +117,7 @@ class CurrentTheme with ChangeNotifier {
         hcThemeData ??= AppThemeData.lightTheme.copyWith(
             appBarTheme: AppBarTheme.of(context).copyWith(
               foregroundColor: Colors.black,
-              backgroundColor: const Color.fromRGBO(66, 161, 255, 1),
+              backgroundColor: const Color.fromRGBO(76, 171, 255, 1),
               iconTheme: const IconThemeData(
                 color: Colors.black
               )
