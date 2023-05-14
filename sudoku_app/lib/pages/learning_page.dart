@@ -16,9 +16,21 @@ import 'package:sudoku_app/game_internals/solver/techniques/y_wing_technique.dar
 import 'package:sudoku_app/name_pickers/sudoku_technique_name_picker.dart';
 import 'package:sudoku_app/pages/technique_page.dart';
 import 'package:sudoku_app/screen_size_helpers.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/hidden_pair_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/hidden_single_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/hidden_triple_description.dart';
 import 'package:sudoku_app/widgets/techniques_descriptions/last_possible_number_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/last_remaining_cell_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/naked_pair_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/naked_single_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/naked_triple_description.dart';
 import 'package:sudoku_app/widgets/techniques_descriptions/pencil_marks_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/pointing_pair_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/pointing_triple_description.dart';
 import 'package:sudoku_app/widgets/techniques_descriptions/sudoku_rules_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/swordfish_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/x_wing_description.dart';
+import 'package:sudoku_app/widgets/techniques_descriptions/y_wing_description.dart';
 import 'package:sudoku_app/widgets/techniques_list_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -90,37 +102,51 @@ class _LearningPageState extends State<LearningPage> {
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastPossibleNumberTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: LastRemainingCellTechnique, pageContent: LastRemainingCellDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}lastRemainingCell.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, LastRemainingCellTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: NakedSingleTechnique, pageContent: NakedSingleDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}nakedSingle.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedSingleTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: NakedPairTechnique, pageContent: NakedPairDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}nakedPair.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedPairTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: NakedTripleTechnique, pageContent: NakedTripleDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}nakedTriple.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, NakedTripleTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: HiddenSingleTechnique, pageContent: HiddenSingleDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenSingleTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: HiddenPairTechnique, pageContent: HiddenPairDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenPairTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: HiddenTripleTechnique, pageContent: HiddenTripleDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, HiddenTripleTechnique),
                 ),
@@ -140,12 +166,16 @@ class _LearningPageState extends State<LearningPage> {
               spacing: getTileSpacing(context, 2),
               children: [
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: PointingPairTechnique, pageContent: PointingPairDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingPairTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: PointingTripleTechnique, pageContent: PointingTripleDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, PointingTripleTechnique),
                 ),
@@ -165,17 +195,23 @@ class _LearningPageState extends State<LearningPage> {
               spacing: getTileSpacing(context, 3),
               children: [
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: XWingTechnique, pageContent: XWingDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, XWingTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: YWingTechnique, pageContent: YWingDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, YWingTechnique),
                 ),
                 TechniquesListTile(
-                  onTapHandler: () {},
+                  onTapHandler: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TechniquePage(technique: SwordfishTechnique, pageContent: SwordfishDescription())));
+                  },
                   imageAssetPath: "${LearningPage.assetFolder}rules.png",
                   techniqueName: SudokuTechniqueNamePicker.getTechniqueName(context, SwordfishTechnique),
                 ),

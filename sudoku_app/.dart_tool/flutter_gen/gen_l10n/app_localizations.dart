@@ -413,6 +413,12 @@ abstract class AppLocalizations {
   /// **'removal of candidates from cells'**
   String get techniquePurposeRemoveCandidates;
 
+  /// No description provided for @techniquePurposeCellValueAndRemoveCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'finding value of a cell and removal of candidates from cells'**
+  String get techniquePurposeCellValueAndRemoveCandidates;
+
   /// No description provided for @sudokuRulesDescription1.
   ///
   /// In en, this message translates to:
@@ -494,8 +500,32 @@ abstract class AppLocalizations {
   /// No description provided for @lastPossibleNumberDescription2.
   ///
   /// In en, this message translates to:
-  /// **'In the picture you can see the square marked in red. Only the number 7 can be in a given square, because all other numbers 1-9 are present in the units associated with this square - numbers 1, 3, 4 and 5 are in the same row, numbers 2, 6 (and also the aforementioned 3 and 5) - in the same block, and numbers 8 and 9 (and 2) - in the same column. Only number 7 remains.'**
+  /// **'In the picture you can see the cell marked in red. Only the number 7 can be in a given cell, because all other numbers 1-9 are present in the units associated with this cell - numbers 1, 3, 4 and 5 are in the same row, numbers 2, 6 (and also the aforementioned 3 and 5) - in the same block, and numbers 8 and 9 (and 2) - in the same column. Only number 7 remains.'**
   String get lastPossibleNumberDescription2;
+
+  /// No description provided for @lastRemainingCellDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Sometimes it happens that there are several free spaces in a block, row or column, but a number can only be placed in one cell because it cannot be placed in any other cell.'**
+  String get lastRemainingCellDescription1;
+
+  /// No description provided for @lastRemainingCellDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'In the picture you can see that the column marked in red is missing several numbers, including the number 6. There are 4 empty places in the column, but 6 can only be placed in one of them, because in all other places it violates the Sudoku rules. Therefore, the number 6 is in the sixth row.'**
+  String get lastRemainingCellDescription2;
+
+  /// No description provided for @lastRemainingCellDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'There are variations of this technique. In the image below, one column is marked in red. The number 4 is missing in this column, and there is only one suitable place for it - in row 5. The empty cells in rows 2 and 9 are not suitable, because the number 4 already exists in these blocks (colored orange).'**
+  String get lastRemainingCellDescription3;
+
+  /// No description provided for @lastRemainingCellDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'The same situation can be seen from the other side - in the picture there is a block marked in red. There is no 4 in this block and it can only be placed in one cell, because the number 4 (colored in red) already exists in the columns of other free cells (colored in orange).'**
+  String get lastRemainingCellDescription4;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

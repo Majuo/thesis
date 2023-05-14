@@ -164,6 +164,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get techniquePurposeRemoveCandidates => 'kandidaatide eemaldamine ruutudest';
 
   @override
+  String get techniquePurposeCellValueAndRemoveCandidates => 'ruudu väärtuse leidmine ja kandidaatide eemaldamine ruutudest';
+
+  @override
   String get sudokuRulesDescription1 => 'Sudoku on loogikamäng, mis kujutab endast 9x9 ruudustikku, mis on jagatud omakorda 3x3 regioonideks või plokideks, kus mõned ruudud on täidetud numbritega.';
 
   @override
@@ -204,4 +207,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get lastPossibleNumberDescription2 => 'Pildil võib näha punasega märgitud ruutu. Antud ruudus saab olla ainult number 7, sest kõik muud numbrid 1-9 on olemas selle ruuduga seotud ühikutes – numbrid 1, 3, 4 ja 5 on samas reas, numbrid 2, 6 (ja ka eelmainitud 3 ja 5) – samas plokis ning numbrid 8 ja 9 (ja 2) – samas veerus. Jääb ainult number 7.';
+
+  @override
+  String get lastRemainingCellDescription1 => 'Mõnikord juhtub nii, et plokis, reas või veerus on mitu vaba kohta, kuid mingi numbri saab panna ainult ühte ruutu, kuna ta ei saa olla üheski teises ruudus.';
+
+  @override
+  String get lastRemainingCellDescription2 => 'Pildil võib näha, et punasega märgitud veerus on puudu mitu numbrit, sealhulgas number 6. Veerus on 4 tühja kohta, kuid 6 saab panna ainult ühte nendest, sest kõikides teistes kohtades rikub see Sudoku reegleid. Seetõttu asub number 6 kuuendas reas.';
+
+  @override
+  String get lastRemainingCellDescription3 => 'Sellel tehnikal on olemas variatsioonid. Allpool oleval pidil on üks veerg märgitud punase värviga. Selles veerus puudub number 4 ning selle jaoks on ainult üks sobiv koht – 5. reas. Vabad ruudud 2. ja 9. reas ei sobi, kuna nendes plokkides (värvitud oranžiga) on juba olemas number 4.';
+
+  @override
+  String get lastRemainingCellDescription4 => 'Sama olukorda võib vaadelda teisest küljest – pildil on punasega märgitud plokk. Selles plokis ei ole 4 ja seda saab panna ainult ühte ruutu, sest muude vabade ruutude veergudes (värvitud oranžiga) on juba olemas number 4 (värvitud punasega).';
 }

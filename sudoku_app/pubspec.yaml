@@ -83,6 +83,18 @@ flutter:
     - lib/assets/techniques/sudoku_rules/
     - lib/assets/techniques/pencil_marks/
     - lib/assets/techniques/last_possible_number/
+    - lib/assets/techniques/last_remaining_cell/
+    - lib/assets/techniques/naked_single/
+    - lib/assets/techniques/naked_pair/
+    - lib/assets/techniques/naked_triple/
+    - lib/assets/techniques/hidden_single/
+    - lib/assets/techniques/hidden_pair/
+    - lib/assets/techniques/hidden_triple/
+    - lib/assets/techniques/pointing_pair/
+    - lib/assets/techniques/pointing_triple/
+    - lib/assets/techniques/x_wing/
+    - lib/assets/techniques/y_wing/
+    - lib/assets/techniques/swordfish/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
