@@ -14,7 +14,7 @@ class HiddenTripleDescription extends StatefulWidget {
 }
 
 class _HiddenTripleDescriptionState extends State<HiddenTripleDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenTripleDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenTripleDescription.assetFolderPath}hidden_triple_1.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,10 @@ class _HiddenTripleDescriptionState extends State<HiddenTripleDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenTripleDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenTripleDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenTripleDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenTripleDescription.assetFolderPath}hidden_triple_1.png")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenTripleDescription3),
           ],
           context
         ),

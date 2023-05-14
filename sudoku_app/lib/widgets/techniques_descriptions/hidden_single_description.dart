@@ -14,7 +14,7 @@ class HiddenSingleDescription extends StatefulWidget {
 }
 
 class _HiddenSingleDescriptionState extends State<HiddenSingleDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenSingleDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenSingleDescription.assetFolderPath}hidden_single_1.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class _HiddenSingleDescriptionState extends State<HiddenSingleDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenSingleDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenSingleDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenSingleDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenSingleDescription.assetFolderPath}hidden_single_1.png")),
           ],
           context
         ),

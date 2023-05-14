@@ -14,7 +14,8 @@ class NakedSingleDescription extends StatefulWidget {
 }
 
 class _NakedSingleDescriptionState extends State<NakedSingleDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedSingleDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedSingleDescription.assetFolderPath}naked_single_1.png"));
+  final Future<double> img2Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedSingleDescription.assetFolderPath}naked_single_2.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,13 @@ class _NakedSingleDescriptionState extends State<NakedSingleDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${NakedSingleDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedSingleDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedSingleDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedSingleDescription3),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedSingleDescription4),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${NakedSingleDescription.assetFolderPath}naked_single_1.png")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedSingleDescription5),
+            TechniquePage.getTechniquePageImage(img2Future, context, Image.asset("${NakedSingleDescription.assetFolderPath}naked_single_2.png")),
           ],
           context
         ),

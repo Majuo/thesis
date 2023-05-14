@@ -14,7 +14,8 @@ class NakedPairDescription extends StatefulWidget {
 }
 
 class _NakedPairDescriptionState extends State<NakedPairDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedPairDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedPairDescription.assetFolderPath}naked_pair_1.png"));
+  final Future<double> img2Future = TechniquePage.getImageHeightAsync(Image.asset("${NakedPairDescription.assetFolderPath}naked_pair_2.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,11 @@ class _NakedPairDescriptionState extends State<NakedPairDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${NakedPairDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedPairDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedPairDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${NakedPairDescription.assetFolderPath}naked_pair_1.png")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).nakedPairDescription3),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${NakedPairDescription.assetFolderPath}naked_pair_2.png")),
           ],
           context
         ),

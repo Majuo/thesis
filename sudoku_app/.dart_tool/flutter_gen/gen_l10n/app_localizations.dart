@@ -518,7 +518,7 @@ abstract class AppLocalizations {
   /// No description provided for @lastRemainingCellDescription3.
   ///
   /// In en, this message translates to:
-  /// **'There are variations of this technique. In the image below, one column is marked in red. The number 4 is missing in this column, and there is only one suitable place for it - in row 5. The empty cells in rows 2 and 9 are not suitable, because the number 4 already exists in these blocks (colored orange).'**
+  /// **'There are variations of this technique. In the picture below, one column is marked in red. The number 4 is missing in this column, and there is only one suitable place for it - in row 5. The empty cells in rows 2 and 9 are not suitable, because the number 4 already exists in these blocks (colored orange).'**
   String get lastRemainingCellDescription3;
 
   /// No description provided for @lastRemainingCellDescription4.
@@ -526,6 +526,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The same situation can be seen from the other side - in the picture there is a block marked in red. There is no 4 in this block and it can only be placed in one cell, because the number 4 (colored in red) already exists in the columns of other free cells (colored in orange).'**
   String get lastRemainingCellDescription4;
+
+  /// No description provided for @nakedSingleDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting with this technique, pencil marks must be used to mark cell candidates to apply the techniques.'**
+  String get nakedSingleDescription1;
+
+  /// No description provided for @nakedSingleDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked candidates include several techniques with the same principle and goal - to remove possible candidates from the cells.'**
+  String get nakedSingleDescription2;
+
+  /// No description provided for @nakedSingleDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked single - if a cell\'s candidates are filled and there is only one candidate in that cell, then it is the value of that cell. This candidate can be removed from other cells in the same row, column and block.'**
+  String get nakedSingleDescription3;
+
+  /// No description provided for @nakedSingleDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'In the first picture, you can see that there is only one candidate in the cell marked in blue. This means that the other numbers do not fit into the cell, because that would break the rules.'**
+  String get nakedSingleDescription4;
+
+  /// No description provided for @nakedSingleDescription5.
+  ///
+  /// In en, this message translates to:
+  /// **'Since the number 2 is the only option, it can be put as a cell solution and remove 2 from the candidates of the makred cells\' peers - they are marked in red in the second picture.'**
+  String get nakedSingleDescription5;
+
+  /// No description provided for @nakedPairDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked pair - if there are two cells that are in the same column, row or block and those cells have only two possible candidates, then those numbers are contained in the given cells and can be removed from the candidates of other cells.'**
+  String get nakedPairDescription1;
+
+  /// No description provided for @nakedPairDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'In the first picture, two cells are marked in red - they have two possible candidates, 1 and 2. The cells are in the same block and in the same row, so the naked pair technique can be applied. It can be said that the numbers one and two are contained in the marked cells, as they cannot contain any other number.'**
+  String get nakedPairDescription2;
+
+  /// No description provided for @nakedPairDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Since the numbers cannot be repeated in units, it allows to remove some candidates marked in red in the second picture. Since the cells containing the naked pair are in the same block, candidates 1 and 2 can be removed in all other cells of the block. The same can be done for sixth row, because cells with a naked pair are in the same row.'**
+  String get nakedPairDescription3;
+
+  /// No description provided for @nakedTripleDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Naked triple - the principle is the same as in the case of pairs - if the three connected cells contain only three possible candidates, then these numbers are located in the given cells and cannot be in the companions of the cells - they can be removed from the peers\' candidates.'**
+  String get nakedTripleDescription1;
+
+  /// No description provided for @nakedTripleDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'The third picture shows one block where there are cells containing naked triple. Candidates in these cells are 2, 4, 5, they are marked in green. Since three cells can only contain these three numbers, it can be said that they are located in these cells. Because of this, these numbers can be removed from among the candidates for the block in other cells. In this example, the naked triple is located in cells that are associated with only one unit - the block, so in the example, candidates outside the block cannot be removed. It is also worth noting that all the numbers do not necessarily have to be contained in all three cells - in the example, one of the cells contains only the numbers 4 and 5.'**
+  String get nakedTripleDescription2;
+
+  /// No description provided for @nakedTripleDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'The same principle can be applied to a larger number of cells - the main thing is that the number of possible candidates coincides with the number of cells.'**
+  String get nakedTripleDescription3;
+
+  /// No description provided for @hiddenSingleDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden Single - If there is a cell in the unit with a pencil mark that is not present in any other cell in the unit, then the number must be in that cell, as that is the only possible place.'**
+  String get hiddenSingleDescription1;
+
+  /// No description provided for @hiddenSingleDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'The picture shows a candidate marked in green, which is contained in only one cell in the lower block. The other cells in the block cannot contain a 9, because there are already 9s in those columns. Since there are no other variants, it can be said that the number 9 is in the given cell , that is why other candidates can be removed from this cell and the solution can be set to 9.'**
+  String get hiddenSingleDescription2;
+
+  /// No description provided for @hiddenPairDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden pair is similar to hidden single, but in this case the number of candidates and cells is 2. If there are two cells in a unit with 2 pencil marks that are not present in any other cell, then all other candidates in those cells can be removed because the 2 given numbers are in these cells.'**
+  String get hiddenPairDescription1;
+
+  /// No description provided for @hiddenPairDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'The picture shows candidates 3 and 5 marked in green, which are contained in only two cells in the given block. Since these numbers cannot be in other cells, they can be claimed to be contained in the given cells and all other candidates can be removed from them. This changes a hidden pair into a naked pair and it can be further used to remove other candidates.'**
+  String get hiddenPairDescription2;
+
+  /// No description provided for @hiddenTripleDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden triple - the principle is the same as in hidden pair, only the number of candidates and cells is 3. If there are three cells with three pencil marks in a unit, which are only in these cells, then other candidates can be removed in these cells.'**
+  String get hiddenTripleDescription1;
+
+  /// No description provided for @hiddenTripleDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'In the picture you can see a block with candidates 2, 4 and 9 marked in green in three cells. Using the same principle as for the hidden pair, all other candidates can be removed from these cells.'**
+  String get hiddenTripleDescription2;
+
+  /// No description provided for @hiddenTripleDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'The same principle works with a larger number of cells, but such variants are rare.'**
+  String get hiddenTripleDescription3;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

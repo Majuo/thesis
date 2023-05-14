@@ -14,7 +14,7 @@ class HiddenPairDescription extends StatefulWidget {
 }
 
 class _HiddenPairDescriptionState extends State<HiddenPairDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenPairDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${HiddenPairDescription.assetFolderPath}hidden_pair_1.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class _HiddenPairDescriptionState extends State<HiddenPairDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenPairDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenPairDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).hiddenPairDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${HiddenPairDescription.assetFolderPath}hidden_pair_1.png")),
           ],
           context
         ),

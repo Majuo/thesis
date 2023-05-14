@@ -219,4 +219,58 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get lastRemainingCellDescription4 => 'Sama olukorda võib vaadelda teisest küljest – pildil on punasega märgitud plokk. Selles plokis ei ole 4 ja seda saab panna ainult ühte ruutu, sest muude vabade ruutude veergudes (värvitud oranžiga) on juba olemas number 4 (värvitud punasega).';
+
+  @override
+  String get nakedSingleDescription1 => 'Alates sellest tehnikast tuleb tehnikate rakendamiseks kasutada pliiatsimärke, et märkida ruutude kandiaate.';
+
+  @override
+  String get nakedSingleDescription2 => 'Alasti kandidaadid (neid nimetatakse ka paljasteks ja ilmseteks) hõlmavad kohe mitu tehnikat, millel on sama põhimõte ning eesmärk – eemaldada ruutudest võimalikud kandidaadid.';
+
+  @override
+  String get nakedSingleDescription3 => 'Alasti üksik – kui ruudus on täidetud kandidaadid ning selles ruudus on ainult üks kandidaat, siis ta ongi selle ruudu väärtus. Seda kandidaati saab eemaldada teistest ruutudest samas reas, veerus ja plokis.';
+
+  @override
+  String get nakedSingleDescription4 => 'Esimesel pildil võib näha, et sinisega märgitud ruudus on ainult üks kandidaat. See tähendab, et teised numbrid ruutu ei sobi, sest see rikuks reegleid.';
+
+  @override
+  String get nakedSingleDescription5 => 'Kuna number 2 on ainus variant, võib seda panna kui ruudu lahendus ning eemaldada 2 märgitud ruudu kaaslaste kandidaatide hulgast – need on märgitud teisel pildil pildil punasega.';
+
+  @override
+  String get nakedPairDescription1 => 'Alasti paar – kui on olemas kaks ruutu, mis asuvad ühes veerus, reas või plokis ning nendel ruutudel on ainult kaks võimalikku kandidaati, siis need numbrid sisalduvad antud ruutudes ning neid võib eemaldada teiste ruutude kandidaatide hulgast.';
+
+  @override
+  String get nakedPairDescription2 => 'Esimesel pildil on märgitud punasega kaks ruutu – nendel on kaks võimalikku kandidaati, 1 ja 2. Ruudud asuvad samas plokis ja samas reas, seepärast saab rakendada alasti paari tehnikat. Võib väita, et numbrid üks ja kaks sisalduvad märgitud ruutudes, kuna nendes ei saa olla ükski teine number.';
+
+  @override
+  String get nakedPairDescription3 => 'Kuna numbrid ei saa korduda ühikutes, võimaldab see eemaldada mõned kandidaadid, mis on märgitud punasega teisel pildil. Kuna alasti paari sisaldavad ruudud asuvad ühes plokis, saab eemaldada kõikides muudes ploki ruutudes kandidaadid 1 ja 2. Sama võib teha 6. rea ruutudega, sest alasti paariga ruudud asuvad samas reas.';
+
+  @override
+  String get nakedTripleDescription1 => 'Alasti kolmik – põhimõte on sama kui paari juhul – kui kolm seotud ruutu sisaldavad ainult kolm võimalikku kandiaati, siis need numbrid asuvad antud ruutudes ning ei saa olla ruutude kaaslastes – neid võib eemaldada kaaslaste kandidaatide hulgast.';
+
+  @override
+  String get nakedTripleDescription2 => 'Pildil on näidatud üks plokk, kus on olemas alasti kolmikku sisaldavad ruudud. Kandidaadid nendes ruutudes on 2, 4, 5, nad on märgitud rohelisega. Kuna kolmes ruudus saavad olla ainult need kolm numbrit, võib väita, et nad asuvadki nendes ruutudes. Selle pärast võib need numbrid eemaldada plokki teiste ruutude kandidaatide hulgast. Antud näites asub alasti kolmik ruutudes, mis on seotud ainult ühe ühikuga – plokiga, seepärast ei saa näides eemaldada kandidaate väljaspool ploki. Tähelepanu väärib ka see asjaolu, et kõik numbrid ei pea kindlasti sisalduma kõigis kolmes ruudus – näites sisaldab üks ruutudest ainult numbreid 4 ja 5.';
+
+  @override
+  String get nakedTripleDescription3 => 'Sama põhimõtet võib rakendada ka suurema ruutude numbri puhul – peaasi, et võimalikke kandidaatide arv langeks kokku ruutude arvuga.';
+
+  @override
+  String get hiddenSingleDescription1 => 'Peidetud üksik - kui ühikus on olemas ruut pliiatsimärgiga, mida pole mingis teises ühiku ruudus, siis see number peab olema selles ruudus, kuna see on ainus võimalik koht.';
+
+  @override
+  String get hiddenSingleDescription2 => 'Pildil on rohelisega märgitud kandidaat, mis sisaldub alumises plokis ainult ühes ruudus. Teistes ploki ruutudes ei saa 9 olla, sest nendes veergudes on juba olemas 9. Kuna teisi variante ei ole, võib väita, et number 9 asub antud ruudus, seepärast võib sellest ruudust eemaldada teised kandidaadid ning panna lahenduseks 9.';
+
+  @override
+  String get hiddenPairDescription1 => 'Peidetud paar on sarnane peidetud üksikuga, kuid sellel juhul on numbrite ja ruutude arv 2. Kui ühikus leiduvad kaks ruutu, kus on 2 pliiatsimärki, mida ei ole üheski teises ruudus, siis võib nendes ruutudes eemaldada kõik muud kandidaadid, kuna nendes ruutudes on 2 antud numbrit.';
+
+  @override
+  String get hiddenPairDescription2 => 'Pildil on rohelisega märgitud kandidaadid 3 ja 5, mis sisalduvad antud plokis ainult kahes ruudus. Kuna need numbrid ei saa olla teistes ruutudes, võib väita, et nad sisalduvad antud ruutudes ja neist võib eemaldada kõik muud kandidaadid. Seejärel muutub peidetud paar alasti paariks ning seda võib kasutada edasi teiste kandidaatide eemaldamiseks.';
+
+  @override
+  String get hiddenTripleDescription1 => 'Peidetud kolmik – põhimõte sama nagu peidetud paari puhul, ainult numbrite ja ruutude arv on 3. Kui ühikus on olemas kolm ruutu kolme pliiatsimärkidega, mis on ainult nendes ruutudes, siis võib nendes ruutudes eemaldada muud kandidaadid.';
+
+  @override
+  String get hiddenTripleDescription2 => 'Pildil võib näha plokki, kus on kolmes ruudus märgitud rohelisega kandidaadid 2, 4 ja 9. Kasutades sama põhimõtet nagu peidetud paari puhul võib nendest ruutudest eemaldada kõik muud kandidaadid.';
+
+  @override
+  String get hiddenTripleDescription3 => 'Sama põhimõte töötab ka suurema ruutude arvuga, aga selliseid variante võib kohata harva.';
 }
