@@ -194,6 +194,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get findSolutionForCell => 'Find the value of the highlighted cell';
 
   @override
+  String get findSolutionForCellRemoveCandidates => 'Find the value of the highlighted cell and then remove needed candidates';
+
+  @override
+  String get removeCellsCandidates => 'Apply technique to the highlighted cells and removed needed candidates';
+
+  @override
   String get pencilMarksDescription1 => 'Pencil marks are used to mark the numbers that fit a given cell when the value of the cell is not known. Matching numbers are otherwise known as candidates.';
 
   @override

@@ -47,6 +47,9 @@ class SudokuProblem implements IHaveSudokuBoard {
         var boardCell = board.elementAt(i).elementAt(j);
         var solutionCell = solution.elementAt(i).elementAt(j);
         if (initStateCell.value != boardCell.value || !listEquals(initStateCell.candidates, boardCell.candidates)) {
+          if (solutionCell.value != 0 && solutionCell.value == boardCell.value) {
+            continue;
+          }
           if (solutionCell.value != boardCell.value || !listEquals(solutionCell.candidates, boardCell.candidates)) {
             incorrectCount += 1;
           }

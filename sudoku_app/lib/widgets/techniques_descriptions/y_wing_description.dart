@@ -34,7 +34,7 @@ class _YWingDescriptionState extends State<YWingDescription> {
           ],
           context
         ),
-        TechniquePage.getTechniquePageText(AppLocalizations.of(context).findSolutionForCell),
+        TechniquePage.getTechniquePageText(AppLocalizations.of(context).removeCellsCandidates),
         SudokuProblemWidget(problem: getLastPossibleNumberProblem())
       ]
     );

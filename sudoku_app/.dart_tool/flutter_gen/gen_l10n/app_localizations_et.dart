@@ -194,6 +194,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get findSolutionForCell => 'Leia märgitud ruudu väärtust';
 
   @override
+  String get findSolutionForCellRemoveCandidates => 'Leia märgitud ruudu väärtust ja eemalda seejärel vajalikud kandidaadid';
+
+  @override
+  String get removeCellsCandidates => 'Rakenda märgitud ruutudel tehnikat ja eemalda vajalikke kandidaate';
+
+  @override
   String get pencilMarksDescription1 => 'Pliiatsimärke kasutatakse selleks, et märkida numbrid, mis sobivad antud ruutu, kui ruudu väärtust ei ole teada. Sobivaid numbreid nimetatakse teisiti kandidaatideks.';
 
   @override

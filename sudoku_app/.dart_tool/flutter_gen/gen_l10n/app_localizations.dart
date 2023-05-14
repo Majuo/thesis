@@ -473,6 +473,18 @@ abstract class AppLocalizations {
   /// **'Find the value of the highlighted cell'**
   String get findSolutionForCell;
 
+  /// No description provided for @findSolutionForCellRemoveCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the value of the highlighted cell and then remove needed candidates'**
+  String get findSolutionForCellRemoveCandidates;
+
+  /// No description provided for @removeCellsCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply technique to the highlighted cells and removed needed candidates'**
+  String get removeCellsCandidates;
+
   /// No description provided for @pencilMarksDescription1.
   ///
   /// In en, this message translates to:

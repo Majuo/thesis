@@ -62,6 +62,8 @@
   "problemIncorrectlyChangedCells" : "Incorrectly changed cells: ",
   "problemSolved" : "You solved the problem!",
   "findSolutionForCell" : "Find the value of the highlighted cell",
+  "findSolutionForCellRemoveCandidates" : "Find the value of the highlighted cell and then remove needed candidates",
+  "removeCellsCandidates" : "Apply technique to the highlighted cells and removed needed candidates",
   "pencilMarksDescription1" : "Pencil marks are used to mark the numbers that fit a given cell when the value of the cell is not known. Matching numbers are otherwise known as candidates.",
   "pencilMarksDescription2" : "At the beginning, all the numbers that could be entered in the cell that would not break the rules are added. Pencil marks help to keep track of the possible values of the cells. Also, many Sudoku solving techniques are based on the use of pencil marks.\nIn this app, you need to turn on pencil mark mode to enter pencil marks. This can be done by pressing a button with the pencil.",
   "pencilMarksProblem" : "Fill in candidates for the highlighted cell: ",

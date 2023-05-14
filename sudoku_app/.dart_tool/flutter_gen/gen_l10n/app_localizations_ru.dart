@@ -194,6 +194,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get findSolutionForCell => 'Найди значение отмеченной клетки';
 
   @override
+  String get findSolutionForCellRemoveCandidates => 'Найди значение отмеченной клетки и убери нужные кандидаты';
+
+  @override
+  String get removeCellsCandidates => 'Примени технику и убери нужные кандидаты';
+
+  @override
   String get pencilMarksDescription1 => 'Заметки используются для того, что отмечать числа, которые подходят в клетку, когда значение клетки еще неизвестно. Подходящие числа также известны как кандидаты.';
 
   @override
