@@ -14,7 +14,7 @@ class PointingTripleDescription extends StatefulWidget {
 }
 
 class _PointingTripleDescriptionState extends State<PointingTripleDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${PointingTripleDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${PointingTripleDescription.assetFolderPath}pointing_triple.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,8 @@ class _PointingTripleDescriptionState extends State<PointingTripleDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${PointingTripleDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).pointingTripleDescription1),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${PointingTripleDescription.assetFolderPath}pointing_triple.png")),
           ],
           context
         ),

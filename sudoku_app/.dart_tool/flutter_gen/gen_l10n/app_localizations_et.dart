@@ -273,4 +273,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hiddenTripleDescription3 => 'Sama põhimõte töötab ka suurema ruutude arvuga, aga selliseid variante võib kohata harva.';
+
+  @override
+  String get pointingPairDescription1 => 'Osutava paari tehnikat saab kasutada, kui mingi pliitasimärk kohtub ühes plokis kaks korda ning mõlemad asukohad on samas reas või veerus. Kuna number peab esinema plokis 1 kord, asub see kindlasti ühes kahest antud ruudust. Seetõttu võib eemaldada see pliitasimärk teistest rea / veeru ruutudest.';
+
+  @override
+  String get pointingPairDescription2 => 'Pildil on punase ja rohelisega märgitud ühe veeru kandidaadid. Kuna number 5 peab sisalduma ülemises plokis ja seal on ainult kaks sobivat ruutu, asub ta ühes nendest ruutudest. Sellest võib järeldada, et number 5 ei saa olla punasega märgitud kandidaadi sisaldavas ruudus.';
+
+  @override
+  String get pointingTripleDescription1 => 'Osutava kolmiku tehnikal on sama põhimõte nagu osutaval paaril – kui mingi pliaatsimärk kohtub plokis kolm korda ning kõik ruudud asuvad ühes reas või veerus, siis võib see pliiatsimärk eemaldada teistest rea / veeru ruutudest. Osutava kolmiku näidet saab näha pildil.';
 }

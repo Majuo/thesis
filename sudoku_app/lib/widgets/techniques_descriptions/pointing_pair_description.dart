@@ -14,7 +14,7 @@ class PointingPairDescription extends StatefulWidget {
 }
 
 class _PointingPairDescriptionState extends State<PointingPairDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${PointingPairDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${PointingPairDescription.assetFolderPath}pointing_pair.png"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class _PointingPairDescriptionState extends State<PointingPairDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${PointingPairDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).pointingPairDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).pointingPairDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${PointingPairDescription.assetFolderPath}pointing_pair.png")),
           ],
           context
         ),
