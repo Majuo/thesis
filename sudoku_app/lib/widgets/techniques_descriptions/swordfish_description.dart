@@ -14,7 +14,9 @@ class SwordfishDescription extends StatefulWidget {
 }
 
 class _SwordfishDescriptionState extends State<SwordfishDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${SwordfishDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_tähed.jpeg"));
+  final Future<double> img2Future = TechniquePage.getImageHeightAsync(Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_X-Wing_seletus.jpeg"));
+  final Future<double> img3Future = TechniquePage.getImageHeightAsync(Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_näide.jpeg"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,32 @@ class _SwordfishDescriptionState extends State<SwordfishDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${SwordfishDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription1),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_tähed.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription3),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription4),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_X-Wing_seletus.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription5),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription6),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription7),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${SwordfishDescription.assetFolderPath}Swordfish_näide.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).swordfishDescription8),
           ],
           context
         ),

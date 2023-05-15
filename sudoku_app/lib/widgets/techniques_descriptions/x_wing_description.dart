@@ -14,7 +14,8 @@ class XWingDescription extends StatefulWidget {
 }
 
 class _XWingDescriptionState extends State<XWingDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${XWingDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${XWingDescription.assetFolderPath}X-Wing.jpeg"));
+  final Future<double> img2Future = TechniquePage.getImageHeightAsync(Image.asset("${XWingDescription.assetFolderPath}X-Wing_veerud.jpeg"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,18 @@ class _XWingDescriptionState extends State<XWingDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${XWingDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).xWingDescription1),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).xWingDescription2),
+            TechniquePage.getTechniquePageImage(img2Future, context, Image.asset("${XWingDescription.assetFolderPath}X-Wing_veerud.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).xWingDescription3),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).xWingDescription4),
+          ], 
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).xWingDescription5),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${XWingDescription.assetFolderPath}X-Wing.jpeg")),
           ],
           context
         ),

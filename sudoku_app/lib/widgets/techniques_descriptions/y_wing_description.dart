@@ -14,7 +14,9 @@ class YWingDescription extends StatefulWidget {
 }
 
 class _YWingDescriptionState extends State<YWingDescription> {
-  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${YWingDescription.assetFolderPath}last_possible_number.png"));
+  final Future<double> img1Future = TechniquePage.getImageHeightAsync(Image.asset("${YWingDescription.assetFolderPath}Y-Wing_tähed.jpeg"));
+  final Future<double> img2Future = TechniquePage.getImageHeightAsync(Image.asset("${YWingDescription.assetFolderPath}Y-Wing_rida_ja_veerg.jpeg"));
+  final Future<double> img3Future = TechniquePage.getImageHeightAsync(Image.asset("${YWingDescription.assetFolderPath}Y-Wing_veerg_ja_plokk.jpeg"));
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,30 @@ class _YWingDescriptionState extends State<YWingDescription> {
         ),
         TechniquePage.getTechniquePageSection(
           [
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription1),
-            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${YWingDescription.assetFolderPath}last_possible_number.png")),
-            TechniquePage.getTechniquePageText(AppLocalizations.of(context).lastPossibleNumberDescription2),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription1),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription2),
+            TechniquePage.getTechniquePageImage(img1Future, context, Image.asset("${YWingDescription.assetFolderPath}Y-Wing_tähed.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription3),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription4),
+            TechniquePage.getTechniquePageImage(img2Future, context, Image.asset("${YWingDescription.assetFolderPath}Y-Wing_rida_ja_veerg.jpeg")),
+          ],
+          context
+        ),
+        TechniquePage.getTechniquePageSection(
+          [
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription5),
+            TechniquePage.getTechniquePageImage(img3Future, context, Image.asset("${YWingDescription.assetFolderPath}Y-Wing_veerg_ja_plokk.jpeg")),
+            TechniquePage.getTechniquePageText(AppLocalizations.of(context).yWingDescription6),
           ],
           context
         ),
