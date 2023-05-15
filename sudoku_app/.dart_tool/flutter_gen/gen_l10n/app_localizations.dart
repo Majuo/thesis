@@ -664,6 +664,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The pointing triple technique has the same principle as the pointing pair - if a pencil mark occurs three times in a block and all cells containing it are in one row or column, then this pencil mark can be removed from other cells in the row / column. An example of a pointing triple can be seen in the picture.'**
   String get pointingTripleDescription1;
+
+  /// No description provided for @xWingDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'The X-Wing technique is considered the simplest among advanced techniques.'**
+  String get xWingDescription1;
+
+  /// No description provided for @xWingDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'In order to apply the X-Wing technique, it is necessary to find two cells in two rows (two in each row) where there is a candidate that is not present in the other cells of the rows. The cells in both rows must be in the same columns.'**
+  String get xWingDescription2;
+
+  /// No description provided for @xWingDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'One can imagine that the cells form a rectangle, in which the cells are the vertices of the rectangle. In the picture, these cells are marked in orange, the candidate to be considered is 9.'**
+  String get xWingDescription3;
+
+  /// No description provided for @xWingDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'The technique is based on the fact that the candidate must appear 2 times in the given 4 cells - once in each row, and at the same time these numbers are located at the opposite vertices of the \'rectangle\', i.e. on the diagonals of the rectangle, because otherwise they would violate the basic rule of Sudoku - numbers cannot repeat in the unit. In any case, the number 9 in both columns is located in one of the cells marked in orange. Therefore, this candidate can be removed from the other cells in the columns.'**
+  String get xWingDescription4;
+
+  /// No description provided for @xWingDescription5.
+  ///
+  /// In en, this message translates to:
+  /// **'The technique can also be used the other way around - if the candidates are selected in two columns and the candidates are removed in rows. An example of such a variation is shown in the second picture. As a result, the candidates marked in red in rows 3 and 9 are removed.'**
+  String get xWingDescription5;
+
+  /// No description provided for @yWingDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlike the X-Wing technique, the Y-Wing technique is based on three cells and three candidates, the fourth cell in this technique is the cell where the candidate can be removed. This is the simplest Y-Wing variant, but there are others. For better understanding, it is reasonable to start with a simple variant.'**
+  String get yWingDescription1;
+
+  /// No description provided for @yWingDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'Let A, B and C be three numbers. In order to be able to apply the Y-Wing technique, you need to find three cells that are arranged to form a right angle (they can be imagined as 3 vertices of a rectangle). In all three cells there must be exactly two candidates. The cell at the top of the right angle must contain the candidates AB, the other cells must contain the candidates AC and BC (that is, the number C and one of the numbers A and B). One possible variant of the placement of the cells is shown in the first picture.'**
+  String get yWingDescription2;
+
+  /// No description provided for @yWingDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'If the number A is in the cell AB, then the number C is in the cell AC. On the other hand, if the number B is in the cell AB, then the number C is in the cell BC. In both cases, the number C is either in the cell AC or BC. From this we can conclude , that the cell intersected by the cells AC and BC (at the fourth vertex of the rectangle) cannot under any circumstances contain the number C.'**
+  String get yWingDescription3;
+
+  /// No description provided for @yWingDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'The second picture shows an example of a simple variation of the Y-Wing technique. In this example, the candidate 3 is removed from the cell located at the intersection of the orange colored row and column.'**
+  String get yWingDescription4;
+
+  /// No description provided for @yWingDescription5.
+  ///
+  /// In en, this message translates to:
+  /// **'There are other variations of the Y-Wing technique. In the simplest variation, one cell was connected to the middle (AB) cell by row, the other cell - by column, but it doesn\'t necessarily have to be like that. There is a variant where one of the cells is connected to the middle cell by the block - they are located in one block. You can see such a variant in the third picture.'**
+  String get yWingDescription5;
+
+  /// No description provided for @yWingDescription6.
+  ///
+  /// In en, this message translates to:
+  /// **'In this variation, candidates can be removed in multiple cells. The candidate marked in red in the upper block can be removed because it is in the cross-zone of column 1 and the upper block. In other words, both cells of the Y-Wing, where there can be 4, are companions of this cell and one among them definitely contains the number 4. The same can be said about the candidates marked in red in the lower block. There, the lower block and the 3rd column intersect.'**
+  String get yWingDescription6;
+
+  /// No description provided for @swordfishDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'The swordfish technique is basically similar to the X-Wing technique, its purpose is also to eliminate candidates. In the X-Wing technique, the squares formed a 2x2 matrix, in the Swordfish technique it is a 3x3 matrix.'**
+  String get swordfishDescription1;
+
+  /// No description provided for @swordfishDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'To apply the technique, you have to find 3 rows where a number can be in three squares and these squares are located in the same columns. You can see an example of the location of the squares in the first picture, the squares are colored orange.'**
+  String get swordfishDescription2;
+
+  /// No description provided for @swordfishDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Since a given number must appear in every row, and there are only three columns in three rows where this number can be located, it can be said that in each column this number is located in one of the three given rows. Therefore, in the given columns, the given number can be removed from all other squares from among the candidates - these squares are marked in red in the picture abouve.'**
+  String get swordfishDescription3;
+
+  /// No description provided for @swordfishDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'The Swordfish technique is considered an extension of the X-Wing technique, and the reason why the Swordfish technique works can be explained with the help of X-Wing. For example, you can look at the bottom row of the 3x3 matrix shown in the first picture - there the given number can be located in three squares. The variants are shown in the second picture (the location of the number is marked in green).'**
+  String get swordfishDescription4;
+
+  /// No description provided for @swordfishDescription5.
+  ///
+  /// In en, this message translates to:
+  /// **'In each variant, the entered number removes some possible positions from the matrix and other squares - they are marked in red in the figure. However, in each variant, 4 squares remain in the matrix (colored orange), which form the required position for the X-Wing technique.'**
+  String get swordfishDescription5;
+
+  /// No description provided for @swordfishDescription6.
+  ///
+  /// In en, this message translates to:
+  /// **'A number of candidates can be removed using the X-Wing technique - they are marked in blue in the figure. In all three variants, candidates were removed from all the squares that are colored red in the first image. The same situation occurs in the other variants if you try to put the number in the upper or in the middle row - some candidates are removed by the given number and all others - using the X-Wing technique.'**
+  String get swordfishDescription6;
+
+  /// No description provided for @swordfishDescription7.
+  ///
+  /// In en, this message translates to:
+  /// **'The swordfish technique also works the other way around, when there are three columns with three possible number positions. In this case, candidates are removed from the rows. An example of such a variation is shown in the third image.'**
+  String get swordfishDescription7;
+
+  /// No description provided for @swordfishDescription8.
+  ///
+  /// In en, this message translates to:
+  /// **'It can also be noticed that candidate 4 does not appear exactly 3 times in each column in this example. In fact, applying the Swordfish technique requires candidates to appear at least 2 times in each column (or row, as in the previous figures). This does not change the technique principle and the squares colored in orange are still the only possible places in these rows (columns), just the number of possible placement combinations is smaller. Such a variant of the Swordfish technique is called 2-3-2 Swordfish - according to the number of candidates in the columns (rows). The variation that was before, if the candidates appeared 3 times in all rows and formed a complete 3x3 matrix, it is called 3-3-3 Swordfish.'**
+  String get swordfishDescription8;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

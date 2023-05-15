@@ -288,4 +288,61 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get pointingTripleDescription1 => 'Osutava kolmiku tehnikal on sama põhimõte nagu osutaval paaril – kui mingi pliaatsimärk kohtub plokis kolm korda ning kõik ruudud asuvad ühes reas või veerus, siis võib see pliiatsimärk eemaldada teistest rea / veeru ruutudest. Osutava kolmiku näidet saab näha pildil.';
+
+  @override
+  String get xWingDescription1 => 'X-Wing tehnikat peetakse lihtsaimaks edasijõudnud tehnikate hulgas. ';
+
+  @override
+  String get xWingDescription2 => 'Selleks, et rakendada X-Wing tehnikat, on vaja leida kahes reas kaks ruutu (mõlemas reas), kus on olemas kandidaat, mida ei ole teistes ridade ruutudes. Ruudud mõlemas reas peavad olema samades veergudes. ';
+
+  @override
+  String get xWingDescription3 => 'Võib kujutada ette, et ruudud moodustavad ristküliku, milles ruudud on ristküliku tipud. Pildil on need ruudud märgitud oranžiga, vaadeldatavaks kandidaadiks on 9.';
+
+  @override
+  String get xWingDescription4 => 'Tehnika seisneb selles, et antud 4 ruudus peab kindlasti esinema kandidaat 2 korda – üks kord mõlemas reas ning samas asuvad need numbrid \'ristküliku\' vastastes tipudes ehk ristküliku diagonaalidel, sest muidu rikuksid nad Sudoku põhilist reeglit – numbrid ei saa ühikus korduda. Igal juhul asub mõlemas veerus number 9 ühes oranžiga märgitud ruutudest. Seepärast saab seda kandidaadi eemaldada teistest veergude ruutudest.';
+
+  @override
+  String get xWingDescription5 => 'Tehnikat saab kasutada ka teistpidi – kui kandidaadid on valitud kahes veerus ning kandidaatide eemaldamine toimub ridades. Sellise variatsiooni näide on toodud teisel pildil. Tulemusena eemaldatakse ridades 3 ja 9 punasega märgitud kandidaadid.';
+
+  @override
+  String get yWingDescription1 => 'Erinevalt X-Wing tehnikast põhineb Y-Wing tehnika kolmel ruudul ja kolmel kandidaadil, neljas ruut on selle tehnika puhul ruut, kus saab eemaldada kandidaadi. See on kõige lihtsam Y-Wingi variant, aga on olemas ka teisi. Tehnika arusaamiseks on mõistlik alustada lihstast variandist.';
+
+  @override
+  String get yWingDescription2 => 'Olgu A, B ja C kolm numbrit. Selleks, et saaks rakendada Y-Wing tehnikat, tuleb leida kolm ruudu, mis paiknevad nii, et moodustavad täisnurga (neid võib kujutada ette kui 3 ristküliku tipu). Kõigis kolmes ruudus peab olema täpselt kaks kandidaati. Täisnurga tipus olevas ruudus peavad olema kandidaadid AB, teistes ruutudes peavad olema kandidaadid AC ja BC (ehk number C ja üks numbritest A ja B). Üks võimalik ruutude paiknemise variant on toodud esimesel pildil.';
+
+  @override
+  String get yWingDescription3 => 'Kui ruudus AB on number A, siis ruudus AC on number C. Teiseslt poolt, kui ruudus AB on number B, siis ruudus BC on number C. Mõlemal juhul on number C kas ruudus AC või BC. Sellest võib järeldada, et ruudus, millega ristivad ruudud AC ja BC (ristküliku neljandas tipus) ei saa mingil juhul olla number C.';
+
+  @override
+  String get yWingDescription4 => 'Teisel pildil on toodud Y-Wing tehnika lihtsa variatsiooni näide. Selles näites eemaldatakse kandidaat 3 ruudust mis asub oranžiga värvitud veergude ristpunktis.';
+
+  @override
+  String get yWingDescription5 => 'Y-Wing tehnikal on olemas ka teised variatsioonid. Kõige lihstamas variatsioonis oli üks ruut seotud keskmise (AB) ruuduga rea järgi, teine ruut – veeru järgi, aga see ei pea kindlasti olema nii. On olemas selline variant, kus üks ruutudest on seotud kesmise ruuduga ploki järgi – nad asuvad ühes plokis. Sellist varianti saab näha kolmandal pildil.';
+
+  @override
+  String get yWingDescription6 => 'Sellises variatsioonis saab kandidaade eemaldada mitmes ruudus. Ülemises plokis saab punasega märgitud kandidaadi eemaldada, sest ta asub 1. veergu ja ülemise ploki ristimistsoonis. Teisisõnu on mõlemad Y-Wingi ruudud, kus saab olla 4, selle ruudu kaaslased ja üks neist sisaldab kindlasti numbri 4. Sama saab öelda ka alumises plokis asuvate punasega märgitud kandidaatide kohta. Seal ristivad alumine plokk ja 3. veerg.';
+
+  @override
+  String get swordfishDescription1 => 'Swordfish tehnika on põhimõtteliselt sarnane X-Wing tehnikaga, selle eesmärk on samuti kandidaatide eemaldamine. X-Wing tehnika puhul moodustasid ruudud 2x2 maatriksit, Swordfish tehnikas on see 3x3 maatriks.';
+
+  @override
+  String get swordfishDescription2 => 'Tehnika rakendamiseks tuleb leida 3 rida, kus mingi number saab olla kolmes ruudus ja need ruudud paiknevad samades veergudes. Ruutude paiknemise näidet saab näha esimesel pildil, ruudud on värvitud oranžiga.';
+
+  @override
+  String get swordfishDescription3 => 'Kuna antud number peab esinema igas reas ja kolmes reas on ainult kolm veergu, kus see number võib paikneda, võib öelda, et igas veerus asub see number ühes kolmest antud reast. Seepärast võib antud veergudes eemaldada antud number kõikide muude ruutude kandidaadide hulgast – joonisel on need ruudud märgitud punasega.';
+
+  @override
+  String get swordfishDescription4 => 'Swordfish tehnikat peetakse X-Wing tehnika laienduseks ning põhjust, miks Swordfish tehnika töötab, saab seletada X-Wing abil. Selleks võib vaadelda näiteks esimesel pildil toodud 3x3 maatriksi alumist rida – seal võib antud number paikneda kolmes ruudus. Kõik paiknemise variandid on näidatud teisel pildil (numbri paiknemise asukoht on märgitud rohelisega).';
+
+  @override
+  String get swordfishDescription5 => 'Igas variandis eemaldab pandud number mõned võimalikud asukohad maatriksist ja teistest ruutudest – need on joonisel märgitud punasega. Samas jääb igas variandis maatriksis 4 ruutu (värvitud oranžiga), mis moodustavad X-Wing tehnika jaoks nõutava positsiooni.';
+
+  @override
+  String get swordfishDescription6 => 'X-Wing tehnika abil saab eemaldada veel hulk kandidaate – joonisel on nad märgitud sinisega. Kõigis kolmes variandis olid eemaldatud kandiaadid kõikidest ruutudest, mis on esimesel pildil värvitud punasega. Sama olukord tekib ka teistes variantides, kui proovida panna number ülemisse või keskmisse ritta – osa kandidaate on eemaldatud pandud numbri poolt ja kõik muud – X-Wing tehnika abil.';
+
+  @override
+  String get swordfishDescription7 => 'Swordfish tehnika töötab ka vastupidi, kui on olemas kolm veergu kolme võimalike numbri asukohaga. Sel juhul eemaldatakse kandidaadid ridadest. Sellise variatsiooni näide on toodud kolmandal pildil. ';
+
+  @override
+  String get swordfishDescription8 => 'Samuti võib märgata, et kandidaat 4 ei esine selles näides igas veerus täpselt 3 korda. Tegelikult on Swordfish tehnika rakendamiseks vaja, et kandidaadid esineksid igas veerus (või reas, nagu eelmistel joonistel) vähemalt 2 korda. See ei muuda tehnika põhimõtet ja oranžiga värvitud ruudud on ikka ainsad võimalikud kohad nendes ridades (veergudes), lihtsalt võimalike paiknemise kombinatsioonide arv on väiksem. Sellist Swordfish tehnika variandi nimetatakse 2-3-2 Swordfish – kandidaatide arvu järgi veergudes (ridades). Variatsiooni, mis oli enne, kui kandidaadid esinesid kõikides ridades 3 korda ja moodustasid tervet 3x3 maatriksit, nimetatakse 3-3-3 Swordfish.';
 }
