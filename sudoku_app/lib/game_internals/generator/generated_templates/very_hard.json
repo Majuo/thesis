@@ -1,13 +1,5 @@
 [
   {
-    "initState": "--d-------hi---ac-c-----gbdb--c-d---a---------f--h-c--di---b-----g--c-h--------e-",
-    "solution": "gbdacfeihehibdgacfcafeihgbdbghcfdiaeadcibehfgifeghacdbdiahebfgcfegdacbhihcbfgidea"
-  },
-  {
-    "initState": "-------ei-d------ag-a--h-----h---------db--c-----g----dib----f---c---d---a-i-c-gh",
-    "solution": "bhfacdgeiedibfgchagcaeihfbdabhcefidgiegdbahcfcfdhgieabdibgheafchgcfabdiefaeidcbgh"
-  },
-  {
     "initState": "---a----g-----e-b----h-gad-------i--e---h-b---gi--ah--h--f------dc-----------bf-a",
     "solution": "ihdabcefgafgdiecbhcebhfgadibchgefiadeafihdbgcdgibcahefhbafgidcefdceahgibgiecdbfha"
   },
@@ -22,5 +14,9 @@
   {
     "initState": "g-fd----idi-e---f--a------------a--g-g-ibc-a-i--f------------d--c---f-ebh----eg-f",
     "solution": "ghfdabecidicehgbfabaecfidghcfdheaibgeghibcfadibafgdchefegbihadcacigdfhebhdbacegif"
+  },
+  {
+    "initState": "c----d--fbi-c-h-a---------be-i-ac-b-----------h-gb-c-ii---------b-i-f-dhd--h----e",
+    "solution": "cagbidehfbiecfhdaghdfegaicbegifachbdfcbdhigeaahdgbecfiiehadbfgcgbciefadhdfahcgbie"
   }
 ]
