@@ -48,7 +48,33 @@ class XWingTechnique implements ISudokuTechnique {
         }
       }
       if (matchFound) {
-        break;
+        var cellsToRemoveCandidate = List<SudokuCell>.empty(growable: true);
+        var applicableCells = List<SudokuCell>.empty(growable: true);
+        // row case - remove candidates in columns
+        var rows = [ firstMatchingRowCells.first.row, secondMatchingRowCells.first.row ];
+        cellsToRemoveCandidate.addAll(
+          sudoku.getColumnCells(firstMatchingRowCells.first.col)
+                .where((cell) => !rows.contains(cell.row) && cell.candidates.contains(candidateToRemove)));
+        cellsToRemoveCandidate.addAll(
+          sudoku.getColumnCells(firstMatchingRowCells.skip(1).first.col)
+                .where((cell) => !rows.contains(cell.row) && cell.candidates.contains(candidateToRemove)));
+        applicableCells.addAll(firstMatchingRowCells);
+        applicableCells.addAll(secondMatchingRowCells);
+        if (cellsToRemoveCandidate.isEmpty) {
+          matchFound = false;
+        } else {
+          if (applyResult) {
+            for (var ctr in cellsToRemoveCandidate) {
+              ctr.candidates.remove(candidateToRemove);
+            }
+          }
+          var resultCells = cellsToRemoveCandidate.map((c) {
+            var r = SudokuCell(c.row, c.col, true, c.value);
+            r.candidates = [ candidateToRemove ];
+            return r;
+          }).toList();
+          return TechniqueResult(applicableCells: applicableCells, removedCandidates: resultCells, usedTechnique: XWingTechnique);
+        }
       }
       // check columns
       firstMatchingColCells.clear();
@@ -81,13 +107,8 @@ class XWingTechnique implements ISudokuTechnique {
         }
       }
       if (matchFound) {
-        break;
-      }
-    }
-    if (matchFound) {
-      var cellsToRemoveCandidate = List<SudokuCell>.empty(growable: true);
-      var applicableCells = List<SudokuCell>.empty(growable: true);
-      if (firstMatchingColCells.length == 2 && secondMatchingColCells.length == 2) {
+        var cellsToRemoveCandidate = List<SudokuCell>.empty(growable: true);
+        var applicableCells = List<SudokuCell>.empty(growable: true);
         // columns case - remove candidates in rows
         var columns = [ firstMatchingColCells.first.col, secondMatchingColCells.first.col ];
         cellsToRemoveCandidate.addAll(
@@ -98,32 +119,22 @@ class XWingTechnique implements ISudokuTechnique {
                 .where((cell) => !columns.contains(cell.col) && cell.candidates.contains(candidateToRemove)));
         applicableCells.addAll(firstMatchingColCells);
         applicableCells.addAll(secondMatchingColCells);
-      } else {
-        // row case - remove candidates in columns
-        var rows = [ firstMatchingRowCells.first.row, secondMatchingRowCells.first.row ];
-        cellsToRemoveCandidate.addAll(
-          sudoku.getColumnCells(firstMatchingRowCells.first.col)
-                .where((cell) => !rows.contains(cell.row) && cell.candidates.contains(candidateToRemove)));
-        cellsToRemoveCandidate.addAll(
-          sudoku.getColumnCells(firstMatchingRowCells.skip(1).first.col)
-                .where((cell) => !rows.contains(cell.row) && cell.candidates.contains(candidateToRemove)));
-        applicableCells.addAll(firstMatchingRowCells);
-        applicableCells.addAll(secondMatchingRowCells);
-      }
-      if (cellsToRemoveCandidate.isEmpty) {
-        return null;
-      }
-      if (applyResult) {
-        for (var ctr in cellsToRemoveCandidate) {
-          ctr.candidates.remove(candidateToRemove);
+        if (cellsToRemoveCandidate.isEmpty) {
+          matchFound = false;
+        } else {
+          if (applyResult) {
+            for (var ctr in cellsToRemoveCandidate) {
+              ctr.candidates.remove(candidateToRemove);
+            }
+          }
+          var resultCells = cellsToRemoveCandidate.map((c) {
+            var r = SudokuCell(c.row, c.col, true, c.value);
+            r.candidates = [ candidateToRemove ];
+            return r;
+          }).toList();
+          return TechniqueResult(applicableCells: applicableCells, removedCandidates: resultCells, usedTechnique: XWingTechnique);
         }
       }
-      var resultCells = cellsToRemoveCandidate.map((c) {
-        var r = SudokuCell(c.row, c.col, true, c.value);
-        r.candidates = [ candidateToRemove ];
-        return r;
-      }).toList();
-      return TechniqueResult(applicableCells: applicableCells, removedCandidates: resultCells, usedTechnique: XWingTechnique);
     }
 		return null;
 	}
