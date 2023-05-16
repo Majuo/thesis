@@ -31,8 +31,8 @@ class _SudokuGameState extends State<SudokuGame> {
     if (SudokuGame.game != null) {
       game = SudokuGame.game!;
     } else {
-      //game = Sudoku.getSampleSudoku();  // for testing
       game = Sudoku.getEmptySudoku();
+      //resetBoard(Sudoku.getSampleSudoku()); // for testing
       SudokuGenerator.generateSudoku(SudokuDifficultyEnum.easy).then((value) {
         setState(() {
           resetBoard(value);
