@@ -235,7 +235,7 @@ class _SudokuGameState extends State<SudokuGame> {
         onPressed: () {
           if (isGameOver) return;
           clearHighlightedCells();
-          var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: true);
+          var result = SudokuSolver.solveCellWithTechniques(game, SudokuTechniquesEnum.values, applyResult: false);
           if (result == null) {
             setState(() {
               hintText = AppLocalizations.of(context).hintCanNotBeSolved;
